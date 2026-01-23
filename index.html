@@ -117,25 +117,43 @@ h2 {
   box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-.gallery img {
-  width:100%;
+/* GALLERY */
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:40px;
+  margin-top:40px;
+}
+
+.gallery-card {
+  background:linear-gradient(145deg,#111,#050505);
+  border:1px solid rgba(255,0,0,.25);
+  padding:20px;
   border-radius:14px;
-  transition:transform 6s ease, filter 6s ease;
+  box-shadow:0 0 25px rgba(255,0,0,.15);
+  transition:.3s;
 }
 
-.gallery img:hover {
-  transform:scale(1.05);
-  filter:contrast(1.1) saturate(1.1);
+.gallery-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-ul {
-  list-style:none;
-  padding:0;
+.gallery-card img {
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-ul li::before {
-  content:"✔ ";
+.gallery-card h3 {
+  margin-top:15px;
   color:#ff3333;
+  font-family:'Orbitron', sans-serif;
+}
+
+.gallery-card p {
+  font-size:.95rem;
+  color:#ccc;
 }
 
 .cta {
@@ -186,6 +204,24 @@ footer {
   padding:25px;
   font-size:.85rem;
 }
+
+/* LIGHTBOX */
+#lightbox {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+#lightbox img {
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+  box-shadow:0 0 40px rgba(255,0,0,.8);
+}
 </style>
 </head>
 
@@ -200,10 +236,28 @@ footer {
 <section>
   <div class="divider"></div>
   <h2>Our Work</h2>
-  <div class="services gallery">
-    <img src="image1.jpg" alt="Construction drone photography Central Texas">
-    <img src="image2.jpg" alt="Residential land drone imagery Central Texas">
-    <img src="image3.jpg" alt="Cinematic rural drone photography Central Texas">
+  <p>Precision aerial imagery tailored to real-world applications.</p>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-card">
+      <img src="image1.jpg" alt="Construction drone photography Central Texas" onclick="openLightbox(this)">
+      <h3>Construction & Infrastructure</h3>
+      <p>Progress tracking, oversight, and reporting from above.</p>
+    </div>
+
+    <div class="gallery-card">
+      <img src="image2.jpg" alt="Real estate drone photography Central Texas" onclick="openLightbox(this)">
+      <h3>Real Estate & Property</h3>
+      <p>High-impact visuals that showcase layout and location.</p>
+    </div>
+
+    <div class="gallery-card">
+      <img src="image3.jpg" alt="Land and ranch drone imagery Central Texas" onclick="openLightbox(this)">
+      <h3>Land & Ranch</h3>
+      <p>Wide-area imagery supporting land management and marketing.</p>
+    </div>
+
   </div>
 </section>
 
@@ -222,46 +276,13 @@ footer {
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade imagery designed to elevate listings and communicate scale, location, and value.</p></div>
-    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision aerial imagery for landowners and developers who need clarity and confidence.</p></div>
-    <div class="card"><h3>Construction Progress</h3><p>Reliable aerial documentation supporting oversight, reporting, and accountability.</p></div>
-    <div class="card"><h3>Inspections</h3><p>Safer, faster inspections that reduce risk while delivering actionable detail.</p></div>
-    <div class="card"><h3>Event Coverage</h3><p>Cinematic aerial storytelling capturing scale, energy, and atmosphere.</p></div>
-    <div class="card"><h3>Boudoir & Creative</h3><p>Artistic elevated imagery delivered with discretion and professionalism.</p></div>
+    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade imagery designed to elevate listings.</p></div>
+    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision visuals for landowners and developers.</p></div>
+    <div class="card"><h3>Construction Progress</h3><p>Reliable documentation for oversight and accountability.</p></div>
+    <div class="card"><h3>Inspections</h3><p>Safer, faster inspections delivering actionable detail.</p></div>
+    <div class="card"><h3>Event Coverage</h3><p>Cinematic storytelling from above.</p></div>
+    <div class="card"><h3>Boudoir & Creative</h3><p>Artistic elevated imagery delivered professionally.</p></div>
   </div>
-</section>
-
-<section class="alt">
-  <h2>Who We Work With</h2>
-  <ul class="grid">
-    <li>Real Estate Professionals</li>
-    <li>Construction & Development Firms</li>
-    <li>Landowners & Ranch Managers</li>
-    <li>Marketing & Creative Teams</li>
-    <li>Event Organizers</li>
-  </ul>
-</section>
-
-<section>
-  <h2>How It Works</h2>
-  <ol>
-    <li>Consultation & Mission Planning</li>
-    <li>Flight Authorization & Safety Review</li>
-    <li>On-Site Aerial Capture</li>
-    <li>Post-Processing & Secure Delivery</li>
-  </ol>
-</section>
-
-<section class="alt">
-  <h2>Mission & Vision</h2>
-  <p><strong>Mission:</strong> Deliver precision-driven aerial imagery and visual intelligence that empowers informed decisions.</p>
-  <p><strong>Vision:</strong> To become Central Texas’ most trusted drone services partner through discipline, safety, and technical excellence.</p>
-</section>
-
-<section>
-  <h2>Why Second Sight Solutions?</h2>
-  <p>Second Sight Solutions is a <strong>veteran-owned business</strong> built on experience in <strong>technology and intelligence operations within the United States Marine Corps</strong>.</p>
-  <p>We approach every project with mission planning, risk assessment, and professional execution—delivering imagery that goes beyond visuals and into intelligence.</p>
 </section>
 
 <section class="cta">
@@ -283,6 +304,20 @@ footer {
 <footer>
   © 2026 Second Sight Solutions • Central Texas
 </footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
