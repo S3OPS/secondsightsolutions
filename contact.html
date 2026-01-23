@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Request a Quote | Second Sight Solutions</title>
+<meta name="description" content="Request a quote for professional drone services with Second Sight Solutions. Serving Central Texas.">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#0a0a0a;
+  color:#e6e6e6;
+}
+
+header {
+  padding:80px 20px;
+  text-align:center;
+  background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+}
+
+header h1 {
+  font-family:'Orbitron', sans-serif;
+  font-size:2.5rem;
+}
+
+section {
+  max-width:600px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+form input, form textarea, form button {
+  width:100%;
+  background:#050505;
+  color:#fff;
+  border:1px solid rgba(255,0,0,.4);
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:8px;
+}
+
+form button {
+  background:#8b0000;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.back-link {
+  display:inline-block;
+  margin-top:20px;
+  color:#ff3333;
+  text-decoration:none;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Request a Quote</h1>
+  <p>Tell us about your project and we’ll get back to you quickly.</p>
+</header>
+
+<section>
+  <form action="https://formspree.io/f/mwvlqeql" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" placeholder="Project details..." required></textarea>
+    <button type="submit">Send Request</button>
+  </form>
+
+  <a href="index.html" class="back-link">← Back to site</a>
+</section>
+
+</body>
+</html>
