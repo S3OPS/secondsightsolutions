@@ -12,7 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- 🎬 VIDEO SCHEMA -->
+<!-- VIDEO SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,74 +34,84 @@
 }
 </script>
 
+<!-- SERVICE SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Second Sight Solutions",
+  "description": "Veteran-owned drone services providing professional aerial photography, inspections, construction progress documentation, and creative imagery across Central Texas.",
+  "areaServed": { "@type": "AdministrativeArea", "name": "Central Texas" },
+  "serviceOffered": [
+    {
+      "@type": "Service",
+      "name": "Real Estate Aerial Photography",
+      "description": "Professional-grade aerial photography and video designed to elevate listings, highlight property layout, and communicate location, scale, and value."
+    },
+    {
+      "@type": "Service",
+      "name": "Land & Ranch Aerial Imaging",
+      "description": "Wide-area aerial coverage for ranches, farms, and large properties supporting marketing, management, and documentation."
+    },
+    {
+      "@type": "Service",
+      "name": "Construction Progress Documentation",
+      "description": "Consistent aerial documentation supporting project oversight, stakeholder reporting, and timeline tracking."
+    },
+    {
+      "@type": "Service",
+      "name": "Aerial Inspections",
+      "description": "Safe, efficient inspection imagery for roofs, structures, and hard-to-reach areas without ladders or scaffolding."
+    },
+    {
+      "@type": "Service",
+      "name": "Event Aerial Coverage",
+      "description": "Dynamic aerial perspectives capturing the scale, energy, and atmosphere of outdoor events and venues."
+    },
+    {
+      "@type": "Service",
+      "name": "Boudoir & Creative Aerial Shoots",
+      "description": "Tasteful, artistic imagery approached with discretion, professionalism, and careful planning."
+    }
+  ]
+}
+</script>
+
 <style>
 html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#0a0a0a;
-  color:#e6e6e6;
-  line-height:1.6;
-}
+body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
+header { background:radial-gradient(circle at top,#8b0000 0%,#000 65%);padding:120px 20px;text-align:center;position:relative;overflow:hidden; }
+header::after { content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);animation:scan 6s linear infinite; }
+@keyframes scan {0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
+header img { max-width:280px;margin-bottom:25px;filter:drop-shadow(0 0 25px rgba(255,0,0,.6)); }
+header h1 { font-family:'Orbitron',sans-serif;font-size:3.2rem;letter-spacing:2px; }
+header p { max-width:760px;margin:auto;color:#ffb3b3;font-size:1.15rem; }
 
-/* HEADER */
-header {
-  background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
-  padding:120px 20px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);
-  animation:scan 6s linear infinite;
-}
-@keyframes scan{0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
-header img{max-width:280px;margin-bottom:25px;filter:drop-shadow(0 0 25px rgba(255,0,0,.6));}
-header h1{font-family:'Orbitron',sans-serif;font-size:3.2rem;letter-spacing:2px;}
-header p{max-width:760px;margin:auto;color:#ffb3b3;font-size:1.15rem;}
+section { max-width:1200px;margin:auto;padding:80px 20px; }
+.alt { background:#050505; }
+h2 { font-family:'Orbitron',sans-serif;color:#ff3333;margin-bottom:30px; }
 
-section{max-width:1200px;margin:auto;padding:80px 20px;}
-.alt{background:#050505;}
-h2{font-family:'Orbitron',sans-serif;color:#ff3333;margin-bottom:30px;}
+.grid,.services { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px; }
+.card { background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:30px;border-radius:14px;box-shadow:0 0 25px rgba(255,0,0,.15);transition:.3s; }
+.card:hover { transform:translateY(-6px);box-shadow:0 0 40px rgba(255,0,0,.4); }
 
-.divider{height:2px;background:linear-gradient(90deg,transparent,rgba(255,0,0,.8),transparent);margin:60px 0;animation:pulse 3s infinite;}
-@keyframes pulse{0%{opacity:.2;}50%{opacity:1;}100%{opacity:.2;}}
+.gallery-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px; }
+.gallery-image { aspect-ratio:16/9;overflow:hidden;border-radius:10px; }
+.gallery-image img { width:100%;height:100%;object-fit:cover;cursor:pointer; }
 
-/* GRID */
-.grid,.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
-.card{background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:30px;border-radius:14px;box-shadow:0 0 25px rgba(255,0,0,.15);transition:.3s;}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 40px rgba(255,0,0,.4);}
+.video-wrapper { position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;box-shadow:0 0 40px rgba(255,0,0,.4); }
+.video-wrapper iframe { position:absolute;inset:0;width:100%;height:100%;border:none; }
 
-/* GALLERY */
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
-.gallery-card{background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:20px;border-radius:14px;}
-.gallery-image{aspect-ratio:16/9;overflow:hidden;border-radius:10px;}
-.gallery-image img{width:100%;height:100%;object-fit:cover;cursor:pointer;}
-.gallery-card h3{margin-top:15px;color:#ff3333;font-family:'Orbitron',sans-serif;}
-.gallery-card p{color:#ccc;font-size:.95rem;}
+.cta { background:linear-gradient(135deg,#8b0000,#000);text-align:center;padding:100px 20px; }
+.cta-button { display:inline-block;padding:18px 42px;background:linear-gradient(135deg,#ff0033,#990011);color:#fff;text-decoration:none;font-weight:700;border-radius:40px;box-shadow:0 0 30px rgba(255,0,0,.7); }
 
-/* VIDEO */
-.video-wrapper{position:relative;padding-bottom:56.25%;height:0;margin-top:40px;border-radius:16px;overflow:hidden;box-shadow:0 0 40px rgba(255,0,0,.4);}
-.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+form input,form textarea,form button { width:100%;background:#050505;color:#fff;border:1px solid rgba(255,0,0,.4);padding:14px;margin-bottom:14px;border-radius:8px; }
+form button { background:#8b0000;font-weight:bold;cursor:pointer; }
 
-/* CTA */
-.cta{text-align:center;background:linear-gradient(135deg,#8b0000,#000);padding:100px 20px;}
-.cta-button{display:inline-block;padding:18px 42px;margin-top:25px;background:linear-gradient(135deg,#ff0033,#990011);color:#fff;text-decoration:none;font-weight:700;border-radius:40px;box-shadow:0 0 30px rgba(255,0,0,.7);}
-.cta-button:hover{box-shadow:0 0 45px rgba(255,0,0,.9);transform:translateY(-3px);}
+footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem; }
 
-/* FORM */
-form input,form textarea,form button{width:100%;background:#050505;color:#fff;border:1px solid rgba(255,0,0,.4);padding:14px;margin-bottom:14px;border-radius:8px;}
-form button{background:#8b0000;font-weight:bold;cursor:pointer;}
-
-footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;}
-
-/* LIGHTBOX */
-#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999;}
-#lightbox img{max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 0 40px rgba(255,0,0,.8);}
+#lightbox { position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999; }
+#lightbox img { max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 0 40px rgba(255,0,0,.8); }
 </style>
 </head>
 
@@ -114,24 +124,11 @@ footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85re
 </header>
 
 <section>
-  <div class="divider"></div>
   <h2>Our Work</h2>
   <div class="gallery-grid">
-    <div class="gallery-card">
-      <div class="gallery-image"><img src="image1.jpg" onclick="openLightbox(this)"></div>
-      <h3>Construction & Infrastructure</h3>
-      <p>Progress tracking and oversight from above.</p>
-    </div>
-    <div class="gallery-card">
-      <div class="gallery-image"><img src="image2.jpg" onclick="openLightbox(this)"></div>
-      <h3>Real Estate & Property</h3>
-      <p>High-impact visuals that sell location and scale.</p>
-    </div>
-    <div class="gallery-card">
-      <div class="gallery-image"><img src="image3.jpg" onclick="openLightbox(this)"></div>
-      <h3>Land & Ranch</h3>
-      <p>Wide-area imagery for landowners and developers.</p>
-    </div>
+    <div class="card"><div class="gallery-image"><img src="image1.jpg" onclick="openLightbox(this)"></div><h3>Construction</h3></div>
+    <div class="card"><div class="gallery-image"><img src="image2.jpg" onclick="openLightbox(this)"></div><h3>Real Estate</h3></div>
+    <div class="card"><div class="gallery-image"><img src="image3.jpg" onclick="openLightbox(this)"></div><h3>Land & Ranch</h3></div>
   </div>
 </section>
 
@@ -145,12 +142,12 @@ footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85re
 <section>
   <h2>Operational Capabilities</h2>
   <ul class="grid">
-    <li>FAA Part 107 Certified</li>
+    <li>FAA Part 107 Certified Operations</li>
     <li>Mission Planning & Risk Assessment</li>
     <li>Controlled Airspace Authorization (LAANC)</li>
     <li>High-Resolution Photo & Video Capture</li>
     <li>Secure Data Handling</li>
-    <li>Safety-First Operations</li>
+    <li>Safety-First Execution</li>
   </ul>
 </section>
 
@@ -214,7 +211,6 @@ footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85re
   </div>
 </section>
 
-
 <section>
   <h2>Who We Work With</h2>
   <ul class="grid">
@@ -244,8 +240,14 @@ footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85re
 
 <section class="alt">
   <h2>Why Second Sight Solutions?</h2>
-  <p>Second Sight Solutions is a <strong>veteran-owned business</strong> built on experience in <strong>technology and intelligence operations within the United States Marine Corps</strong>.</p>
-  <p>We bring mission planning, accountability, and professional execution to every flight.</p>
+  <p>
+    Second Sight Solutions is a <strong>veteran-owned business</strong> built on experience in
+    <strong>technology and intelligence operations within the United States Marine Corps</strong>.
+  </p>
+  <p>
+    We bring mission planning, accountability, and professional execution to every flight —
+    delivering imagery that goes beyond visuals and into intelligence.
+  </p>
 </section>
 
 <section class="cta">
@@ -267,7 +269,10 @@ footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85re
 
 <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img"></div>
 <script>
-function openLightbox(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';}
+function openLightbox(img){
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
 </script>
 
 </body>
