@@ -251,6 +251,18 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
     grid-template-columns: 1fr;
   }
 }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
   
 </style>
 </head>
@@ -409,13 +421,55 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 
 <section>
   <h2>Who We Work With</h2>
-  <ul class="grid">
-    <li>Real Estate Professionals</li>
-    <li>Construction & Development Firms</li>
-    <li>Landowners & Ranch Managers</li>
-    <li>Marketing & Creative Teams</li>
-    <li>Event Organizers</li>
-  </ul>
+
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    We partner with professionals and organizations that value precision,
+    safety, and reliable aerial data.
+  </p>
+
+  <div class="services">
+
+    <div class="card reveal">
+      <h3>Real Estate Professionals</h3>
+      <p>
+        Agents and brokers who need elevated visuals to showcase properties,
+        land, and locations clearly and competitively.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <h3>Construction & Development Firms</h3>
+      <p>
+        Teams that require consistent aerial documentation to track progress,
+        support reporting, and maintain situational awareness on site.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <h3>Landowners & Ranch Managers</h3>
+      <p>
+        Property owners who need clear aerial visibility of terrain,
+        boundaries, access points, and improvements.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <h3>Marketing & Creative Teams</h3>
+      <p>
+        Agencies and creators seeking cinematic aerial content
+        that supports storytelling and brand presentation.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <h3>Event Organizers</h3>
+      <p>
+        Coordinators looking to capture the scale, energy,
+        and atmosphere of outdoor events and venues.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <section class="alt">
@@ -479,6 +533,51 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
   </div>
 </section>
 
+<section class="alt">
+  <h2>What You Receive</h2>
+
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    Every project includes professionally prepared deliverables
+    tailored to your intended use.
+  </p>
+
+  <div class="capability-matrix">
+
+    <div class="capability reveal">
+      <h3>High-Resolution Images</h3>
+      <p>
+        Professionally edited still images optimized for marketing,
+        documentation, and presentation.
+      </p>
+    </div>
+
+    <div class="capability reveal">
+      <h3>4K Aerial Video Footage</h3>
+      <p>
+        Smooth, stabilized aerial video suitable for listings,
+        promotions, and long-term archives.
+      </p>
+    </div>
+
+    <div class="capability reveal">
+      <h3>Organized File Delivery</h3>
+      <p>
+        Clearly labeled files delivered digitally,
+        making it easy to locate, share, and use your assets.
+      </p>
+    </div>
+
+    <div class="capability reveal">
+      <h3>Usage-Ready Formats</h3>
+      <p>
+        Files prepared for web, social media, presentations,
+        and internal reporting.
+      </p>
+    </div>
+
+  </div>
+</section>
+  
 <section>
   <h2>Mission & Vision</h2>
 
@@ -548,6 +647,24 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
   </p>
 </section>
 
+<section style="padding:50px 20px;background:#000;">
+  <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:center;text-align:center;">
+
+    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">
+      FAA Part 107 Certified
+    </div>
+
+    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">
+      Veteran-Owned Business
+    </div>
+
+    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">
+      Insured Operations
+    </div>
+
+  </div>
+</section>
+  
 <section class="cta">
   <h2>Let’s Work Together</h2>
   <a href="contact.html" class="cta-button">Request a Quote</a>
@@ -569,5 +686,22 @@ function openLightbox(img){
 }
 </script>
 
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const revealOnScroll = () => {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
+  
 </body>
 </html>
