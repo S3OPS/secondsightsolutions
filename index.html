@@ -6,229 +6,13 @@
 
 <title>Second Sight Solutions | Veteran-Owned Drone Services | Central Texas</title>
 
-<meta name="description" content="Veteran-owned drone services delivering professional aerial photography, inspections, and visual intelligence across Central Texas.">
+<meta name="description" content="Veteran-owned drone services delivering professional aerial photography, inspections, construction progress, and visual intelligence across Central Texas.">
 <meta name="keywords" content="drone services Central Texas, aerial photography Texas, veteran owned drone business">
 <meta name="robots" content="index, follow">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-html { scroll-behavior: smooth; }
-
-body {
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:#0a0a0a;
-  color:#e6e6e6;
-  line-height:1.6;
-}
-
-/* HEADER */
-header {
-  background: radial-gradient(circle at top, #8b0000 0%, #000 65%);
-  padding:120px 20px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-header::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg, transparent 45%, rgba(255,0,0,0.15), transparent 55%);
-  animation:scan 6s linear infinite;
-}
-
-@keyframes scan {
-  0% {transform:translateX(-100%);}
-  100% {transform:translateX(100%);}
-}
-
-header img {
-  max-width:280px;
-  margin-bottom:25px;
-  filter:drop-shadow(0 0 25px rgba(255,0,0,.6));
-}
-
-header h1 {
-  font-family:'Orbitron', sans-serif;
-  font-size:3.2rem;
-  letter-spacing:2px;
-}
-
-header p {
-  max-width:760px;
-  margin:auto;
-  color:#ffb3b3;
-  font-size:1.15rem;
-}
-
-/* LAYOUT */
-section {
-  max-width:1200px;
-  margin:auto;
-  padding:80px 20px;
-}
-
-.alt { background:#050505; }
-
-h2 {
-  font-family:'Orbitron', sans-serif;
-  color:#ff3333;
-  margin-bottom:30px;
-}
-
-.divider {
-  height:2px;
-  background:linear-gradient(90deg,transparent,rgba(255,0,0,.8),transparent);
-  margin:60px 0;
-  animation:pulse 3s infinite;
-}
-
-@keyframes pulse {
-  0%{opacity:.2;}
-  50%{opacity:1;}
-  100%{opacity:.2;}
-}
-
-/* ===== GALLERY ===== */
-.gallery-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:40px;
-}
-
-.gallery-card {
-  background:linear-gradient(145deg,#111,#050505);
-  border:1px solid rgba(255,0,0,.25);
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 0 25px rgba(255,0,0,.15);
-  transition:.3s;
-}
-
-.gallery-card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 0 40px rgba(255,0,0,.4);
-}
-
-.gallery-image {
-  position:relative;
-  width:100%;
-  aspect-ratio:16 / 9;
-  overflow:hidden;
-  border-radius:10px;
-}
-
-.gallery-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  cursor:pointer;
-}
-
-.gallery-card h3 {
-  margin-top:15px;
-  color:#ff3333;
-  font-family:'Orbitron', sans-serif;
-}
-
-.gallery-card p {
-  font-size:.95rem;
-  color:#ccc;
-}
-
-/* VIDEO */
-.video-wrapper {
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-  margin-top:40px;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 0 40px rgba(255,0,0,.4);
-}
-
-.video-wrapper iframe {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:none;
-}
-
-/* CTA */
-.cta {
-  background:linear-gradient(135deg,#8b0000,#000);
-  text-align:center;
-  padding:100px 20px;
-}
-
-.cta-button {
-  display:inline-block;
-  padding:18px 42px;
-  margin-top:25px;
-  background:linear-gradient(135deg,#ff0033,#990011);
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:1px;
-  border-radius:40px;
-  box-shadow:0 0 30px rgba(255,0,0,.7);
-  transition:.3s;
-}
-
-.cta-button:hover {
-  transform:translateY(-3px);
-  box-shadow:0 0 45px rgba(255,0,0,.9);
-}
-
-/* FORM */
-form input, form textarea, form button {
-  width:100%;
-  background:#050505;
-  color:#fff;
-  border:1px solid rgba(255,0,0,.4);
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:8px;
-}
-
-form button {
-  background:#8b0000;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* FOOTER */
-footer {
-  background:#000;
-  color:#777;
-  text-align:center;
-  padding:25px;
-  font-size:.85rem;
-}
-
-/* LIGHTBOX */
-#lightbox {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-
-#lightbox img {
-  max-width:90%;
-  max-height:90%;
-  border-radius:12px;
-  box-shadow:0 0 40px rgba(255,0,0,.8);
-}
-</style>
-
+<!-- 🎬 VIDEO SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -249,6 +33,76 @@ footer {
   }
 }
 </script>
+
+<style>
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#0a0a0a;
+  color:#e6e6e6;
+  line-height:1.6;
+}
+
+/* HEADER */
+header {
+  background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+  padding:120px 20px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);
+  animation:scan 6s linear infinite;
+}
+@keyframes scan{0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
+header img{max-width:280px;margin-bottom:25px;filter:drop-shadow(0 0 25px rgba(255,0,0,.6));}
+header h1{font-family:'Orbitron',sans-serif;font-size:3.2rem;letter-spacing:2px;}
+header p{max-width:760px;margin:auto;color:#ffb3b3;font-size:1.15rem;}
+
+section{max-width:1200px;margin:auto;padding:80px 20px;}
+.alt{background:#050505;}
+h2{font-family:'Orbitron',sans-serif;color:#ff3333;margin-bottom:30px;}
+
+.divider{height:2px;background:linear-gradient(90deg,transparent,rgba(255,0,0,.8),transparent);margin:60px 0;animation:pulse 3s infinite;}
+@keyframes pulse{0%{opacity:.2;}50%{opacity:1;}100%{opacity:.2;}}
+
+/* GRID */
+.grid,.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.card{background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:30px;border-radius:14px;box-shadow:0 0 25px rgba(255,0,0,.15);transition:.3s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 40px rgba(255,0,0,.4);}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
+.gallery-card{background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:20px;border-radius:14px;}
+.gallery-image{aspect-ratio:16/9;overflow:hidden;border-radius:10px;}
+.gallery-image img{width:100%;height:100%;object-fit:cover;cursor:pointer;}
+.gallery-card h3{margin-top:15px;color:#ff3333;font-family:'Orbitron',sans-serif;}
+.gallery-card p{color:#ccc;font-size:.95rem;}
+
+/* VIDEO */
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;margin-top:40px;border-radius:16px;overflow:hidden;box-shadow:0 0 40px rgba(255,0,0,.4);}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+/* CTA */
+.cta{text-align:center;background:linear-gradient(135deg,#8b0000,#000);padding:100px 20px;}
+.cta-button{display:inline-block;padding:18px 42px;margin-top:25px;background:linear-gradient(135deg,#ff0033,#990011);color:#fff;text-decoration:none;font-weight:700;border-radius:40px;box-shadow:0 0 30px rgba(255,0,0,.7);}
+.cta-button:hover{box-shadow:0 0 45px rgba(255,0,0,.9);transform:translateY(-3px);}
+
+/* FORM */
+form input,form textarea,form button{width:100%;background:#050505;color:#fff;border:1px solid rgba(255,0,0,.4);padding:14px;margin-bottom:14px;border-radius:8px;}
+form button{background:#8b0000;font-weight:bold;cursor:pointer;}
+
+footer{background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;}
+
+/* LIGHTBOX */
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999;}
+#lightbox img{max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 0 40px rgba(255,0,0,.8);}
+</style>
 </head>
 
 <body>
@@ -262,54 +116,91 @@ footer {
 <section>
   <div class="divider"></div>
   <h2>Our Work</h2>
-
   <div class="gallery-grid">
     <div class="gallery-card">
-      <div class="gallery-image">
-        <img src="image1.jpg" onclick="openLightbox(this)" alt="Construction drone photography Central Texas">
-      </div>
+      <div class="gallery-image"><img src="image1.jpg" onclick="openLightbox(this)"></div>
       <h3>Construction & Infrastructure</h3>
-      <p>Progress tracking, oversight, and reporting from above.</p>
+      <p>Progress tracking and oversight from above.</p>
     </div>
-
     <div class="gallery-card">
-      <div class="gallery-image">
-        <img src="image2.jpg" onclick="openLightbox(this)" alt="Real estate drone photography Central Texas">
-      </div>
+      <div class="gallery-image"><img src="image2.jpg" onclick="openLightbox(this)"></div>
       <h3>Real Estate & Property</h3>
-      <p>High-impact visuals that showcase layout and location.</p>
+      <p>High-impact visuals that sell location and scale.</p>
     </div>
-
     <div class="gallery-card">
-      <div class="gallery-image">
-        <img src="image3.jpg" onclick="openLightbox(this)" alt="Land and ranch drone imagery Central Texas">
-      </div>
+      <div class="gallery-image"><img src="image3.jpg" onclick="openLightbox(this)"></div>
       <h3>Land & Ranch</h3>
-      <p>Wide-area imagery supporting land management and marketing.</p>
+      <p>Wide-area imagery for landowners and developers.</p>
     </div>
   </div>
 </section>
 
-<!-- 🎬 VIDEO SECTION -->
 <section class="alt">
   <h2>See Our Work in Action</h2>
-  <p>
-    This short aerial reel highlights how Second Sight Solutions delivers
-    precision, safety, and professional results from above.
-  </p>
-
   <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/dMmTLKx8iR4"
-      title="Second Sight Solutions Drone Reel"
-      allowfullscreen>
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/dMmTLKx8iR4" allowfullscreen></iframe>
   </div>
+</section>
+
+<section>
+  <h2>Operational Capabilities</h2>
+  <ul class="grid">
+    <li>FAA Part 107 Certified</li>
+    <li>Mission Planning & Risk Assessment</li>
+    <li>Controlled Airspace Authorization (LAANC)</li>
+    <li>High-Resolution Photo & Video Capture</li>
+    <li>Secure Data Handling</li>
+    <li>Safety-First Operations</li>
+  </ul>
+</section>
+
+<section class="alt">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">Real Estate Aerials</div>
+    <div class="card">Land & Ranch Imaging</div>
+    <div class="card">Construction Progress</div>
+    <div class="card">Inspections</div>
+    <div class="card">Event Coverage</div>
+    <div class="card">Boudoir & Creative</div>
+  </div>
+</section>
+
+<section>
+  <h2>Who We Work With</h2>
+  <ul class="grid">
+    <li>Real Estate Professionals</li>
+    <li>Construction & Development Firms</li>
+    <li>Landowners & Ranch Managers</li>
+    <li>Marketing & Creative Teams</li>
+    <li>Event Organizers</li>
+  </ul>
+</section>
+
+<section class="alt">
+  <h2>How It Works</h2>
+  <ol>
+    <li>Consultation & Mission Planning</li>
+    <li>Flight Authorization & Safety Review</li>
+    <li>On-Site Aerial Capture</li>
+    <li>Post-Processing & Secure Delivery</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Mission & Vision</h2>
+  <p><strong>Mission:</strong> Deliver precision-driven aerial imagery and visual intelligence that empowers confident decisions.</p>
+  <p><strong>Vision:</strong> Become Central Texas’ most trusted drone services partner through discipline, safety, and technical excellence.</p>
+</section>
+
+<section class="alt">
+  <h2>Why Second Sight Solutions?</h2>
+  <p>Second Sight Solutions is a <strong>veteran-owned business</strong> built on experience in <strong>technology and intelligence operations within the United States Marine Corps</strong>.</p>
+  <p>We bring mission planning, accountability, and professional execution to every flight.</p>
 </section>
 
 <section class="cta">
   <h2>Let’s Work Together</h2>
-  <p>FAA Part 107 Certified • Central Texas</p>
   <a href="#contact" class="cta-button">Request a Quote</a>
 </section>
 
@@ -318,27 +209,16 @@ footer {
   <form action="https://formspree.io/f/mwvlqeql" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Project details..." required></textarea>
+    <textarea name="message" placeholder="Project details…" required></textarea>
     <button type="submit">Send Request</button>
   </form>
 </section>
 
-<footer>
-  © 2026 Second Sight Solutions • Central Texas
-</footer>
+<footer>© 2026 Second Sight Solutions • Central Texas</footer>
 
-<div id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="">
-</div>
-
+<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img"></div>
 <script>
-function openLightbox(img) {
-  document.getElementById("lightbox-img").src = img.src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
+function openLightbox(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';}
 </script>
 
 </body>
