@@ -198,24 +198,30 @@ footer {
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card"><h3>Real Estate Aerials</h3><p>Sell faster and stand out with cinematic aerial photos and video that highlight property layout, surroundings, and scale. Perfect for residential, commercial, and investment listings.</p></div>
-    <div class="card"><h3>Land & Ranch Imaging</h3><p>High-altitude and low-pass drone imagery designed to showcase acreage, boundaries, terrain, and access points—ideal for ranch owners, developers, and land marketing.</p></div>
-    <div class="card"><h3>Construction Progress</h3><p>Consistent aerial documentation that keeps stakeholders informed. Track progress, spot issues early, and create professional updates for investors and clients.</p></div>
-    <div class="card"><h3>Inspections</h3><p>Safer, faster aerial inspections for roofs, structures, and hard-to-reach areas—reducing risk while delivering detailed visuals you can act on.</p></div>
-    <div class="card"><h3>Event Coverage</h3><p>Dynamic aerial perspectives that capture the energy and scale of outdoor events, venues, and gatherings—perfect for promotion and recap media.</p></div>
-    <div class="card"><h3>Boudoir & Creative Shoots</h3><p>Artistic, tasteful imagery with a unique elevated perspective. Designed for bold personal projects, creative campaigns, and distinctive visual storytelling.</p></div>
+    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade aerial photography and video designed to elevate property marketing. Ideal for agents, developers, and investors who need high-impact visuals that communicate scale, location, and value.</p></div>
+    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision aerial imagery tailored for landowners and developers who require clear visibility of acreage, boundaries, terrain, and access points for informed decision-making.</p></div>
+    <div class="card"><h3>Construction Progress</h3><p>Consistent aerial documentation that supports project oversight, investor reporting, and quality control—built for teams that value clarity, accountability, and accuracy.</p></div>
+    <div class="card"><h3>Inspections</h3><p>Advanced aerial inspection services designed to reduce risk while delivering detailed visual data for roofs, structures, and hard-to-reach assets.</p></div>
+    <div class="card"><h3>Event Coverage</h3><p>Cinematic aerial coverage for clients who want professional storytelling and dynamic perspectives that capture scale, energy, and atmosphere.</p></div>
+    <div class="card"><h3>Boudoir & Creative Shoots</h3><p>Artistic, elevated imagery created for bold personal projects and creative campaigns—crafted with discretion, professionalism, and visual impact.</p></div>
   </div>
 </section>
 
 <section>
   <h2>Mission & Vision</h2>
-  <p><strong>Our Mission:</strong> To deliver precision aerial imagery that helps clients see more, understand more, and make better decisions.</p>
-  <p><strong>Our Vision:</strong> To become Central Texas’ most trusted drone services partner by combining cutting-edge technology, safety-first operations, and striking visual storytelling.</p>
+  <p><strong>Our Mission</strong><br>
+  At Second Sight Solutions, our mission is to deliver precision-driven aerial imagery and visual intelligence that helps clients see more clearly, plan more effectively, and make confident decisions. We combine advanced drone technology with disciplined operational standards to produce results that are accurate, actionable, and reliable.</p>
+
+  <p><strong>Our Vision</strong><br>
+  Our vision is to become Central Texas’ most trusted aerial services partner by setting the standard for professionalism, safety, and technical excellence. We aim to bridge cutting-edge aerial technology with real-world applications—supporting real estate, construction, land management, and creative industries with imagery that drives clarity and results.</p>
 </section>
 
 <section>
   <h2>Why Second Sight Solutions?</h2>
-  <p>We bring a second perspective—capturing angles and details traditional photography can’t. Whether you need professional imagery for marketing, inspections, or creative projects, we deliver sharp visuals with safety, precision, and reliability.</p>
+  <p>Second Sight Solutions isn’t just about flying drones—it’s about seeing with purpose.</p>
+  <p>As a <strong>veteran-owned business</strong>, we bring a disciplined, mission-focused approach shaped by a background in <strong>technology and intelligence operations within the United States Marine Corps</strong>. That experience influences how we plan missions, assess environments, manage risk, and deliver results with precision.</p>
+  <p>We operate with military-grade attention to detail, safety-first procedures, and advanced technical awareness. Whether documenting construction progress, capturing large tracts of land, or producing creative aerial visuals, every project is approached with accuracy, accountability, and professionalism.</p>
+  <p>When clients choose Second Sight Solutions, they’re not just hiring a drone pilot—they’re partnering with a team that understands how to gather, interpret, and deliver aerial intelligence that matters.</p>
 </section>
 
 <section>
@@ -239,5 +245,29 @@ footer {
   © 2026 Second Sight Solutions • Central Texas
 </footer>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cta = document.querySelector('.cta-button');
+    const form = document.querySelector('form');
+
+    if (cta) {
+      cta.addEventListener('click', () => {
+        gtag('event', 'cta_click', { event_category: 'engagement' });
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', () => {
+        gtag('event', 'form_submit', { event_category: 'lead' });
+      });
+    }
+  });
+</script>
 </body>
 </html>
