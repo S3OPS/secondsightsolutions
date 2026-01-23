@@ -6,7 +6,7 @@
 
 <title>Second Sight Solutions | Veteran-Owned Drone Services | Central Texas</title>
 
-<meta name="description" content="Veteran-owned drone services providing professional aerial photography, inspections, and visual intelligence across Central Texas.">
+<meta name="description" content="Veteran-owned drone services delivering professional aerial photography, inspections, and visual intelligence across Central Texas.">
 <meta name="keywords" content="drone services Central Texas, aerial photography Texas, veteran owned drone business">
 <meta name="robots" content="index, follow">
 
@@ -92,33 +92,11 @@ h2 {
   100%{opacity:.2;}
 }
 
-/* SERVICES */
-.services {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.card {
-  background:linear-gradient(145deg,#111,#050505);
-  border:1px solid rgba(255,0,0,.25);
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 0 25px rgba(255,0,0,.15);
-  transition:.3s;
-}
-
-.card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 0 40px rgba(255,0,0,.4);
-}
-
-/* ===== GALLERY FIX ===== */
+/* ===== GALLERY ===== */
 .gallery-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
   gap:40px;
-  margin-top:40px;
 }
 
 .gallery-card {
@@ -135,7 +113,6 @@ h2 {
   box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-/* FIXED IMAGE SIZE */
 .gallery-image {
   position:relative;
   width:100%;
@@ -148,7 +125,6 @@ h2 {
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
   cursor:pointer;
 }
 
@@ -161,6 +137,25 @@ h2 {
 .gallery-card p {
   font-size:.95rem;
   color:#ccc;
+}
+
+/* VIDEO */
+.video-wrapper {
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  margin-top:40px;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(255,0,0,.4);
+}
+
+.video-wrapper iframe {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
 }
 
 /* CTA */
@@ -248,10 +243,9 @@ footer {
   <h2>Our Work</h2>
 
   <div class="gallery-grid">
-
     <div class="gallery-card">
       <div class="gallery-image">
-        <img src="image1.jpg" alt="Construction drone photography Central Texas" onclick="openLightbox(this)">
+        <img src="image1.jpg" onclick="openLightbox(this)" alt="Construction drone photography Central Texas">
       </div>
       <h3>Construction & Infrastructure</h3>
       <p>Progress tracking, oversight, and reporting from above.</p>
@@ -259,7 +253,7 @@ footer {
 
     <div class="gallery-card">
       <div class="gallery-image">
-        <img src="image2.jpg" alt="Real estate drone photography Central Texas" onclick="openLightbox(this)">
+        <img src="image2.jpg" onclick="openLightbox(this)" alt="Real estate drone photography Central Texas">
       </div>
       <h3>Real Estate & Property</h3>
       <p>High-impact visuals that showcase layout and location.</p>
@@ -267,12 +261,28 @@ footer {
 
     <div class="gallery-card">
       <div class="gallery-image">
-        <img src="image3.jpg" alt="Land and ranch drone imagery Central Texas" onclick="openLightbox(this)">
+        <img src="image3.jpg" onclick="openLightbox(this)" alt="Land and ranch drone imagery Central Texas">
       </div>
       <h3>Land & Ranch</h3>
       <p>Wide-area imagery supporting land management and marketing.</p>
     </div>
+  </div>
+</section>
 
+<!-- 🎬 VIDEO SECTION -->
+<section class="alt">
+  <h2>See Our Work in Action</h2>
+  <p>
+    This short aerial reel highlights how Second Sight Solutions delivers
+    precision, safety, and professional results from above.
+  </p>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/dMmTLKx8iR4"
+      title="Second Sight Solutions Drone Reel"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
