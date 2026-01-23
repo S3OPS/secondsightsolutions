@@ -12,7 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- VIDEO SCHEMA -->
+<!-- 🎬 VIDEO SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,7 +34,7 @@
 }
 </script>
 
-<!-- SERVICE SCHEMA -->
+<!-- 🧠 SERVICE SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,36 +43,12 @@
   "description": "Veteran-owned drone services providing professional aerial photography, inspections, construction progress documentation, and creative imagery across Central Texas.",
   "areaServed": { "@type": "AdministrativeArea", "name": "Central Texas" },
   "serviceOffered": [
-    {
-      "@type": "Service",
-      "name": "Real Estate Aerial Photography",
-      "description": "Professional-grade aerial photography and video designed to elevate listings, highlight property layout, and communicate location, scale, and value."
-    },
-    {
-      "@type": "Service",
-      "name": "Land & Ranch Aerial Imaging",
-      "description": "Wide-area aerial coverage for ranches, farms, and large properties supporting marketing, management, and documentation."
-    },
-    {
-      "@type": "Service",
-      "name": "Construction Progress Documentation",
-      "description": "Consistent aerial documentation supporting project oversight, stakeholder reporting, and timeline tracking."
-    },
-    {
-      "@type": "Service",
-      "name": "Aerial Inspections",
-      "description": "Safe, efficient inspection imagery for roofs, structures, and hard-to-reach areas without ladders or scaffolding."
-    },
-    {
-      "@type": "Service",
-      "name": "Event Aerial Coverage",
-      "description": "Dynamic aerial perspectives capturing the scale, energy, and atmosphere of outdoor events and venues."
-    },
-    {
-      "@type": "Service",
-      "name": "Boudoir & Creative Aerial Shoots",
-      "description": "Tasteful, artistic imagery approached with discretion, professionalism, and careful planning."
-    }
+    { "@type": "Service", "name": "Real Estate Aerial Photography", "description": "Professional-grade aerial photography and video designed to elevate listings, highlight property layout, and communicate location, scale, and value." },
+    { "@type": "Service", "name": "Land & Ranch Aerial Imaging", "description": "Wide-area aerial coverage for ranches, farms, and large properties supporting marketing, management, and documentation." },
+    { "@type": "Service", "name": "Construction Progress Documentation", "description": "Consistent aerial documentation supporting project oversight, stakeholder reporting, and timeline tracking." },
+    { "@type": "Service", "name": "Aerial Inspections", "description": "Safe, efficient inspection imagery for roofs, structures, and hard-to-reach areas without ladders or scaffolding." },
+    { "@type": "Service", "name": "Event Aerial Coverage", "description": "Dynamic aerial perspectives capturing the scale, energy, and atmosphere of outdoor events and venues." },
+    { "@type": "Service", "name": "Boudoir & Creative Aerial Shoots", "description": "Tasteful, artistic imagery approached with discretion, professionalism, and careful planning." }
   ]
 }
 </script>
@@ -80,8 +56,22 @@
 <style>
 html { scroll-behavior:smooth; }
 body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
-header { background:radial-gradient(circle at top,#8b0000 0%,#000 65%);padding:120px 20px;text-align:center;position:relative;overflow:hidden; }
-header::after { content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);animation:scan 6s linear infinite; }
+
+/* HEADER */
+header {
+  background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+  padding:120px 20px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+header::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);
+  animation:scan 6s linear infinite;
+}
 @keyframes scan {0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
 header img { max-width:280px;margin-bottom:25px;filter:drop-shadow(0 0 25px rgba(255,0,0,.6)); }
 header h1 { font-family:'Orbitron',sans-serif;font-size:3.2rem;letter-spacing:2px; }
@@ -92,26 +82,69 @@ section { max-width:1200px;margin:auto;padding:80px 20px; }
 h2 { font-family:'Orbitron',sans-serif;color:#ff3333;margin-bottom:30px; }
 
 .grid,.services { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px; }
-.card { background:linear-gradient(145deg,#111,#050505);border:1px solid rgba(255,0,0,.25);padding:30px;border-radius:14px;box-shadow:0 0 25px rgba(255,0,0,.15);transition:.3s; }
+.card {
+  background:linear-gradient(145deg,#111,#050505);
+  border:1px solid rgba(255,0,0,.25);
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(255,0,0,.15);
+  transition:.3s;
+}
 .card:hover { transform:translateY(-6px);box-shadow:0 0 40px rgba(255,0,0,.4); }
 
+/* GALLERY */
 .gallery-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px; }
 .gallery-image { aspect-ratio:16/9;overflow:hidden;border-radius:10px; }
 .gallery-image img { width:100%;height:100%;object-fit:cover;cursor:pointer; }
 
+/* VIDEO */
 .video-wrapper { position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;box-shadow:0 0 40px rgba(255,0,0,.4); }
 .video-wrapper iframe { position:absolute;inset:0;width:100%;height:100%;border:none; }
 
+/* CTA */
 .cta { background:linear-gradient(135deg,#8b0000,#000);text-align:center;padding:100px 20px; }
 .cta-button { display:inline-block;padding:18px 42px;background:linear-gradient(135deg,#ff0033,#990011);color:#fff;text-decoration:none;font-weight:700;border-radius:40px;box-shadow:0 0 30px rgba(255,0,0,.7); }
 
-form input,form textarea,form button { width:100%;background:#050505;color:#fff;border:1px solid rgba(255,0,0,.4);padding:14px;margin-bottom:14px;border-radius:8px; }
+/* FORM */
+form input,form textarea,form button {
+  width:100%;
+  background:#050505;
+  color:#fff;
+  border:1px solid rgba(255,0,0,.4);
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:8px;
+}
 form button { background:#8b0000;font-weight:bold;cursor:pointer; }
 
+/* FOOTER */
 footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem; }
 
+/* LIGHTBOX */
 #lightbox { position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999; }
 #lightbox img { max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 0 40px rgba(255,0,0,.8); }
+
+/* 📱 MOBILE FLOATING CTA */
+.mobile-cta {
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#ff0033,#990011);
+  color:#fff;
+  padding:16px 34px;
+  border-radius:40px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 35px rgba(255,0,0,.8);
+  z-index:9998;
+  display:none;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .mobile-cta { display:block; }
+}
 </style>
 </head>
 
@@ -267,7 +300,13 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 
 <footer>© 2026 Second Sight Solutions • Central Texas</footer>
 
-<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img"></div>
+<!-- 📱 MOBILE CTA -->
+<a href="#contact" class="mobile-cta">Request a Quote</a>
+
+<div id="lightbox" onclick="this.style.display='none'">
+  <img id="lightbox-img">
+</div>
+
 <script>
 function openLightbox(img){
   document.getElementById('lightbox-img').src = img.src;
