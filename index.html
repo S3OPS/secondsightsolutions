@@ -147,6 +147,29 @@ footer {
   padding:25px;
   font-size:0.85rem;
 }
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 32px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff0033, #990011);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(255, 0, 51, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(255, 0, 51, 0.9);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 </style>
 </head>
 <body>
@@ -184,21 +207,24 @@ footer {
   <p>We bring a second perspective—capturing angles and details traditional photography can’t. Whether you need professional imagery for marketing, inspections, or creative projects, we deliver sharp visuals with safety, precision, and reliability.</p>
 </section>
 
-<section>
-  <h2>Contact Us</h2>
+<section id="contact" class="contact-section">
+  <h2>Request a Quote</h2>
   <p>Tell us about your project and we’ll get back to you quickly.</p>
-  <form action="https://formspree.io/f/mwvlqeql" method="POST" style="max-width:500px;">
+  <form action="https://formspree.io/f/mwvlqeql" method="POST"  onsubmit="document.querySelector('.form-success').hidden = false;" style="max-width:500px;">
     <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:10px;" />
     <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:10px;" />
     <textarea name="message" placeholder="Your Message" rows="5" style="width:100%;padding:12px;margin-bottom:10px;"></textarea>
     <button type="submit" style="padding:12px 25px;font-weight:bold;">Send Message</button>
   </form>
+  <p class="form-success" hidden>Thanks! We’ll be in touch shortly.</p>
+
 </section>
 
 <section class="cta">
   <h2>Let’s Work Together</h2>
   <p>Serving Central Texas • FAA Part 107 Compliant</p>
-  <a href="mailto:info@secondsightsolutions.com">Contact Us</a>
+  <a href="#contact" class="cta-button">Request a Quote</a>
+
 </section>
 
 <footer>
