@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Second Sight Solutions | Drone Services in Central Texas</title>
+<title>Second Sight Solutions | Veteran-Owned Drone Services | Central Texas</title>
 
-<meta name="description" content="Veteran-owned drone services providing professional aerial photography, inspections, construction progress, and visual intelligence across Central Texas.">
-<meta name="keywords" content="drone services Central Texas, aerial photography Texas, drone inspections, construction drone services, veteran owned drone business">
+<meta name="description" content="Veteran-owned drone services delivering professional aerial photography, inspections, construction progress, and visual intelligence across Central Texas.">
+<meta name="keywords" content="drone services Central Texas, aerial photography Texas, construction drone services, veteran owned drone business">
 <meta name="robots" content="index, follow">
 
 <meta property="og:title" content="Second Sight Solutions | Central Texas Drone Services">
-<meta property="og:description" content="Professional drone photography, inspections, and aerial intelligence by a veteran-owned business.">
+<meta property="og:description" content="Professional aerial imagery and visual intelligence by a veteran-owned business.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="logo.png">
 
@@ -30,7 +30,7 @@ body {
 
 header {
   background: radial-gradient(circle at top, #8b0000 0%, #000 65%);
-  padding:110px 20px;
+  padding:120px 20px;
   text-align:center;
   position:relative;
   overflow:hidden;
@@ -62,7 +62,7 @@ header h1 {
 }
 
 header p {
-  max-width:720px;
+  max-width:760px;
   margin:auto;
   color:#ffb3b3;
   font-size:1.15rem;
@@ -74,13 +74,30 @@ section {
   padding:80px 20px;
 }
 
+.alt {
+  background:#050505;
+}
+
 h2 {
   font-family:'Orbitron', sans-serif;
   color:#ff3333;
   margin-bottom:30px;
 }
 
-.services {
+.divider {
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,0,0,.8),transparent);
+  margin:60px 0;
+  animation:pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%{opacity:.2;}
+  50%{opacity:1;}
+  100%{opacity:.2;}
+}
+
+.services, .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
@@ -100,19 +117,6 @@ h2 {
   box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-.divider {
-  height:2px;
-  background:linear-gradient(90deg,transparent,rgba(255,0,0,.8),transparent);
-  margin:60px 0;
-  animation:pulse 3s infinite;
-}
-
-@keyframes pulse {
-  0%{opacity:.2;}
-  50%{opacity:1;}
-  100%{opacity:.2;}
-}
-
 .gallery img {
   width:100%;
   border-radius:14px;
@@ -124,15 +128,25 @@ h2 {
   filter:contrast(1.1) saturate(1.1);
 }
 
+ul {
+  list-style:none;
+  padding:0;
+}
+
+ul li::before {
+  content:"✔ ";
+  color:#ff3333;
+}
+
 .cta {
   background:linear-gradient(135deg,#8b0000,#000);
   text-align:center;
-  padding:90px 20px;
+  padding:100px 20px;
 }
 
 .cta-button {
   display:inline-block;
-  padding:16px 38px;
+  padding:18px 42px;
   margin-top:25px;
   background:linear-gradient(135deg,#ff0033,#990011);
   color:#fff;
@@ -140,13 +154,13 @@ h2 {
   font-weight:700;
   letter-spacing:1px;
   border-radius:40px;
-  box-shadow:0 0 25px rgba(255,0,0,.6);
+  box-shadow:0 0 30px rgba(255,0,0,.7);
   transition:.3s;
 }
 
 .cta-button:hover {
-  transform:translateY(-2px);
-  box-shadow:0 0 40px rgba(255,0,0,.9);
+  transform:translateY(-3px);
+  box-shadow:0 0 45px rgba(255,0,0,.9);
 }
 
 form input, form textarea, form button {
@@ -193,31 +207,63 @@ footer {
   </div>
 </section>
 
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade visuals designed to elevate listings and communicate scale, location, and value.</p></div>
-    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision aerial imagery for landowners and developers who need clarity and confidence.</p></div>
-    <div class="card"><h3>Construction Progress</h3><p>Reliable aerial documentation that supports oversight, reporting, and accountability.</p></div>
-    <div class="card"><h3>Inspections</h3><p>Safer, faster inspection imagery that reduces risk and delivers actionable detail.</p></div>
-    <div class="card"><h3>Event Coverage</h3><p>Cinematic aerial storytelling that captures scale, energy, and atmosphere.</p></div>
-    <div class="card"><h3>Boudoir & Creative</h3><p>Artistic, elevated imagery delivered with discretion and professionalism.</p></div>
-  </div>
+<section class="alt">
+  <h2>Operational Capabilities</h2>
+  <ul class="grid">
+    <li>FAA Part 107 Certified Operations</li>
+    <li>Mission Planning & Risk Assessment</li>
+    <li>Controlled Airspace Authorization (LAANC)</li>
+    <li>High-Resolution Photo & Video Capture</li>
+    <li>Secure Data Handling & Delivery</li>
+    <li>Safety-First Operational Standards</li>
+  </ul>
 </section>
 
 <section>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade imagery designed to elevate listings and communicate scale, location, and value.</p></div>
+    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision aerial imagery for landowners and developers who need clarity and confidence.</p></div>
+    <div class="card"><h3>Construction Progress</h3><p>Reliable aerial documentation supporting oversight, reporting, and accountability.</p></div>
+    <div class="card"><h3>Inspections</h3><p>Safer, faster inspections that reduce risk while delivering actionable detail.</p></div>
+    <div class="card"><h3>Event Coverage</h3><p>Cinematic aerial storytelling capturing scale, energy, and atmosphere.</p></div>
+    <div class="card"><h3>Boudoir & Creative</h3><p>Artistic elevated imagery delivered with discretion and professionalism.</p></div>
+  </div>
+</section>
+
+<section class="alt">
+  <h2>Who We Work With</h2>
+  <ul class="grid">
+    <li>Real Estate Professionals</li>
+    <li>Construction & Development Firms</li>
+    <li>Landowners & Ranch Managers</li>
+    <li>Marketing & Creative Teams</li>
+    <li>Event Organizers</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How It Works</h2>
+  <ol>
+    <li>Consultation & Mission Planning</li>
+    <li>Flight Authorization & Safety Review</li>
+    <li>On-Site Aerial Capture</li>
+    <li>Post-Processing & Secure Delivery</li>
+  </ol>
+</section>
+
+<section class="alt">
   <h2>Mission & Vision</h2>
   <p><strong>Mission:</strong> Deliver precision-driven aerial imagery and visual intelligence that empowers informed decisions.</p>
-  <p><strong>Vision:</strong> To be Central Texas’ most trusted drone services partner through discipline, safety, and technical excellence.</p>
+  <p><strong>Vision:</strong> To become Central Texas’ most trusted drone services partner through discipline, safety, and technical excellence.</p>
 </section>
 
 <section>
   <h2>Why Second Sight Solutions?</h2>
   <p>Second Sight Solutions is a <strong>veteran-owned business</strong> built on experience in <strong>technology and intelligence operations within the United States Marine Corps</strong>.</p>
-  <p>We approach every project with mission planning, risk assessment, and professional execution—delivering imagery that matters.</p>
+  <p>We approach every project with mission planning, risk assessment, and professional execution—delivering imagery that goes beyond visuals and into intelligence.</p>
 </section>
 
-<!-- ✅ CTA ABOVE FORM -->
 <section class="cta">
   <h2>Let’s Work Together</h2>
   <p>FAA Part 107 Certified • Central Texas</p>
@@ -238,17 +284,12 @@ footer {
   © 2026 Second Sight Solutions • Central Texas
 </footer>
 
-<!-- Google Analytics + Event Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-XXXXXXXXXX');
-
-document.querySelector('.cta-button')?.addEventListener('click',()=>{
-  gtag('event','cta_click',{event_category:'engagement'});
-});
 </script>
 
 </body>
