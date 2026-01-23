@@ -145,13 +145,27 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 @media (max-width: 768px) {
   .mobile-cta { display:block; }
 }
+
+.hero-logo {
+  max-width: 420px;          /* 🔥 Bigger, premium size */
+  width: 90%;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.75));
+}
+
+/* Slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 320px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="Second Sight Solutions Logo">
+  <img src="logo.png" alt="Second Sight Solutions Logo" class="hero-logo">
   <h1>Second Sight Solutions</h1>
   <p>Veteran-owned drone services delivering professional aerial imagery and visual intelligence across Central Texas.</p>
 </header>
