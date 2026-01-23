@@ -212,6 +212,46 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
   line-height: 1.6;
 }
 
+/* OPERATIONAL CAPABILITIES – MATRIX */
+.capability-matrix {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.capability {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  padding: 25px 30px;
+  background: linear-gradient(145deg, #0d0d0d, #050505);
+  border-left: 4px solid rgba(255, 0, 51, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+}
+
+.capability h3 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff3333;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.capability p {
+  margin: 0;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .capability {
+    grid-template-columns: 1fr;
+  }
+}
+  
 </style>
 </head>
 
@@ -241,14 +281,70 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 
 <section>
   <h2>Operational Capabilities</h2>
-  <ul class="grid">
-    <li>FAA Part 107 Certified Operations</li>
-    <li>Mission Planning & Risk Assessment</li>
-    <li>Controlled Airspace Authorization (LAANC)</li>
-    <li>High-Resolution Photo & Video Capture</li>
-    <li>Secure Data Handling</li>
-    <li>Safety-First Execution</li>
-  </ul>
+
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    Our operational approach is built on disciplined planning, regulatory compliance,
+    and precision execution. Every capability listed below supports safe,
+    reliable, and repeatable aerial operations.
+  </p>
+
+  <div class="capability-matrix">
+
+    <div class="capability">
+      <h3>FAA Part 107 Certified Operations</h3>
+      <p>
+        All flights are conducted in full compliance with FAA Part 107 regulations.
+        This ensures lawful operation, professional accountability,
+        and eligibility for commercial and controlled-airspace missions.
+      </p>
+    </div>
+
+    <div class="capability">
+      <h3>Mission Planning & Risk Assessment</h3>
+      <p>
+        Each mission is planned in advance with detailed consideration of airspace,
+        terrain, weather, obstacles, and operational risk.
+        This planning-first approach reduces uncertainty and improves outcomes.
+      </p>
+    </div>
+
+    <div class="capability">
+      <h3>Controlled Airspace Authorization (LAANC)</h3>
+      <p>
+        We obtain real-time airspace authorizations when operating near airports
+        or within controlled airspace, allowing safe and compliant flight
+        where unapproved operators cannot fly.
+      </p>
+    </div>
+
+    <div class="capability">
+      <h3>High-Resolution Photo & Video Capture</h3>
+      <p>
+        Professional-grade sensors and capture workflows are used to produce
+        sharp, detailed imagery suitable for marketing, inspection,
+        documentation, and analysis.
+      </p>
+    </div>
+
+    <div class="capability">
+      <h3>Secure Data Handling</h3>
+      <p>
+        Captured data is handled responsibly and delivered through secure,
+        organized channels. Client assets remain private, protected,
+        and accessible only to authorized parties.
+      </p>
+    </div>
+
+    <div class="capability">
+      <h3>Safety-First Execution</h3>
+      <p>
+        Safety is treated as a non-negotiable requirement.
+        Operations are conducted with situational awareness,
+        contingency planning, and respect for people, property, and airspace.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <section class="alt">
