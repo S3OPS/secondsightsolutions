@@ -6,14 +6,9 @@
 
 <title>Second Sight Solutions | Veteran-Owned Drone Services | Central Texas</title>
 
-<meta name="description" content="Veteran-owned drone services delivering professional aerial photography, inspections, construction progress, and visual intelligence across Central Texas.">
-<meta name="keywords" content="drone services Central Texas, aerial photography Texas, construction drone services, veteran owned drone business">
+<meta name="description" content="Veteran-owned drone services providing professional aerial photography, inspections, and visual intelligence across Central Texas.">
+<meta name="keywords" content="drone services Central Texas, aerial photography Texas, veteran owned drone business">
 <meta name="robots" content="index, follow">
-
-<meta property="og:title" content="Second Sight Solutions | Central Texas Drone Services">
-<meta property="og:description" content="Professional aerial imagery and visual intelligence by a veteran-owned business.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="logo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -28,6 +23,7 @@ body {
   line-height:1.6;
 }
 
+/* HEADER */
 header {
   background: radial-gradient(circle at top, #8b0000 0%, #000 65%);
   padding:120px 20px;
@@ -68,15 +64,14 @@ header p {
   font-size:1.15rem;
 }
 
+/* LAYOUT */
 section {
   max-width:1200px;
   margin:auto;
   padding:80px 20px;
 }
 
-.alt {
-  background:#050505;
-}
+.alt { background:#050505; }
 
 h2 {
   font-family:'Orbitron', sans-serif;
@@ -97,7 +92,8 @@ h2 {
   100%{opacity:.2;}
 }
 
-.services, .grid {
+/* SERVICES */
+.services {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
@@ -117,7 +113,7 @@ h2 {
   box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-/* GALLERY */
+/* ===== GALLERY FIX ===== */
 .gallery-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
@@ -139,9 +135,20 @@ h2 {
   box-shadow:0 0 40px rgba(255,0,0,.4);
 }
 
-.gallery-card img {
+/* FIXED IMAGE SIZE */
+.gallery-image {
+  position:relative;
   width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
   border-radius:10px;
+}
+
+.gallery-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
   cursor:pointer;
 }
 
@@ -156,6 +163,7 @@ h2 {
   color:#ccc;
 }
 
+/* CTA */
 .cta {
   background:linear-gradient(135deg,#8b0000,#000);
   text-align:center;
@@ -181,6 +189,7 @@ h2 {
   box-shadow:0 0 45px rgba(255,0,0,.9);
 }
 
+/* FORM */
 form input, form textarea, form button {
   width:100%;
   background:#050505;
@@ -197,6 +206,7 @@ form button {
   cursor:pointer;
 }
 
+/* FOOTER */
 footer {
   background:#000;
   color:#777;
@@ -236,52 +246,33 @@ footer {
 <section>
   <div class="divider"></div>
   <h2>Our Work</h2>
-  <p>Precision aerial imagery tailored to real-world applications.</p>
 
   <div class="gallery-grid">
 
     <div class="gallery-card">
-      <img src="image1.jpg" alt="Construction drone photography Central Texas" onclick="openLightbox(this)">
+      <div class="gallery-image">
+        <img src="image1.jpg" alt="Construction drone photography Central Texas" onclick="openLightbox(this)">
+      </div>
       <h3>Construction & Infrastructure</h3>
       <p>Progress tracking, oversight, and reporting from above.</p>
     </div>
 
     <div class="gallery-card">
-      <img src="image2.jpg" alt="Real estate drone photography Central Texas" onclick="openLightbox(this)">
+      <div class="gallery-image">
+        <img src="image2.jpg" alt="Real estate drone photography Central Texas" onclick="openLightbox(this)">
+      </div>
       <h3>Real Estate & Property</h3>
       <p>High-impact visuals that showcase layout and location.</p>
     </div>
 
     <div class="gallery-card">
-      <img src="image3.jpg" alt="Land and ranch drone imagery Central Texas" onclick="openLightbox(this)">
+      <div class="gallery-image">
+        <img src="image3.jpg" alt="Land and ranch drone imagery Central Texas" onclick="openLightbox(this)">
+      </div>
       <h3>Land & Ranch</h3>
       <p>Wide-area imagery supporting land management and marketing.</p>
     </div>
 
-  </div>
-</section>
-
-<section class="alt">
-  <h2>Operational Capabilities</h2>
-  <ul class="grid">
-    <li>FAA Part 107 Certified Operations</li>
-    <li>Mission Planning & Risk Assessment</li>
-    <li>Controlled Airspace Authorization (LAANC)</li>
-    <li>High-Resolution Photo & Video Capture</li>
-    <li>Secure Data Handling & Delivery</li>
-    <li>Safety-First Operational Standards</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Real Estate Aerials</h3><p>Professional-grade imagery designed to elevate listings.</p></div>
-    <div class="card"><h3>Land & Ranch Imaging</h3><p>Precision visuals for landowners and developers.</p></div>
-    <div class="card"><h3>Construction Progress</h3><p>Reliable documentation for oversight and accountability.</p></div>
-    <div class="card"><h3>Inspections</h3><p>Safer, faster inspections delivering actionable detail.</p></div>
-    <div class="card"><h3>Event Coverage</h3><p>Cinematic storytelling from above.</p></div>
-    <div class="card"><h3>Boudoir & Creative</h3><p>Artistic elevated imagery delivered professionally.</p></div>
   </div>
 </section>
 
@@ -317,14 +308,6 @@ function openLightbox(img) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
 </script>
 
 </body>
