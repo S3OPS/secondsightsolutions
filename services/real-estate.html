@@ -1,163 +1,179 @@
+<!-- services/real-estate.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Real Estate Drone Photography | Central Texas | Second Sight Solutions</title>
+  <title>Real Estate Drone Services | Second Sight Solutions | Central Texas</title>
+  <meta name="description" content="Real estate drone services in Central Texas. Aerial photos and 4K video for listings, land, and commercial properties by Second Sight Solutions — veteran-owned, FAA Part 107." />
+  <meta name="robots" content="index, follow" />
 
-<meta name="description" content="Professional real estate drone photography in Central Texas. Veteran-owned, FAA Part 107 certified aerial imagery that helps properties stand out and sell faster.">
-<meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
 
-<!-- SERVICE SCHEMA -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Real Estate Drone Photography",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Second Sight Solutions"
-  },
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Central Texas"
-  },
-  "description": "Professional aerial photography and video for residential, commercial, and land real estate listings."
-}
-</script>
+    header{
+      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+      padding:22px 18px;
+      position:sticky; top:0; z-index:999;
+      border-bottom:1px solid rgba(255,0,0,.18);
+      backdrop-filter:saturate(150%) blur(8px);
+    }
+    .nav-wrap{ max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
+    .brand{ text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:2px; }
+    .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
+    .brand span{ color:#ffb3b3;font-size:.85rem; }
 
-<style>
-body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#0a0a0a;
-  color:#e6e6e6;
-  line-height:1.6;
-}
+    nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    nav a{
+      color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
+      border:1px solid rgba(255,0,0,.18);
+      background:linear-gradient(145deg,#111,#050505);
+      transition:.25s;font-weight:600;
+    }
+    nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
 
-header {
-  background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
-  padding:100px 20px;
-  text-align:center;
-}
+    main{ max-width:1100px;margin:0 auto;padding:50px 20px; }
+    .breadcrumbs{ font-size:.85rem;color:#aaa;margin:0 0 18px; }
+    .breadcrumbs a{ color:#ffb3b3;text-decoration:none; }
+    .breadcrumbs a:hover{ text-decoration:underline; }
 
-h1, h2 {
-  font-family:'Orbitron',sans-serif;
-  color:#ff3333;
-  text-align:center;
-}
+    h1{
+      font-family:'Orbitron',sans-serif;font-size:2.4rem;margin:0 0 10px;letter-spacing:1px;
+      text-shadow:0 0 18px rgba(255,0,0,.35);
+    }
+    .lead{ max-width:80ch;color:#ccc;margin:0 0 22px; }
 
-h1 { font-size:3rem; }
-h2 { font-size:2.4rem; margin-bottom:40px; }
+    .cta-row{ display:flex;gap:12px;flex-wrap:wrap;margin-top:18px; }
+    .btn{ display:inline-block;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:800;transition:.25s; }
+    .btn.primary{ background:linear-gradient(135deg,#ff0033,#990011);color:#fff;box-shadow:0 0 30px rgba(255,0,0,.6); }
+    .btn.primary:hover{ transform:translateY(-2px); }
+    .btn.secondary{ background:transparent;color:#e6e6e6;border:1px solid rgba(255,0,0,.25); }
+    .btn.secondary:hover{ box-shadow:0 0 20px rgba(255,0,0,.2); }
 
-section {
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
-}
+    .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:26px 0; }
+    .card{
+      background:linear-gradient(145deg,#111,#050505);
+      border:1px solid rgba(255,0,0,.25);
+      padding:26px;border-radius:14px;
+      box-shadow:0 0 25px rgba(255,0,0,.12);
+      transition:.3s;
+    }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 0 40px rgba(255,0,0,.28); }
 
-.hero-text {
-  max-width:760px;
-  margin:30px auto;
-  color:#ccc;
-  text-align:center;
-}
+    .badge{
+      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,0,0,.25);color:#ffb3b3;margin-bottom:10px;
+    }
 
-.features {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
+    h2{ font-family:'Orbitron',sans-serif;color:#ff3333;margin:0 0 12px;font-size:1.25rem;letter-spacing:.5px; }
+    p{ margin:0;color:#ccc; }
+    ul{ margin:12px 0 0;padding-left:18px;color:#bbb; }
 
-.card {
-  background:#050505;
-  border:1px solid rgba(255,0,0,.25);
-  padding:30px;
-  border-radius:14px;
-}
+    footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
 
-.cta {
-  background:#000;
-  text-align:center;
-  padding:100px 20px;
-}
+    @media (max-width:520px){
+      h1{ font-size:2rem; }
+      header{ padding:20px 14px; }
+    }
+  </style>
 
-.cta a {
-  display:inline-block;
-  background:linear-gradient(135deg,#ff0033,#990011);
-  color:#fff;
-  padding:18px 40px;
-  border-radius:40px;
-  font-weight:700;
-  text-decoration:none;
-}
-
-footer {
-  background:#000;
-  color:#777;
-  text-align:center;
-  padding:25px;
-  font-size:.85rem;
-}
-</style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Real Estate Drone Services",
+    "areaServed":{"@type":"AdministrativeArea","name":"Central Texas"},
+    "provider":{"@type":"LocalBusiness","name":"Second Sight Solutions"},
+    "serviceType":"Aerial photography and 4K video for real estate listings and properties"
+  }
+  </script>
 </head>
 
 <body>
-
 <header>
-  <h1>Real Estate Drone Photography</h1>
-  <p class="hero-text">
-    Professional aerial imagery that showcases property layout, location, and scale —
-    helping listings stand out and attract serious buyers.
-  </p>
+  <div class="nav-wrap">
+    <a class="brand" href="../index.html">
+      <strong>Second Sight Solutions</strong>
+      <span>Veteran-Owned Drone Services • Central Texas</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#about">Why Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<section>
-  <h2>What This Service Solves</h2>
-  <p class="hero-text">
-    Ground photos can’t show proximity, acreage, or surrounding features.
-    Drone imagery gives buyers context — and context sells.
-  </p>
-</section>
+<main>
+  <div class="breadcrumbs">
+    <a href="../index.html">Home</a> → <a href="../index.html#services">Services</a> → Real Estate
+  </div>
 
-<section>
-  <h2>What You Receive</h2>
-  <div class="features">
+  <h1>Real Estate Drone Services in Central Texas</h1>
+  <p class="lead">
+    Make listings stand out with high-impact aerial photos and smooth 4K video.
+    Perfect for residential, commercial, and land listings where location, layout, and scale matter.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn primary" href="../contact.html">Request a Quote</a>
+    <a class="btn secondary" href="../index.html#services">View All Services</a>
+  </div>
+
+  <div class="grid">
     <div class="card">
-      <h3>High-Resolution Aerial Photos</h3>
-      <p>Clean, professional stills optimized for MLS, web, and marketing.</p>
+      <span class="badge">Photos</span>
+      <h2>Listing Aerial Photo Package</h2>
+      <p>Sharp, edited aerial images that show the property clearly and professionally.</p>
+      <ul>
+        <li>Front + overhead angles</li>
+        <li>Boundary / layout context</li>
+        <li>Neighborhood & nearby features (when relevant)</li>
+      </ul>
     </div>
+
     <div class="card">
-      <h3>Cinematic Video</h3>
-      <p>Smooth flyovers that highlight layout, access, and surroundings.</p>
+      <span class="badge">Video</span>
+      <h2>4K Aerial Video Clips</h2>
+      <p>Smooth footage that highlights the best angles and gives buyers a true sense of space.</p>
+      <ul>
+        <li>Slow cinematic passes</li>
+        <li>Reveal shots (approach to property)</li>
+        <li>Optional vertical clips for social</li>
+      </ul>
     </div>
+
     <div class="card">
-      <h3>MLS-Ready Delivery</h3>
-      <p>Files formatted for immediate use — no extra work required.</p>
+      <span class="badge">Land</span>
+      <h2>Land & Acreage Showcases</h2>
+      <p>Ideal for larger properties where access points, terrain, and boundaries matter.</p>
+      <ul>
+        <li>Access roads & entrances</li>
+        <li>Water features & tree lines</li>
+        <li>Wide-area establishing shots</li>
+      </ul>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Why Second Sight Solutions</h2>
-  <p class="hero-text">
-    Veteran-owned and FAA Part 107 certified, we approach every shoot
-    with disciplined planning, precision execution, and respect for safety and property.
-  </p>
-</section>
+  <div class="card">
+    <h2>What You’ll Receive</h2>
+    <ul>
+      <li>Edited, high-resolution images</li>
+      <li>Web-ready images for MLS / fast posting</li>
+      <li>Optional 4K video clips (or a short highlight reel)</li>
+      <li>Organized file delivery (easy to share)</li>
+    </ul>
+  </div>
+</main>
 
-<section class="cta">
-  <h2>Request a Real Estate Drone Quote</h2>
-  <a href="../contact.html">Get Started</a>
-</section>
-
-<footer>
-  © 2026 Second Sight Solutions • Central Texas
-</footer>
-
+<footer>© 2026 Second Sight Solutions • Central Texas</footer>
 </body>
 </html>
-
