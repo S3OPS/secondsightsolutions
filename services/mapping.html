@@ -1,1 +1,192 @@
+<!-- services/mapping.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Drone Mapping & Orthomosaic Services | Second Sight Solutions | Central Texas</title>
+  <meta name="description" content="Drone mapping services in Central Texas. Orthomosaic maps and site documentation by Second Sight Solutions — veteran-owned, FAA Part 107, safety-first operations." />
+  <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
+
+    header{
+      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+      padding:22px 18px;
+      position:sticky; top:0; z-index:999;
+      border-bottom:1px solid rgba(255,0,0,.18);
+      backdrop-filter:saturate(150%) blur(8px);
+    }
+    .nav-wrap{ max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
+    .brand{ text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:2px; }
+    .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
+    .brand span{ color:#ffb3b3;font-size:.85rem; }
+
+    nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    nav a{
+      color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
+      border:1px solid rgba(255,0,0,.18);
+      background:linear-gradient(145deg,#111,#050505);
+      transition:.25s;font-weight:600;
+    }
+    nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
+
+    main{ max-width:1100px;margin:0 auto;padding:50px 20px; }
+    .breadcrumbs{ font-size:.85rem;color:#aaa;margin:0 0 18px; }
+    .breadcrumbs a{ color:#ffb3b3;text-decoration:none; }
+    .breadcrumbs a:hover{ text-decoration:underline; }
+
+    h1{
+      font-family:'Orbitron',sans-serif;font-size:2.4rem;margin:0 0 10px;letter-spacing:1px;
+      text-shadow:0 0 18px rgba(255,0,0,.35);
+    }
+    .lead{ max-width:80ch;color:#ccc;margin:0 0 22px; }
+
+    .cta-row{ display:flex;gap:12px;flex-wrap:wrap;margin-top:18px; }
+    .btn{ display:inline-block;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:800;transition:.25s; }
+    .btn.primary{ background:linear-gradient(135deg,#ff0033,#990011);color:#fff;box-shadow:0 0 30px rgba(255,0,0,.6); }
+    .btn.primary:hover{ transform:translateY(-2px); }
+    .btn.secondary{ background:transparent;color:#e6e6e6;border:1px solid rgba(255,0,0,.25); }
+    .btn.secondary:hover{ box-shadow:0 0 20px rgba(255,0,0,.2); }
+
+    .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:26px 0; }
+    .card{
+      background:linear-gradient(145deg,#111,#050505);
+      border:1px solid rgba(255,0,0,.25);
+      padding:26px;border-radius:14px;
+      box-shadow:0 0 25px rgba(255,0,0,.12);
+      transition:.3s;
+    }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 0 40px rgba(255,0,0,.28); }
+
+    .badge{
+      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,0,0,.25);color:#ffb3b3;margin-bottom:10px;
+    }
+
+    h2{ font-family:'Orbitron',sans-serif;color:#ff3333;margin:0 0 12px;font-size:1.25rem;letter-spacing:.5px; }
+    p{ margin:0;color:#ccc; }
+    ul{ margin:12px 0 0;padding-left:18px;color:#bbb; }
+
+    .note{
+      margin-top:18px;
+      color:#aaa;
+      font-size:.95rem;
+      line-height:1.7;
+    }
+
+    footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
+
+    @media (max-width:520px){
+      h1{ font-size:2rem; }
+      header{ padding:20px 14px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Drone Mapping & Orthomosaic Services",
+    "areaServed":{"@type":"AdministrativeArea","name":"Central Texas"},
+    "provider":{"@type":"LocalBusiness","name":"Second Sight Solutions"},
+    "serviceType":"Orthomosaic mapping and site documentation"
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="../index.html">
+      <strong>Second Sight Solutions</strong>
+      <span>Veteran-Owned Drone Services • Central Texas</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#about">Why Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumbs">
+    <a href="../index.html">Home</a> → <a href="../index.html#services">Services</a> → Mapping
+  </div>
+
+  <h1>Drone Mapping & Orthomosaic Services in Central Texas</h1>
+  <p class="lead">
+    When you need a clean, top-down view of a site, mapping deliverables give you a reliable visual reference
+    for planning, documentation, and communication.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn primary" href="../contact.html">Request a Quote</a>
+    <a class="btn secondary" href="../index.html#services">View All Services</a>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="badge">Orthomosaic</span>
+      <h2>Site Overhead Maps</h2>
+      <p>Stitched, top-down imagery that provides a clear view of the entire property or job site.</p>
+      <ul>
+        <li>High detail coverage</li>
+        <li>Great for progress tracking and planning</li>
+        <li>Easy to share with stakeholders</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="badge">Documentation</span>
+      <h2>Before / During / After Records</h2>
+      <p>Repeatable capture supports consistent documentation across timelines.</p>
+      <ul>
+        <li>Construction and development tracking</li>
+        <li>Land improvement documentation</li>
+        <li>Organized deliverables by date</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="badge">Planning</span>
+      <h2>Site Visualization Support</h2>
+      <p>Maps provide shared clarity for teams planning access, staging, and layout.</p>
+      <ul>
+        <li>Top-down context for decisions</li>
+        <li>Clear view of site features</li>
+        <li>Supports coordination and communication</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What You’ll Receive</h2>
+    <ul>
+      <li>Orthomosaic / top-down stitched map image (where applicable)</li>
+      <li>High-resolution source images (if requested)</li>
+      <li>Organized delivery in labeled folders</li>
+      <li>Web-ready versions for sharing</li>
+    </ul>
+
+    <p class="note">
+      <strong>Note:</strong> Deliverables and accuracy depend on project scope, site conditions, and requested outputs.
+      If you need survey-grade results, tell us up front so we can plan appropriately.
+    </p>
+  </div>
+</main>
+
+<footer>© 2026 Second Sight Solutions • Central Texas</footer>
+</body>
+</html>
 
