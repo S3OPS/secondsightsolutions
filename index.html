@@ -150,8 +150,10 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 }
 
 /* Show only on mobile */
-@media (max-width: 768px) {
-  .mobile-cta { display:block; }
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 320px;
+  }
 }
 
 .hero-logo {
@@ -278,9 +280,12 @@ footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85
 <section>
   <h2>Our Work</h2>
   <div class="gallery-grid">
-    <div class="card"><div class="gallery-image"><img src="image1.jpg" onclick="openLightbox(this)"></div><h3>Construction</h3></div>
-    <div class="card"><div class="gallery-image"><img src="image2.jpg" onclick="openLightbox(this)"></div><h3>Real Estate</h3></div>
-    <div class="card"><div class="gallery-image"><img src="image3.jpg" onclick="openLightbox(this)"></div><h3>Land & Ranch</h3></div>
+    <div class="card"><div class="gallery-image"><img src="image1.jpg"
+     alt="Construction site drone photography in Central Texas"
+     onclick="openLightbox(this)">
+</div><h3>Construction</h3></div>
+    <div class="card"><div class="gallery-image"><img src="image2.jpg" alt="Areial shot of resiental area" onclick="openLightbox(this)"></div><h3>Real Estate</h3></div>
+    <div class="card"><div class="gallery-image"><img src="image3.jpg" alt="Complete areial footage in high resolution of ranches" onclick="openLightbox(this)"></div><h3>Land & Ranch</h3></div>
   </div>
 </section>
 
