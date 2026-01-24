@@ -1,159 +1,177 @@
-<!doctype html>
+<!-- services/construction.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Construction Drone Services in Central Texas | Second Sight Solutions</title>
-  <meta name="description" content="Veteran-owned construction drone services in Central Texas. Aerial progress photos, site overviews, and marketing imagery for builders and contractors." />
+  <title>Construction Drone Services | Second Sight Solutions | Central Texas</title>
+  <meta name="description" content="Construction drone services in Central Texas. Progress documentation, site overviews, and marketing imagery by Second Sight Solutions — veteran-owned, FAA Part 107." />
+  <meta name="robots" content="index, follow" />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Basic social sharing -->
-  <meta property="og:title" content="Construction Drone Services | Second Sight Solutions" />
-  <meta property="og:description" content="Aerial construction progress photos, site documentation, and marketing visuals across Central Texas." />
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
+
+    header{
+      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+      padding:22px 18px;
+      position:sticky; top:0; z-index:999;
+      border-bottom:1px solid rgba(255,0,0,.18);
+      backdrop-filter:saturate(150%) blur(8px);
+    }
+    .nav-wrap{ max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
+    .brand{ text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:2px; }
+    .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
+    .brand span{ color:#ffb3b3;font-size:.85rem; }
+
+    nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    nav a{
+      color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
+      border:1px solid rgba(255,0,0,.18);
+      background:linear-gradient(145deg,#111,#050505);
+      transition:.25s;font-weight:600;
+    }
+    nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
+
+    main{ max-width:1100px;margin:0 auto;padding:50px 20px; }
+    .breadcrumbs{ font-size:.85rem;color:#aaa;margin:0 0 18px; }
+    .breadcrumbs a{ color:#ffb3b3;text-decoration:none; }
+    .breadcrumbs a:hover{ text-decoration:underline; }
+
+    h1{
+      font-family:'Orbitron',sans-serif;font-size:2.4rem;margin:0 0 10px;letter-spacing:1px;
+      text-shadow:0 0 18px rgba(255,0,0,.35);
+    }
+    .lead{ max-width:80ch;color:#ccc;margin:0 0 22px; }
+
+    .cta-row{ display:flex;gap:12px;flex-wrap:wrap;margin-top:18px; }
+    .btn{ display:inline-block;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:800;transition:.25s; }
+    .btn.primary{ background:linear-gradient(135deg,#ff0033,#990011);color:#fff;box-shadow:0 0 30px rgba(255,0,0,.6); }
+    .btn.primary:hover{ transform:translateY(-2px); }
+    .btn.secondary{ background:transparent;color:#e6e6e6;border:1px solid rgba(255,0,0,.25); }
+    .btn.secondary:hover{ box-shadow:0 0 20px rgba(255,0,0,.2); }
+
+    .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:26px 0; }
+    .card{
+      background:linear-gradient(145deg,#111,#050505);
+      border:1px solid rgba(255,0,0,.25);
+      padding:26px;border-radius:14px;
+      box-shadow:0 0 25px rgba(255,0,0,.12);
+      transition:.3s;
+    }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 0 40px rgba(255,0,0,.28); }
+    .badge{
+      display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,0,0,.25);color:#ffb3b3;margin-bottom:10px;
+    }
+    h2{ font-family:'Orbitron',sans-serif;color:#ff3333;margin:0 0 12px;font-size:1.25rem;letter-spacing:.5px; }
+    p{ margin:0;color:#ccc; }
+    ul{ margin:12px 0 0;padding-left:18px;color:#bbb; }
+
+    footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
+
+    @media (max-width:520px){
+      h1{ font-size:2rem; }
+      header{ padding:20px 14px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Construction Drone Services",
+    "areaServed":{"@type":"AdministrativeArea","name":"Central Texas"},
+    "provider":{"@type":"LocalBusiness","name":"Second Sight Solutions"},
+    "serviceType":"Construction progress documentation, site overviews, and marketing imagery"
+  }
+  </script>
 </head>
 
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="../index.html">
-        <strong>Second Sight Solutions</strong>
-        <span>Veteran-Owned Drone Services • Central Texas</span>
-      </a>
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="../index.html">
+      <strong>Second Sight Solutions</strong>
+      <span>Veteran-Owned Drone Services • Central Texas</span>
+    </a>
 
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#services">Services</a></li>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#about">Why Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumbs">
+    <a href="../index.html">Home</a> → <a href="../index.html#services">Services</a> → Construction
+  </div>
+
+  <h1>Construction Drone Services in Central Texas</h1>
+  <p class="lead">
+    Reliable aerial documentation for contractors and builders — progress photos, repeatable viewpoints,
+    and deliverables that help teams communicate clearly and market the job.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn primary" href="../contact.html">Request a Quote</a>
+    <a class="btn secondary" href="../index.html#services">View All Services</a>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="badge">Progress</span>
+      <h2>Progress Photo Sets</h2>
+      <p>Consistent angles and scheduled updates to track milestones week-to-week.</p>
+      <ul>
+        <li>Repeatable flight paths</li>
+        <li>Organized delivery by date</li>
+        <li>Optional annotations</li>
+      </ul>
     </div>
-  </header>
 
-  <main>
-    <section class="container hero">
-      <div class="breadcrumbs">
-        <a href="../index.html">Home</a> → <a href="../index.html#services">Services</a> → Construction
-      </div>
-
-      <h1>Construction Drone Services in Central Texas</h1>
-      <p>
-        Reliable aerial documentation for contractors and builders—progress photos, consistent viewpoints,
-        and clear deliverables that help teams communicate and market the job.
-      </p>
-
-      <div class="cta">
-        <a class="button" href="../index.html#contact">Request a Quote</a>
-        <a class="button secondary" href="../index.html#services">View All Services</a>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="grid">
-        <div class="card">
-          <span class="badge">Progress</span>
-          <h2>Progress Photo Sets</h2>
-          <p>Repeatable flight paths and angles to track milestones weekly or monthly.</p>
-          <ul class="clean">
-            <li>Consistent viewpoints</li>
-            <li>Organized folders by date</li>
-            <li>Optional annotated highlights</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="badge">Documentation</span>
-          <h2>Site Overviews</h2>
-          <p>High-level visuals for stakeholders, reporting, and internal updates.</p>
-          <ul class="clean">
-            <li>Wide establishing shots</li>
-            <li>Access & staging areas</li>
-            <li>Before/after comparisons</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="badge">Marketing</span>
-          <h2>Project Showcases</h2>
-          <p>Photos and video clips for websites, proposals, and social media.</p>
-          <ul class="clean">
-            <li>Short promo clips</li>
-            <li>Hero images</li>
-            <li>Brand-friendly framing</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <h2 class="section-title">What You’ll Receive</h2>
-      <div class="grid">
-        <div class="card">
-          <h2>Deliverables</h2>
-          <ul class="clean">
-            <li>Edited high-resolution images</li>
-            <li>Web-ready versions (smaller files)</li>
-            <li>Optional video clips or short reel</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Turnaround</h2>
-          <ul class="clean">
-            <li>Most jobs delivered in 24–72 hours</li>
-            <li>Rush options available when needed</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Coverage Area</h2>
-          <ul class="clean">
-            <li>Central Texas (travel available)</li>
-            <li>Rural properties welcomed</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="card">
-        <h2>Get a Quote</h2>
-        <p class="small">
-          Tell us your location, property/site size, and what you need (photos, video, progress schedule).
-          We’ll respond with a simple quote and timeline.
-        </p>
-        <div class="cta">
-          <a class="button" href="../index.html#contact">Contact Second Sight Solutions</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- LocalBusiness + Service structured data (basic, safe) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Construction Drone Services",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Second Sight Solutions",
-        "areaServed": "Central Texas",
-        "description": "Veteran-owned drone services company serving Central Texas."
-      },
-      "areaServed": "Central Texas",
-      "serviceType": "Aerial construction progress photography and documentation"
-    }
-    </script>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><strong>Second Sight Solutions</strong> — Veteran-Owned Drone Services in Central Texas</p>
-      <p class="small">FAA Part 107 • Insured • Safety-first operations</p>
-      <p class="small">© <script>document.write(new Date().getFullYear())</script> Second Sight Solutions</p>
+    <div class="card">
+      <span class="badge">Documentation</span>
+      <h2>Site Overviews</h2>
+      <p>High-level visuals for stakeholders, reporting, and internal updates.</p>
+      <ul>
+        <li>Wide establishing shots</li>
+        <li>Staging and access visibility</li>
+        <li>Before/after comparisons</li>
+      </ul>
     </div>
-  </footer>
+
+    <div class="card">
+      <span class="badge">Marketing</span>
+      <h2>Project Showcases</h2>
+      <p>Polished aerial photos and video clips for proposals, websites, and social media.</p>
+      <ul>
+        <li>Hero images</li>
+        <li>Short promo clips</li>
+        <li>Brand-friendly framing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2What You’ll Receive</h2>
+    <ul>
+      <li>Edited high-resolution images</li>
+      <li>Web-ready versions for fast posting</li>
+      <li>Optional 4K video clips</li>
+      <li>Secure, organized delivery</li>
+    </ul>
+  </div>
+</main>
+
+<footer>© 2026 Second Sight Solutions • Central Texas</footer>
 </body>
 </html>
-
