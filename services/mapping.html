@@ -82,9 +82,135 @@
 
     footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
 
+    /* MAPPING ANIMATION */
+    .service-hero {
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -30px 0 30px;
+      overflow: hidden;
+    }
+    
+    .mapping-scene {
+      position: relative;
+      width: 300px;
+      height: 180px;
+    }
+    
+    .map-grid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 140px;
+      border: 2px solid #ff0033;
+      background: linear-gradient(90deg, transparent 49%, rgba(255, 0, 51, 0.2) 49%, rgba(255, 0, 51, 0.2) 51%, transparent 51%),
+                  linear-gradient(0deg, transparent 49%, rgba(255, 0, 51, 0.2) 49%, rgba(255, 0, 51, 0.2) 51%, transparent 51%);
+      background-size: 40px 40px;
+      animation: gridScan 3s linear infinite;
+    }
+    
+    @keyframes gridScan {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; box-shadow: 0 0 20px rgba(255, 0, 51, 0.5); }
+      100% { opacity: 0.3; }
+    }
+    
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, #ff0033, transparent);
+      animation: scanMove 2s linear infinite;
+      box-shadow: 0 0 10px #ff0033;
+    }
+    
+    @keyframes scanMove {
+      0% { left: 0; }
+      100% { left: 100%; }
+    }
+    
+    .map-marker {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #ff0033;
+      border-radius: 50%;
+      animation: markerPulse 1.5s ease-in-out infinite;
+    }
+    
+    .map-marker:nth-child(2) { top: 30%; left: 25%; animation-delay: 0s; }
+    .map-marker:nth-child(3) { top: 50%; left: 60%; animation-delay: 0.3s; }
+    .map-marker:nth-child(4) { top: 70%; left: 40%; animation-delay: 0.6s; }
+    
+    .map-marker::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: markerRipple 1.5s ease-out infinite;
+    }
+    
+    @keyframes markerPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+    
+    @keyframes markerRipple {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+    }
+    
+    .drone-path {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 25px;
+      height: 25px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: dronePath 4s ease-in-out infinite;
+    }
+    
+    .drone-path::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: #ff0033;
+      border-radius: 50%;
+    }
+    
+    @keyframes dronePath {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(150px, 20px); }
+      50% { transform: translate(160px, 100px); }
+      75% { transform: translate(50px, 110px); }
+    }
+
     @media (max-width:520px){
       h1{ font-size:2rem; }
       header{ padding:20px 14px; }
+      .service-hero { min-height: 150px; margin: -20px 0 20px; }
+      .mapping-scene { transform: scale(0.8); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .map-grid, .scan-line, .map-marker, .map-marker::after, .drone-path { animation: none; }
+      .map-grid { opacity: 0.7; }
     }
   </style>
 
@@ -120,6 +246,18 @@
 </header>
 
 <main>
+  <div class="service-hero">
+    <div class="mapping-scene">
+      <div class="map-grid">
+        <div class="scan-line"></div>
+      </div>
+      <div class="map-marker"></div>
+      <div class="map-marker"></div>
+      <div class="map-marker"></div>
+      <div class="drone-path"></div>
+    </div>
+  </div>
+  
   <h1>Drone Mapping & Orthomosaic Services in Central Texas</h1>
   <p class="lead">
     When you need a clean, top-down view of a site, mapping deliverables give you a reliable visual reference
