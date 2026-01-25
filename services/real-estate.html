@@ -107,6 +107,7 @@
       height: 80px;
       background: linear-gradient(135deg, #555, #777);
       border: 2px solid #ff0033;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
     
     .house::before {
@@ -120,6 +121,7 @@
       border-left: 60px solid transparent;
       border-right: 60px solid transparent;
       border-bottom: 40px solid #ff0033;
+      filter: drop-shadow(0 -2px 5px rgba(255, 0, 51, 0.3));
     }
     
     .house::after {
@@ -132,6 +134,7 @@
       height: 35px;
       background: #990011;
       border: 2px solid #ff0033;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     }
     
     .window {
@@ -146,9 +149,26 @@
     .window:nth-child(1) { top: 20px; left: 15px; }
     .window:nth-child(2) { top: 20px; right: 15px; animation-delay: 0.5s; }
     
+    .window::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      border: 1px solid rgba(255, 179, 179, 0.3);
+      animation: windowGlow 2s ease-in-out infinite;
+    }
+    
     @keyframes lightFlicker {
       0%, 100% { opacity: 0.3; box-shadow: 0 0 5px rgba(255, 179, 179, 0.3); }
-      50% { opacity: 1; box-shadow: 0 0 15px rgba(255, 179, 179, 0.8); }
+      50% { opacity: 1; box-shadow: 0 0 15px rgba(255, 179, 179, 0.8), 0 0 25px rgba(255, 179, 179, 0.4); }
+    }
+    
+    @keyframes windowGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
     }
     
     .key-icon {
@@ -160,6 +180,7 @@
       background: #ff0033;
       border-radius: 15px 0 0 15px;
       animation: keyFloat 3s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
     }
     
     .key-icon::before {
@@ -173,6 +194,7 @@
       border: 3px solid #ff0033;
       border-radius: 50%;
       background: transparent;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
     }
     
     .key-icon::after {
@@ -183,6 +205,7 @@
       width: 2px;
       height: 8px;
       background: #ff0033;
+      box-shadow: 0 0 6px rgba(255, 0, 51, 0.6);
     }
     
     @keyframes keyFloat {
@@ -199,6 +222,7 @@
       border: 2px solid #ff0033;
       border-radius: 50%;
       animation: scanCircle 4s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.7));
     }
     
     .drone-scan::before {
@@ -214,10 +238,126 @@
       box-shadow: 0 0 10px #ff0033;
     }
     
+    .drone-scan::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 8px;
+      height: 8px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: propSpin 0.3s linear infinite;
+    }
+    
     @keyframes scanCircle {
       0% { transform: scale(0.8); opacity: 0.3; }
       50% { transform: scale(1.2); opacity: 1; }
       100% { transform: scale(0.8); opacity: 0.3; }
+    }
+    
+    @keyframes propSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .property-outline {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 110px;
+      border: 2px dashed rgba(255, 0, 51, 0.3);
+      border-radius: 4px;
+      animation: outlinePulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes outlinePulse {
+      0%, 100% { opacity: 0.3; border-color: rgba(255, 0, 51, 0.3); }
+      50% { opacity: 0.8; border-color: rgba(255, 0, 51, 0.6); }
+    }
+    
+    .camera-view {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 40px;
+      height: 30px;
+      border: 2px solid rgba(255, 0, 51, 0.5);
+      border-radius: 4px;
+      animation: viewfinderScan 4s ease-in-out infinite;
+    }
+    
+    .camera-view::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff0033, transparent);
+      animation: scanLine 2s linear infinite;
+    }
+    
+    .camera-view::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      border: 1px solid #ff0033;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 0, 51, 0.6);
+    }
+    
+    @keyframes viewfinderScan {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; box-shadow: 0 0 15px rgba(255, 0, 51, 0.4); }
+    }
+    
+    @keyframes scanLine {
+      0% { top: 2px; }
+      100% { top: calc(100% - 4px); }
+    }
+    
+    .sold-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 4px 8px;
+      background: rgba(255, 0, 51, 0.2);
+      border: 2px solid #ff0033;
+      color: #ff0033;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      transform: rotate(15deg);
+      animation: tagPulse 2.5s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.4);
+    }
+    
+    @keyframes tagPulse {
+      0%, 100% { opacity: 0.6; transform: rotate(15deg) scale(0.95); }
+      50% { opacity: 1; transform: rotate(15deg) scale(1.05); }
+    }
+    
+    .listing-photo-flash {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 0, 51, 0.3), transparent);
+      opacity: 0;
+      animation: photoFlash 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes photoFlash {
+      0%, 95%, 100% { opacity: 0; }
+      96%, 97% { opacity: 0.4; }
+    }
     }
 
     @media (max-width:520px){
@@ -228,8 +368,12 @@
     }
     
     @media (prefers-reduced-motion: reduce) {
-      .window, .key-icon, .drone-scan { animation: none; }
+      .window, .window::before, .key-icon, .key-icon::before, .key-icon::after, .drone-scan, .drone-scan::after, .property-outline, .camera-view, .camera-view::before, .sold-tag, .listing-photo-flash { animation: none; }
       .window { opacity: 0.7; }
+      .property-outline { opacity: 0.5; }
+      .camera-view { opacity: 0.6; }
+      .sold-tag { opacity: 0.8; transform: rotate(15deg); }
+      .listing-photo-flash { opacity: 0; }
     }
   </style>
 
@@ -273,6 +417,10 @@
       </div>
       <div class="key-icon"></div>
       <div class="drone-scan"></div>
+      <div class="property-outline"></div>
+      <div class="camera-view"></div>
+      <div class="sold-tag">FOR SALE</div>
+      <div class="listing-photo-flash"></div>
     </div>
   </div>
   

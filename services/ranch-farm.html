@@ -101,6 +101,7 @@
       height: 100px;
       border: 2px solid #ff0033;
       background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+      box-shadow: inset 0 0 20px rgba(255, 0, 51, 0.1);
     }
     
     .fence-line {
@@ -108,6 +109,7 @@
       width: 100%;
       height: 2px;
       background: repeating-linear-gradient(90deg, #ff0033 0px, #ff0033 10px, transparent 10px, transparent 20px);
+      box-shadow: 0 0 6px rgba(255, 0, 51, 0.4);
     }
     
     .fence-line:nth-child(1) { top: 25%; }
@@ -119,6 +121,7 @@
       width: 3px;
       height: 100%;
       background: #ff0033;
+      box-shadow: 0 0 8px rgba(255, 0, 51, 0.5);
     }
     
     .fence-post:nth-child(4) { left: 0%; }
@@ -133,6 +136,7 @@
       background: #ff0033;
       border-radius: 50%;
       animation: livestockMove 8s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255, 0, 51, 0.7);
     }
     
     .livestock-dot:nth-child(8) {
@@ -153,11 +157,29 @@
       animation-delay: 4s;
     }
     
+    .livestock-dot::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150%;
+      height: 150%;
+      border: 1px solid rgba(255, 0, 51, 0.4);
+      border-radius: 50%;
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+    
     @keyframes livestockMove {
       0%, 100% { transform: translate(0, 0); opacity: 1; }
       25% { transform: translate(10px, -5px); opacity: 0.8; }
       50% { transform: translate(-5px, 5px); opacity: 1; }
       75% { transform: translate(5px, -10px); opacity: 0.8; }
+    }
+    
+    @keyframes dotPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
     }
     
     .water-source {
@@ -170,6 +192,20 @@
       border-radius: 50%;
       background: radial-gradient(circle, rgba(255, 0, 51, 0.3), transparent);
       animation: waterRipple 2s ease-out infinite;
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+    }
+    
+    .water-source::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 70%;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: waterRipple 2s ease-out infinite 0.5s;
     }
     
     @keyframes waterRipple {
@@ -184,6 +220,7 @@
       width: 25px;
       height: 25px;
       animation: surveyPath 10s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.7));
     }
     
     .survey-drone::before,
@@ -194,10 +231,11 @@
       height: 8px;
       border: 2px solid #ff0033;
       border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
     }
     
-    .survey-drone::before { top: 0; left: 0; }
-    .survey-drone::after { top: 0; right: 0; }
+    .survey-drone::before { top: 0; left: 0; animation: propRotate 0.8s linear infinite; }
+    .survey-drone::after { top: 0; right: 0; animation: propRotate 0.8s linear infinite; }
     
     @keyframes surveyPath {
       0% { transform: translate(0, 0); }
@@ -205,6 +243,11 @@
       50% { transform: translate(250px, 100px); }
       75% { transform: translate(0, 100px); }
       100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes propRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
     
     .acreage-label {
@@ -215,11 +258,61 @@
       color: #ff0033;
       font-family: 'Orbitron', sans-serif;
       animation: labelFade 3s ease-in-out infinite;
+      text-shadow: 0 0 8px rgba(255, 0, 51, 0.5);
     }
     
     @keyframes labelFade {
       0%, 100% { opacity: 0.5; }
       50% { opacity: 1; text-shadow: 0 0 10px rgba(255, 0, 51, 0.5); }
+    }
+    
+    .crop-row {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 0, 51, 0.15);
+      box-shadow: 0 0 4px rgba(255, 0, 51, 0.2);
+    }
+    
+    .crop-row:nth-child(11) { top: 35%; }
+    .crop-row:nth-child(12) { top: 55%; }
+    .crop-row:nth-child(13) { top: 68%; }
+    
+    .boundary-marker {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 0, 51, 0.8);
+      border: 1px solid #ff0033;
+      animation: markerBlink 2.5s ease-in-out infinite;
+    }
+    
+    .boundary-marker:nth-child(14) { top: 30px; left: 50px; }
+    .boundary-marker:nth-child(15) { top: 30px; right: 50px; animation-delay: 0.5s; }
+    .boundary-marker:nth-child(16) { bottom: 30px; left: 50px; animation-delay: 1s; }
+    .boundary-marker:nth-child(17) { bottom: 30px; right: 50px; animation-delay: 1.5s; }
+    
+    @keyframes markerBlink {
+      0%, 100% { opacity: 0.4; box-shadow: 0 0 4px rgba(255, 0, 51, 0.3); }
+      50% { opacity: 1; box-shadow: 0 0 12px rgba(255, 0, 51, 0.8); }
+    }
+    
+    .scan-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.6), transparent);
+      animation: scanSweep 8s linear infinite;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
+    }
+    
+    @keyframes scanSweep {
+      0% { top: 0; opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { top: 100%; opacity: 0; }
     }
 
     @media (max-width:520px){
@@ -230,8 +323,10 @@
     }
     
     @media (prefers-reduced-motion: reduce) {
-      .livestock-dot, .water-source, .survey-drone, .acreage-label { animation: none; }
+      .livestock-dot, .livestock-dot::before, .water-source, .water-source::before, .survey-drone, .survey-drone::before, .survey-drone::after, .acreage-label, .boundary-marker, .scan-overlay { animation: none; }
       .livestock-dot, .acreage-label { opacity: 1; }
+      .boundary-marker { opacity: 0.7; }
+      .scan-overlay { opacity: 0; }
     }
   </style>
 
@@ -280,10 +375,18 @@
         <div class="livestock-dot"></div>
         <div class="livestock-dot"></div>
         <div class="livestock-dot"></div>
+        <div class="crop-row"></div>
+        <div class="crop-row"></div>
+        <div class="crop-row"></div>
         <div class="water-source"></div>
       </div>
       <div class="survey-drone"></div>
       <div class="acreage-label">125 Acres</div>
+      <div class="boundary-marker"></div>
+      <div class="boundary-marker"></div>
+      <div class="boundary-marker"></div>
+      <div class="boundary-marker"></div>
+      <div class="scan-overlay"></div>
     </div>
   </div>
   
