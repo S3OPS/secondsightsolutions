@@ -26,23 +26,6 @@
       border-image-slice: 1;
       backdrop-filter: blur(12px) saturate(180%);
       box-shadow: 0 4px 30px rgba(0, 212, 255, 0.1), 0 0 20px rgba(255, 0, 51, 0.15);
-      overflow: hidden;
-    }
-    
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: navScan 4s linear infinite;
-    }
-    
-    @keyframes navScan {
-      0% { left: -100%; }
-      100% { left: 200%; }
     }
     
     .nav-wrap {
@@ -415,11 +398,6 @@
 <body>
 <header>
   <div class="nav-wrap">
-    <a class="brand" href="../index.html">
-      <strong>Second Sight Solutions</strong>
-      <span>Veteran-Owned Drone Services • Central Texas</span>
-    </a>
-
     <nav aria-label="Primary">
       <ul>
         <li><a href="../index.html">Home</a></li>
