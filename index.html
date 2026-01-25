@@ -230,7 +230,7 @@
       max-width: 1200px; 
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
       position: relative;
     }
@@ -259,6 +259,12 @@
         0%, 100% { opacity: 0.5; }
         50% { opacity: 1; }
       }
+      
+      @media (prefers-reduced-motion: reduce) {
+        .how-it-works::before {
+          animation: none;
+        }
+      }
     }
     
     .how-step {
@@ -285,6 +291,12 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .how-step {
+        animation: none;
       }
     }
     
@@ -334,7 +346,7 @@
     }
     
     .how-step:hover .how-number {
-      transform: scale(1.15) rotate(360deg);
+      transform: scale(1.15) rotate(180deg);
       box-shadow: 0 0 30px rgba(255, 0, 51, 0.8);
       color: #00d4ff;
       border-color: rgba(0, 212, 255, 0.7);
@@ -670,6 +682,12 @@
       background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.1) 30%, rgba(255, 0, 51, 0.12) 50%, rgba(0, 212, 255, 0.1) 70%, transparent 100%);
       animation: shimmer 10s ease-in-out infinite;
       z-index: 1;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .mission-vision-enhanced::before {
+        animation: none;
+      }
     }
     .mission-vision-enhanced::after {
       content: "";
