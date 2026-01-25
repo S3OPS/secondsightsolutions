@@ -1,0 +1,35 @@
+{
+  "name": "second-sight-solutions",
+  "version": "2.0.0",
+  "description": "Veteran-owned drone services website for Central Texas",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "optimize-images": "node scripts/optimize-images.js",
+    "minify": "node scripts/minify-css.js",
+    "build": "npm run optimize-images && npm run minify",
+    "lint:css": "stylelint 'assets/css/**/*.css'",
+    "lint:html": "html-validate '*.html' 'services/*.html'",
+    "validate": "npm run lint:css && npm run lint:html"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.3",
+    "html-validate": "^8.9.1",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "sharp": "^0.33.2",
+    "stylelint": "^16.2.0",
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "keywords": [
+    "drone",
+    "aerial-photography",
+    "real-estate",
+    "construction",
+    "inspections",
+    "central-texas",
+    "veteran-owned"
+  ],
+  "author": "Second Sight Solutions",
+  "license": "UNLICENSED"
+}

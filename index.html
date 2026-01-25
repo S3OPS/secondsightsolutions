@@ -25,7 +25,13 @@
   <meta name="twitter:description" content="Veteran-owned drone services for real estate, construction, inspections, mapping, ranch/farm, and events across Central Texas.">
   <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg"> <!-- optional -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/css/global.css">
 
   <!-- 🎬 VIDEO SCHEMA -->
   <script type="application/ld+json">
@@ -79,18 +85,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
+  <!-- Page-specific Styles -->
   <style>
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:'Inter',sans-serif; background:#0a0a0a; color:#e6e6e6; line-height:1.6; }
-
-    /* Improve keyboard accessibility */
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-      outline: 2px solid rgba(255,0,51,.85);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-
-    /* HEADER */
+    /* Most base styles are now in global.css. Only page-specific overrides here. */
     header {
       background:linear-gradient(180deg,#8b0000 0%,#000 100%);
       padding:60px 20px;
@@ -853,6 +850,8 @@
   <a href="contact.html">Contact</a>
 </nav>
 
+<main id="main-content" role="main">
+
 <header>
   <img src="logo.png" alt="Second Sight Solutions Logo" class="hero-logo">
 </header>
@@ -1172,6 +1171,8 @@
   <a href="contact.html" class="cta-button">Request a Quote</a>
 </section>
 
+</main>
+
 <footer>© 2026 Second Sight Solutions • Central Texas</footer>
 
 <!-- 📱 MOBILE CTA -->
@@ -1225,6 +1226,9 @@
   // Initialize scan targets on load
   window.addEventListener('load', createScanTargets);
 </script>
+
+<!-- Main JavaScript -->
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

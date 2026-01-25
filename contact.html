@@ -8,12 +8,17 @@
   <meta name="description" content="Contact Second Sight Solutions for drone services in Central Texas. Request a quote for real estate, construction progress, inspections, land & ranch imaging, ma[...]" />
   <meta name="robots" content="index, follow" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/css/global.css">
+
+  <!-- Page-specific Styles -->
   <style>
-    html { scroll-behavior:smooth; }
-    body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
-
+    /* Override header for contact page */
     header {
       background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
       padding:70px 20px;
@@ -188,6 +193,8 @@
 
 <body>
 
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
   <header>
     <h1>Contact Second Sight Solutions</h1>
     <p>Request a quote for drone services across Central Texas — real estate, construction, inspections, land & ranch, mapping, and events.</p>
@@ -203,6 +210,7 @@
     <a href="index.html#clients">Clients</a>
   </nav>
 
+  <main id="main-content">
   <section>
     <h2>Request a Quote</h2>
     <p class="helper">
@@ -212,22 +220,35 @@
 
     <div class="card">
       <!-- NOTE: This form is static unless you connect it to an email/form service. -->
-      <form action="https://formspree.io/f/mwvlqeql" method="post">
+      <form action="https://formspree.io/f/mwvlqeql" method="post" name="contact-form">
         <input type="hidden" name="_subject" value="New Quote Request — Second Sight Solutions">
-        <input type="text" name="_gotcha" style="display:none">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="tel" name="phone" placeholder="Phone (optional)">
-        <input type="text" name="location" placeholder="Job Location (City / County)" required>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        
+        <label for="name">Name <span aria-label="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
+        
+        <label for="email">Email Address <span aria-label="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="email@example.com" required aria-required="true">
+        
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567 (optional)">
+        
+        <label for="location">Job Location <span aria-label="required">*</span></label>
+        <input type="text" id="location" name="location" placeholder="City / County" required aria-required="true">
 
-        <textarea name="details" rows="6" placeholder="Tell us what you need (service type, photos/video, property size, timeline, any special requests)..." required></textarea>
+        <label for="details">Project Details <span aria-label="required">*</span></label>
+        <textarea id="details" name="details" rows="6" placeholder="Tell us what you need (service type, photos/video, property size, timeline, any special requests)..." required aria-required="true"></textarea>
 
         <button type="submit">Send Request</button>
       </form>
     </div>
   </section>
+  </main>
 
   <footer>© 2026 Second Sight Solutions • Central Texas</footer>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
