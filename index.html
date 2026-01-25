@@ -432,6 +432,61 @@
       border-top: 2px solid rgba(255, 0, 51, 0.4);
       border-bottom: 2px solid rgba(255, 0, 51, 0.4);
     }
+
+    /* Mission & Vision section enhancement */
+    .mission-vision-enhanced {
+      background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-vision-enhanced::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 51, 0.08) 50%, transparent 100%);
+      animation: shimmer 8s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(50%); }
+    }
+
+    /* Operational Capabilities section enhancement */
+    .capabilities-enhanced {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
+      border-left: 3px solid rgba(255, 0, 51, 0.3);
+      border-right: 3px solid rgba(255, 0, 51, 0.3);
+    }
+
+    /* Video section enhancement */
+    .video-section-enhanced {
+      background: linear-gradient(45deg, rgba(139, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
+      position: relative;
+    }
+    .video-section-enhanced::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 0, 51, 0.03) 2px,
+        rgba(255, 0, 51, 0.03) 4px
+      );
+      pointer-events: none;
+    }
+
+    /* What You Receive section enhancement */
+    .deliverables-enhanced {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.12) 100%);
+      border-top: 2px dashed rgba(255, 0, 51, 0.3);
+      border-bottom: 2px dashed rgba(255, 0, 51, 0.3);
+    }
+
     /* NAVIGATION BAR */
     .top-nav {
       background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
@@ -629,8 +684,13 @@
     <div>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#mission-vision">Mission</a></li>
         <li><a href="#about">Why Us</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#deliverables">Deliverables</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -649,7 +709,7 @@
   </div>
 </section>
 
-<section>
+<section id="mission-vision" class="mission-vision-enhanced">
   <h2>Our Mission & Vision</h2>
   
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1000px; margin: auto;">
@@ -695,7 +755,7 @@
   </p>
 </section>
 
-<section class="alt">
+<section id="capabilities" class="alt capabilities-enhanced">
   <h2>Operational Capabilities</h2>
 
   <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
@@ -774,7 +834,7 @@
   </div>
 </section>
 
-<section class="alt">
+<section id="work" class="alt video-section-enhanced">
   <h2>See Our Work in Action</h2>
   <div class="video-wrapper">
     <iframe
@@ -785,7 +845,7 @@
   </div>
 </section>
 
-<section class="alt">
+<section id="how-it-works" class="alt">
   <h2>How It Works</h2>
 
   <p style="max-width:720px;margin:0 auto 60px;color:#aaa;text-align:center;">
@@ -824,7 +884,7 @@
     <div class="how-step reveal">
       <div class="how-number">03</div>
       <div class="how-content">
-        <div class="how-icon">🚁</div>
+        <div class="how-icon">🛸</div>
         <h3>Aerial Data Capture</h3>
         <p class="how-timeline">On-Site • 1-2 Hours</p>
         <p>Precise, efficient flight execution to capture high-resolution imagery while minimizing disruption.</p>
@@ -852,7 +912,7 @@
   </div>
 </section>
 
-<section>
+<section id="clients">
   <h2>Who We Work With</h2>
 
   <p style="max-width:720px;margin:0 auto 60px;color:#aaa;text-align:center;">
@@ -938,7 +998,7 @@
   </div>
 </section>
 
-<section class="alt">
+<section id="deliverables" class="alt deliverables-enhanced">
   <h2>What You Receive</h2>
 
   <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
