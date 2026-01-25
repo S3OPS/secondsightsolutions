@@ -9,5 +9,5 @@ Disallow: /tmp/
 Disallow: /scripts/
 Disallow: /.git/
 
-# Sitemap location (update when you create a sitemap)
-# Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap location (update with your actual domain)
+Sitemap: https://yourdomain.com/sitemap.xml
