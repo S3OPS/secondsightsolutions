@@ -280,7 +280,7 @@
       height: 10px;
       border: 2px solid #ff0033;
       border-radius: 50%;
-      animation: rotorSpin 0.6s linear infinite;
+      animation: rotorSpin 0.4s linear infinite;
       box-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
     }
     
@@ -296,7 +296,7 @@
       height: 60px;
       border: 2px solid rgba(255, 0, 51, 0.5);
       border-radius: 50%;
-      animation: beamExpand 2s ease-out infinite;
+      animation: beamExpand 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
     }
     
     .scan-beam::before {
@@ -309,7 +309,7 @@
       height: 80%;
       border: 2px solid rgba(255, 0, 51, 0.3);
       border-radius: 50%;
-      animation: beamExpand 2s ease-out infinite 0.3s;
+      animation: beamExpand 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite 0.3s;
     }
     
     @keyframes beamExpand {
@@ -318,10 +318,15 @@
     }
     
     @keyframes inspectMove {
-      0%, 100% { transform: translate(0, 0); }
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(70px, -8px); }
       25% { transform: translate(80px, -10px); }
+      40% { transform: translate(140px, 3px); }
       50% { transform: translate(150px, 5px); }
+      70% { transform: translate(85px, 8px); }
       75% { transform: translate(80px, 10px); }
+      95% { transform: translate(10px, 2px); }
+      100% { transform: translate(0, 0); }
     }
     
     @keyframes rotorSpin {
