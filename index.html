@@ -225,78 +225,187 @@
       .mobile-cta { display:inline-block; }
     }
 
-    /* HOW IT WORKS – MISSION TIMELINE */
-    .how-it-works { max-width: 900px; margin: auto; }
-    .how-step {
+    /* HOW IT WORKS – FLOWCHART STYLE */
+    .how-it-works { 
+      max-width: 1200px; 
+      margin: auto;
       display: grid;
-      grid-template-columns: 60px 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 35px 0;
-      border-left: 2px solid rgba(255, 0, 0, 0.3);
       position: relative;
-      transition: all 0.3s ease;
     }
+    
+    /* Connection lines between steps (desktop only) */
+    @media (min-width: 900px) {
+      .how-it-works::before {
+        content: "";
+        position: absolute;
+        top: 120px;
+        left: 20%;
+        right: 20%;
+        height: 3px;
+        background: linear-gradient(90deg, 
+          rgba(255, 0, 51, 0.3) 0%, 
+          rgba(0, 212, 255, 0.4) 25%, 
+          rgba(255, 0, 51, 0.4) 50%,
+          rgba(0, 212, 255, 0.4) 75%,
+          rgba(255, 0, 51, 0.3) 100%
+        );
+        z-index: 0;
+        animation: flowPulse 3s ease-in-out infinite;
+      }
+      
+      @keyframes flowPulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+        .how-it-works::before {
+          animation: none;
+        }
+      }
+    }
+    
+    .how-step {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0, 20, 40, 0.7), rgba(10, 10, 10, 0.9));
+      border: 2px solid rgba(255, 0, 51, 0.3);
+      border-radius: 16px;
+      padding: 30px 25px;
+      transition: all 0.4s ease;
+      z-index: 1;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+    
+    .how-step:nth-child(1) { animation-delay: 0.1s; }
+    .how-step:nth-child(2) { animation-delay: 0.2s; }
+    .how-step:nth-child(3) { animation-delay: 0.3s; }
+    .how-step:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .how-step {
+        animation: none;
+      }
+    }
+    
     .how-step:hover {
-      border-left-color: rgba(255, 0, 0, 0.6);
+      transform: translateY(-10px);
+      border-color: rgba(0, 212, 255, 0.6);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(255, 0, 51, 0.2);
+      background: linear-gradient(135deg, rgba(0, 40, 80, 0.8), rgba(10, 10, 30, 0.95));
     }
-    .how-step:hover::before {
-      transform: scale(1.3);
-      box-shadow: 0 0 15px rgba(255, 0, 51, 0.8);
-    }
+    
     .how-step::before {
       content: "";
       position: absolute;
-      left: -6px;
-      top: 45px;
-      width: 10px;
-      height: 10px;
-      background: #ff0033;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(255, 0, 51, 0.5);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
+    
+    .how-step:hover::before {
+      opacity: 1;
+    }
+    
     .how-number {
+      position: absolute;
+      top: -15px;
+      left: 20px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #ff3333;
-      text-align: center;
+      background: linear-gradient(135deg, #0a0a0a, #1a0505);
+      border: 2px solid rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
       transition: all 0.3s ease;
+      z-index: 2;
     }
+    
     .how-step:hover .how-number {
-      transform: scale(1.1);
-      text-shadow: 0 0 15px rgba(255, 0, 51, 0.8);
+      transform: scale(1.15) rotate(180deg);
+      box-shadow: 0 0 30px rgba(255, 0, 51, 0.8);
+      color: #00d4ff;
+      border-color: rgba(0, 212, 255, 0.7);
     }
+    
     .how-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
+      font-size: 3rem;
+      margin: 20px 0 15px;
+      text-align: center;
       filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.3));
       transition: all 0.3s ease;
     }
+    
     .how-step:hover .how-icon {
-      transform: scale(1.15) rotate(5deg);
-      filter: drop-shadow(0 0 20px rgba(255, 0, 51, 0.6));
+      transform: scale(1.2) rotate(5deg);
+      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
     }
-    .how-content h3 { margin: 0 0 8px; color: #fff; font-size: 1.3rem; }
+    
+    .how-content h3 { 
+      margin: 0 0 8px; 
+      color: #fff; 
+      font-size: 1.3rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+    }
+    
     .how-timeline {
-      margin: 0 0 12px !important;
+      margin: 0 0 15px !important;
       color: #ff6666 !important;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       font-family: 'Orbitron', sans-serif;
       letter-spacing: 0.5px;
+      text-align: center;
+      text-transform: uppercase;
     }
-    .how-content > p  { margin: 0 0 15px; color: #ccc; line-height: 1.6; }
+    
+    .how-content > p  { 
+      margin: 0 0 15px; 
+      color: #ccc; 
+      line-height: 1.6;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    
     .how-details {
-      margin: 12px 0 0;
+      margin: 15px 0 0;
       padding-left: 20px;
       color: #aaa;
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      text-align: left;
     }
+    
     .how-details li {
       margin-bottom: 8px;
       position: relative;
     }
+    
     .how-details li::marker {
       color: #ff3333;
     }
@@ -556,9 +665,12 @@
 
     /* Mission & Vision section enhancement */
     .mission-vision-enhanced {
-      background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.05) 100%);
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(139, 0, 0, 0.15) 100%);
       position: relative;
       overflow: hidden;
+      border-top: 2px solid rgba(255, 0, 51, 0.5);
+      border-bottom: 2px solid rgba(255, 0, 51, 0.5);
+      box-shadow: 0 10px 40px rgba(255, 0, 51, 0.15), inset 0 0 60px rgba(139, 0, 0, 0.1);
     }
     .mission-vision-enhanced::before {
       content: "";
@@ -567,8 +679,53 @@
       left: -100%;
       width: 200%;
       height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 51, 0.08) 50%, transparent 100%);
-      animation: shimmer 8s ease-in-out infinite;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.1) 30%, rgba(255, 0, 51, 0.12) 50%, rgba(0, 212, 255, 0.1) 70%, transparent 100%);
+      animation: shimmer 10s ease-in-out infinite;
+      z-index: 1;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .mission-vision-enhanced::before {
+        animation: none;
+      }
+    }
+    .mission-vision-enhanced::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 0, 51, 0.03) 10px,
+        rgba(255, 0, 51, 0.03) 20px
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+    .mission-vision-enhanced h2 {
+      position: relative;
+      z-index: 3;
+      font-size: 2.8rem;
+      text-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
+    }
+    .mission-vision-enhanced .card {
+      position: relative;
+      z-index: 3;
+      background: linear-gradient(135deg, rgba(0, 20, 40, 0.9), rgba(10, 10, 10, 0.95));
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(255, 0, 51, 0.05);
+      transition: all 0.4s ease;
+    }
+    .mission-vision-enhanced .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.4), 0 0 30px rgba(255, 0, 51, 0.3), inset 0 0 30px rgba(255, 0, 51, 0.1);
+      border-color: rgba(0, 212, 255, 0.6);
+    }
+    .mission-vision-enhanced .card h3 {
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
+      letter-spacing: 2px;
     }
     @keyframes shimmer {
       0%, 100% { transform: translateX(0); }
