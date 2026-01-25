@@ -225,39 +225,40 @@
       .mobile-cta { display:inline-block; }
     }
 
-    /* HOW IT WORKS – FLOWCHART STYLE */
+    /* HOW IT WORKS – HORIZONTAL FLOW */
     .how-it-works { 
-      max-width: 1200px; 
+      max-width: 1100px; 
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
       position: relative;
     }
     
-    /* Connection lines between steps (desktop only) */
+    /* Flowing arrow animation between steps */
     @media (min-width: 900px) {
       .how-it-works::before {
         content: "";
         position: absolute;
-        top: 120px;
-        left: 20%;
-        right: 20%;
-        height: 3px;
+        top: 45px;
+        left: 12%;
+        right: 12%;
+        height: 2px;
         background: linear-gradient(90deg, 
-          rgba(255, 0, 51, 0.3) 0%, 
-          rgba(0, 212, 255, 0.4) 25%, 
-          rgba(255, 0, 51, 0.4) 50%,
-          rgba(0, 212, 255, 0.4) 75%,
-          rgba(255, 0, 51, 0.3) 100%
+          #ff0033 0%, 
+          #00d4ff 25%, 
+          #ff0033 50%,
+          #00d4ff 75%,
+          #ff0033 100%
         );
         z-index: 0;
-        animation: flowPulse 3s ease-in-out infinite;
+        animation: flowLine 3s linear infinite;
+        background-size: 200% 100%;
       }
       
-      @keyframes flowPulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
+      @keyframes flowLine {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 200% 0%; }
       }
       
       @media (prefers-reduced-motion: reduce) {
@@ -267,15 +268,20 @@
       }
     }
     
+    @media (max-width: 899px) {
+      .how-it-works {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
     .how-step {
       position: relative;
-      background: linear-gradient(135deg, rgba(0, 20, 40, 0.7), rgba(10, 10, 10, 0.9));
-      border: 2px solid rgba(255, 0, 51, 0.3);
-      border-radius: 16px;
-      padding: 30px 25px;
-      transition: all 0.4s ease;
+      padding: 20px 15px;
+      text-align: center;
+      transition: all 0.3s ease;
       z-index: 1;
-      animation: fadeInUp 0.6s ease-out backwards;
+      animation: fadeIn 0.6s ease-out backwards;
     }
     
     .how-step:nth-child(1) { animation-delay: 0.1s; }
@@ -283,15 +289,9 @@
     .how-step:nth-child(3) { animation-delay: 0.3s; }
     .how-step:nth-child(4) { animation-delay: 0.4s; }
     
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     
     @media (prefers-reduced-motion: reduce) {
@@ -300,114 +300,69 @@
       }
     }
     
-    .how-step:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 212, 255, 0.6);
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(255, 0, 51, 0.2);
-      background: linear-gradient(135deg, rgba(0, 40, 80, 0.8), rgba(10, 10, 30, 0.95));
-    }
-    
-    .how-step::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
-      border-radius: 16px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-    
-    .how-step:hover::before {
-      opacity: 1;
-    }
-    
-    .how-number {
-      position: absolute;
-      top: -15px;
-      left: 20px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      color: #ff3333;
-      background: linear-gradient(135deg, #0a0a0a, #1a0505);
-      border: 2px solid rgba(255, 0, 51, 0.5);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
-      transition: all 0.3s ease;
-      z-index: 2;
-    }
-    
     .how-step:hover .how-number {
-      transform: scale(1.15) rotate(180deg);
-      box-shadow: 0 0 30px rgba(255, 0, 51, 0.8);
-      color: #00d4ff;
-      border-color: rgba(0, 212, 255, 0.7);
-    }
-    
-    .how-icon {
-      font-size: 3rem;
-      margin: 20px 0 15px;
-      text-align: center;
-      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.3));
-      transition: all 0.3s ease;
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(255, 0, 51, 0.8);
     }
     
     .how-step:hover .how-icon {
-      transform: scale(1.2) rotate(5deg);
-      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
+      transform: scale(1.15);
+    }
+    
+    .how-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff3333;
+      background: rgba(10, 10, 10, 0.8);
+      border: 2px solid rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+      transition: all 0.3s ease;
+      margin: 0 auto 15px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .how-icon {
+      font-size: 2.5rem;
+      margin: 0 auto 12px;
+      filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.3));
+      transition: all 0.3s ease;
+      display: block;
     }
     
     .how-content h3 { 
-      margin: 0 0 8px; 
+      margin: 0 0 6px; 
       color: #fff; 
-      font-size: 1.3rem;
-      text-align: center;
-      text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.5px;
     }
     
     .how-timeline {
-      margin: 0 0 15px !important;
+      margin: 0 0 8px !important;
       color: #ff6666 !important;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
       font-family: 'Orbitron', sans-serif;
       letter-spacing: 0.5px;
-      text-align: center;
       text-transform: uppercase;
     }
     
     .how-content > p  { 
-      margin: 0 0 15px; 
-      color: #ccc; 
-      line-height: 1.6;
-      text-align: center;
-      font-size: 0.95rem;
+      margin: 0;
+      color: #aaa; 
+      line-height: 1.5;
+      font-size: 0.85rem;
     }
     
     .how-details {
-      margin: 15px 0 0;
-      padding-left: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      text-align: left;
-    }
-    
-    .how-details li {
-      margin-bottom: 8px;
-      position: relative;
-    }
-    
-    .how-details li::marker {
-      color: #ff3333;
+      display: none;
     }
 
     /* DJI MINI DRONE ICON FOR STEP 3 */
@@ -610,32 +565,67 @@
       font-weight: bold;
     }
 
-    /* OPERATIONAL CAPABILITIES – MATRIX */
+    /* OPERATIONAL CAPABILITIES – ENHANCED CARD STYLE */
+    .capabilities-enhanced {
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+    
     .capability-matrix {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-    .capability {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      padding: 25px 30px;
-      background: #0d0d0d;
-      border-left: 4px solid rgba(255, 0, 51, 0.6);
-      border-radius: 10px;
     }
+    
+    .capability {
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      border: 1px solid rgba(255, 0, 51, 0.2);
+      border-radius: 12px;
+      padding: 30px;
+      position: relative;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .capability::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff0033, #ff3366, #ff0033);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .capability:hover {
+      border-color: rgba(255, 0, 51, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 0, 51, 0.2);
+    }
+    
+    .capability:hover::after {
+      transform: scaleX(1);
+    }
+    
     .capability h3 {
-      margin: 0;
+      margin: 0 0 15px;
       font-family: 'Orbitron', sans-serif;
       color: #ff3333;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       letter-spacing: 0.5px;
+      text-align: center;
     }
-    .capability p { margin: 0; color: #ccc; line-height: 1.6; }
-    @media (max-width: 768px) { .capability { grid-template-columns: 1fr; } }
+    
+    .capability p { 
+      margin: 0; 
+      color: #ccc; 
+      line-height: 1.7;
+      text-align: center;
+      font-size: 0.95rem;
+    }
 
     /* SCROLL REVEAL */
     .reveal {
@@ -1010,11 +1000,10 @@
   <a href="#capabilities">Capabilities</a>
   <a href="#services">Services</a>
   <a href="#how-it-works">How It Works</a>
-  <a href="#clients">Clients</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<main id="main-content" role="main">
+<main id="main-content">
 
 <header>
   <img src="logo.png" alt="Second Sight Solutions Logo" class="hero-logo">
@@ -1051,7 +1040,7 @@
 <section id="how-it-works" class="alt">
   <h2>How It Works</h2>
 
-  <p style="max-width:720px;margin:0 auto 60px;color:#aaa;text-align:center;">
+  <p style="max-width:720px;margin:0 auto 50px;color:#aaa;text-align:center;">
     A disciplined, safety-first process designed to deliver reliable aerial intelligence from planning through delivery.
   </p>
 
@@ -1060,28 +1049,18 @@
       <div class="how-number">01</div>
       <div class="how-content">
         <div class="how-icon">📋</div>
-        <h3>Mission Consultation</h3>
-        <p class="how-timeline">Initial Contact • 24-48 Hours</p>
-        <p>We define objectives, site conditions, timelines, and intended use so the mission is planned with purpose.</p>
-        <ul class="how-details">
-          <li>Discuss project goals and deliverable requirements</li>
-          <li>Evaluate site location and access considerations</li>
-          <li>Provide transparent pricing and timeline estimate</li>
-        </ul>
+        <h3>Consultation</h3>
+        <p class="how-timeline">24-48 Hours</p>
+        <p>Define objectives, site conditions, and deliverable requirements.</p>
       </div>
     </div>
     <div class="how-step reveal">
       <div class="how-number">02</div>
       <div class="how-content">
         <div class="how-icon">✅</div>
-        <h3>Planning & Authorization</h3>
-        <p class="how-timeline">Pre-Flight • 1-3 Days</p>
-        <p>Airspace review, FAA compliance, controlled airspace authorization when required, and risk assessment.</p>
-        <ul class="how-details">
-          <li>Review airspace classifications and restrictions</li>
-          <li>Obtain LAANC authorization if needed</li>
-          <li>Plan flight path and contingency procedures</li>
-        </ul>
+        <h3>Planning</h3>
+        <p class="how-timeline">1-3 Days</p>
+        <p>Airspace review, FAA compliance, and mission authorization.</p>
       </div>
     </div>
     <div class="how-step reveal">
@@ -1101,28 +1080,18 @@
             <div class="mini-drone-camera"></div>
           </div>
         </div>
-        <h3>Aerial Data Capture</h3>
-        <p class="how-timeline">On-Site • 1-2 Hours</p>
-        <p>Precise, efficient flight execution to capture high-resolution imagery while minimizing disruption.</p>
-        <ul class="how-details">
-          <li>Execute planned flight with professional equipment</li>
-          <li>Capture multiple angles and perspectives</li>
-          <li>Perform on-site quality verification</li>
-        </ul>
+        <h3>Data Capture</h3>
+        <p class="how-timeline">1-2 Hours</p>
+        <p>Professional flight execution with high-resolution imagery capture.</p>
       </div>
     </div>
     <div class="how-step reveal">
       <div class="how-number">04</div>
       <div class="how-content">
         <div class="how-icon">📦</div>
-        <h3>Processing & Delivery</h3>
-        <p class="how-timeline">Post-Flight • 2-5 Days</p>
-        <p>Professional post-processing and secure, organized delivery—ready for marketing, reporting, or documentation.</p>
-        <ul class="how-details">
-          <li>Edit and color-correct high-resolution images</li>
-          <li>Organize files with clear naming conventions</li>
-          <li>Deliver via secure download link or cloud storage</li>
-        </ul>
+        <h3>Delivery</h3>
+        <p class="how-timeline">2-5 Days</p>
+        <p>Professional editing and secure organized delivery of final assets.</p>
       </div>
     </div>
   </div>
@@ -1137,29 +1106,29 @@
   </p>
 
   <div class="capability-matrix">
-    <div class="capability">
-      <h3>FAA Part 107 Certified Operations</h3>
-      <p>All flights are conducted in full compliance with FAA Part 107 regulations.</p>
+    <div class="capability reveal">
+      <h3>FAA Part 107 Certified</h3>
+      <p>All flights conducted in full compliance with FAA Part 107 regulations.</p>
     </div>
-    <div class="capability">
-      <h3>Mission Planning & Risk Assessment</h3>
-      <p>Each mission is planned in advance with airspace review, terrain analysis, and operational risk assessment.</p>
+    <div class="capability reveal">
+      <h3>Mission Planning</h3>
+      <p>Each mission planned with airspace review, terrain analysis, and risk assessment.</p>
     </div>
-    <div class="capability">
-      <h3>Controlled Airspace Authorization (LAANC)</h3>
-      <p>We obtain authorizations when operating near airports or within controlled airspace when required.</p>
+    <div class="capability reveal">
+      <h3>Airspace Authorization</h3>
+      <p>LAANC authorization obtained when operating near airports or controlled airspace.</p>
     </div>
-    <div class="capability">
-      <h3>High-Resolution Photo & Video Capture</h3>
-      <p>Professional-grade capture workflows produce sharp imagery for marketing, inspection, and documentation.</p>
+    <div class="capability reveal">
+      <h3>High-Resolution Capture</h3>
+      <p>Professional-grade workflows producing sharp imagery for marketing and documentation.</p>
     </div>
-    <div class="capability">
+    <div class="capability reveal">
       <h3>Secure Data Handling</h3>
-      <p>Client assets are handled responsibly and delivered through secure, organized channels.</p>
+      <p>Client assets handled responsibly and delivered through secure, organized channels.</p>
     </div>
-    <div class="capability">
+    <div class="capability reveal">
       <h3>Safety-First Execution</h3>
-      <p>Safety is treated as non-negotiable: situational awareness, contingency planning, and respect for people and property.</p>
+      <p>Non-negotiable safety focus with situational awareness and contingency planning.</p>
     </div>
   </div>
 </section>
@@ -1277,92 +1246,6 @@
       title="Second Sight Solutions Drone Reel"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
-  </div>
-</section>
-
-<section id="clients">
-  <h2>Who We Work With</h2>
-
-  <p style="max-width:720px;margin:0 auto 60px;color:#aaa;text-align:center;">
-    We partner with professionals and organizations that value precision, safety, and reliable aerial intelligence for their operations.
-  </p>
-
-  <div class="who-we-work-with">
-    <div class="client-type reveal">
-      <div class="client-icon-wrapper">
-        <span class="client-icon">🏘️</span>
-      </div>
-      <div class="client-content">
-        <h3>Real Estate Professionals</h3>
-        <p class="client-category">Residential • Commercial • Land Sales</p>
-        <p>Agents and brokers who need elevated visuals to showcase properties and land competitively in today's market.</p>
-        <ul class="client-benefits">
-          <li>High-impact listing photography that stands out</li>
-          <li>Property boundary and acreage visualization</li>
-          <li>Neighborhood context and proximity features</li>
-        </ul>
-      </div>
-    </div>
-    <div class="client-type reveal">
-      <div class="client-icon-wrapper">
-        <span class="client-icon">🏗️</span>
-      </div>
-      <div class="client-content">
-        <h3>Construction & Development Firms</h3>
-        <p class="client-category">Commercial • Residential • Infrastructure</p>
-        <p>Teams that require consistent aerial documentation to track progress, support reporting, and manage stakeholder communication.</p>
-        <ul class="client-benefits">
-          <li>Regular progress documentation and time-lapse sequences</li>
-          <li>Site condition assessments and surveys</li>
-          <li>Client and investor presentation materials</li>
-        </ul>
-      </div>
-    </div>
-    <div class="client-type reveal">
-      <div class="client-icon-wrapper">
-        <span class="client-icon">🌾</span>
-      </div>
-      <div class="client-content">
-        <h3>Landowners & Ranch Managers</h3>
-        <p class="client-category">Agricultural • Recreational • Conservation</p>
-        <p>Property owners needing clear aerial visibility of terrain, boundaries, improvements, and land management operations.</p>
-        <ul class="client-benefits">
-          <li>Fence line, water feature, and infrastructure mapping</li>
-          <li>Vegetation health and land use assessment</li>
-          <li>Marketing materials for sales or leasing</li>
-        </ul>
-      </div>
-    </div>
-    <div class="client-type reveal">
-      <div class="client-icon-wrapper">
-        <span class="client-icon">🎬</span>
-      </div>
-      <div class="client-content">
-        <h3>Marketing & Creative Teams</h3>
-        <p class="client-category">Agencies • Production • Branding</p>
-        <p>Creators seeking cinematic aerial content that supports storytelling, brand presentation, and audience engagement.</p>
-        <ul class="client-benefits">
-          <li>Cinematic establishing shots and b-roll footage</li>
-          <li>Product launches and promotional campaigns</li>
-          <li>Social media and digital content creation</li>
-        </ul>
-      </div>
-    </div>
-    <div class="client-type reveal">
-      <div class="client-icon-wrapper">
-        <span class="client-icon">🎉</span>
-      </div>
-      <div class="client-content">
-        <h3>Event Organizers</h3>
-        <p class="client-category">Festivals • Venues • Corporate Events</p>
-        <p>Coordinators looking to capture the scale, energy, and atmosphere of outdoor events, venues, and gatherings.</p>
-        <ul class="client-benefits">
-          <li>Event coverage and highlight reels</li>
-          <li>Venue planning and logistics visualization</li>
-          <li>Promotional content for future marketing</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
