@@ -93,40 +93,29 @@
 
 <body>
 <header>
-  <div class="nav-wrap">
-    <a class="brand" href="/index.html">
-      <strong>Second Sight Solutions</strong>
-      <span>Veteran-Owned Drone Services • Central Texas</span>
-    </a>
-
-    <!-- Shared navigation (loaded client-side) -->
-    <div id="site-nav" aria-hidden="true"></div>
-    <script>
-    (function(){
-      const mount = document.getElementById('site-nav');
-      if(!mount) return;
-      const tries = [
-        '/includes/nav.html',
-        'includes/nav.html',
-        '../includes/nav.html',
-        '../../includes/nav.html'
-      ];
-      (function tryFetch(i){
-        if(i>=tries.length) return;
-        fetch(tries[i], {cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('not ok'); return r.text() }).then(html=>{
-          mount.innerHTML = html; mount.setAttribute('aria-hidden','false');
-        }).catch(()=>tryFetch(i+1));
-      })(0);
-    })();
-    </script>
-  </div>
+  <!-- Shared navigation (loaded client-side) -->
+  <div id="site-nav" aria-hidden="true"></div>
+  <script>
+  (function(){
+    const mount = document.getElementById('site-nav');
+    if(!mount) return;
+    const tries = [
+      '/includes/nav.html',
+      'includes/nav.html',
+      '../includes/nav.html',
+      '../../includes/nav.html'
+    ];
+    (function tryFetch(i){
+      if(i>=tries.length) return;
+      fetch(tries[i], {cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('not ok'); return r.text() }).then(html=>{
+        mount.innerHTML = html; mount.setAttribute('aria-hidden','false');
+      }).catch(()=>tryFetch(i+1));
+    })(0);
+  })();
+  </script>
 </header>
 
 <main>
-  <div class="breadcrumbs">
-    <a href="/index.html">Home</a> → <a href="/index.html#services">Services</a> → Construction
-  </div>
-
   <h1>Construction Drone Services in Central Texas</h1>
   <p class="lead">
     Reliable aerial documentation for contractors and builders — progress photos, repeatable viewpoints,
