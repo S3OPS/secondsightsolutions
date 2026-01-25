@@ -111,11 +111,12 @@
                   linear-gradient(0deg, transparent 49%, rgba(255, 0, 51, 0.2) 49%, rgba(255, 0, 51, 0.2) 51%, transparent 51%);
       background-size: 40px 40px;
       animation: gridScan 3s linear infinite;
+      box-shadow: inset 0 0 20px rgba(255, 0, 51, 0.1);
     }
     
     @keyframes gridScan {
       0% { opacity: 0.3; }
-      50% { opacity: 1; box-shadow: 0 0 20px rgba(255, 0, 51, 0.5); }
+      50% { opacity: 1; box-shadow: 0 0 20px rgba(255, 0, 51, 0.5), inset 0 0 30px rgba(255, 0, 51, 0.2); }
       100% { opacity: 0.3; }
     }
     
@@ -127,7 +128,19 @@
       height: 100%;
       background: linear-gradient(to bottom, transparent, #ff0033, transparent);
       animation: scanMove 2s linear infinite;
-      box-shadow: 0 0 10px #ff0033;
+      box-shadow: 0 0 10px #ff0033, 0 0 20px rgba(255, 0, 51, 0.6);
+    }
+    
+    .scan-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -4px;
+      width: 10px;
+      height: 10px;
+      background: #ff0033;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #ff0033;
     }
     
     @keyframes scanMove {
@@ -142,6 +155,7 @@
       background: #ff0033;
       border-radius: 50%;
       animation: markerPulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255, 0, 51, 0.8);
     }
     
     .map-marker:nth-child(2) { top: 30%; left: 25%; animation-delay: 0s; }
@@ -180,6 +194,7 @@
       border: 2px solid #ff0033;
       border-radius: 50%;
       animation: dronePath 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.8));
     }
     
     .drone-path::before {
@@ -192,6 +207,19 @@
       height: 8px;
       background: #ff0033;
       border-radius: 50%;
+      box-shadow: 0 0 10px #ff0033;
+    }
+    
+    .drone-path::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      animation: rotorBlink 0.5s ease-in-out infinite;
     }
     
     @keyframes dronePath {
@@ -199,6 +227,73 @@
       25% { transform: translate(150px, 20px); }
       50% { transform: translate(160px, 100px); }
       75% { transform: translate(50px, 110px); }
+    }
+    
+    @keyframes rotorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .coverage-indicator {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border: 2px dashed rgba(255, 0, 51, 0.4);
+      border-radius: 4px;
+      animation: coverageFade 3s ease-in-out infinite;
+    }
+    
+    .coverage-indicator:nth-child(5) {
+      top: 20%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+    
+    .coverage-indicator:nth-child(6) {
+      top: 45%;
+      right: 20%;
+      animation-delay: 1s;
+    }
+    
+    .coverage-indicator:nth-child(7) {
+      bottom: 15%;
+      left: 30%;
+      animation-delay: 2s;
+    }
+    
+    @keyframes coverageFade {
+      0%, 20%, 100% { opacity: 0; transform: scale(0.8); }
+      30%, 70% { opacity: 0.6; transform: scale(1); }
+      80% { opacity: 0; transform: scale(1.1); }
+    }
+    
+    .progress-bar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 60px;
+      height: 6px;
+      background: rgba(255, 0, 51, 0.2);
+      border: 1px solid #ff0033;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #ff0033, #990011);
+      animation: progressFill 4s ease-in-out infinite;
+      box-shadow: 0 0 8px #ff0033;
+    }
+    
+    @keyframes progressFill {
+      0% { width: 0; }
+      100% { width: 100%; }
     }
 
     @media (max-width:520px){
@@ -209,8 +304,10 @@
     }
     
     @media (prefers-reduced-motion: reduce) {
-      .map-grid, .scan-line, .map-marker, .map-marker::after, .drone-path { animation: none; }
+      .map-grid, .scan-line, .scan-line::after, .map-marker, .map-marker::after, .drone-path, .drone-path::after, .coverage-indicator, .progress-bar::after { animation: none; }
       .map-grid { opacity: 0.7; }
+      .coverage-indicator { opacity: 0.4; }
+      .progress-bar::after { width: 70%; }
     }
   </style>
 
@@ -255,6 +352,10 @@
       <div class="map-marker"></div>
       <div class="map-marker"></div>
       <div class="drone-path"></div>
+      <div class="coverage-indicator"></div>
+      <div class="coverage-indicator"></div>
+      <div class="coverage-indicator"></div>
+      <div class="progress-bar"></div>
     </div>
   </div>
   
