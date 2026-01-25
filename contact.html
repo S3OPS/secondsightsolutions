@@ -141,26 +141,12 @@
     <p>Request a quote for drone services across Central Texas — real estate, construction, inspections, land & ranch, mapping, and events.</p>
   </header>
 
-  <!-- Shared navigation (loaded client-side) -->
-  <div id="site-nav" aria-hidden="true"></div>
-  <script>
-  (function(){
-    const mount = document.getElementById('site-nav');
-    if(!mount) return;
-    const tries = [
-      '/includes/nav.html',
-      'includes/nav.html',
-      '../includes/nav.html',
-      '../../includes/nav.html'
-    ];
-    (function tryFetch(i){
-      if(i>=tries.length) return;
-      fetch(tries[i], {cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('not ok'); return r.text() }).then(html=>{
-        mount.innerHTML = html; mount.setAttribute('aria-hidden','false');
-      }).catch(()=>tryFetch(i+1));
-    })(0);
-  })();
-  </script>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">Why Us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <section>
     <h2>Request a Quote</h2>
@@ -183,19 +169,6 @@
 
         <button type="submit">Send Request</button>
       </form>
-
-      <div class="contact-grid">
-        <div class="mini">
-          <strong>Tip:</strong> If you don’t want a form yet, you can replace this with a simple email link like:
-          <br><br>
-          <code style="color:#ffb3b3;">&lt;a href="mailto:you@yourdomain.com"&gt;you@yourdomain.com&lt;/a&gt;</code>
-        </div>
-
-        <div class="mini">
-          <strong>Next step (optional):</strong> I can help you connect this form to a free/paid form handler
-          (Formspree, Netlify Forms, Google Forms, etc.) so messages actually deliver to your inbox.
-        </div>
-      </div>
     </div>
   </section>
 
