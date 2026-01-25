@@ -1,12 +1,12 @@
-<!-- services/construction.html -->
 <!DOCTYPE html>
+<!-- services/construction.html -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Construction Drone Services | Second Sight Solutions | Central Texas</title>
-  <meta name="description" content="Construction drone services in Central Texas. Progress documentation, site overviews, and marketing imagery by Second Sight Solutions — veteran-owned, FAA Part 107." />
+  <meta name="description" content="Construction drone services in Central Texas. Progress documentation, site overviews, and marketing imagery by Second Sight Solutions — veteran-owned, FAA Part[...]">
   <meta name="robots" content="index, follow" />
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -94,25 +94,37 @@
 <body>
 <header>
   <div class="nav-wrap">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="/index.html">
       <strong>Second Sight Solutions</strong>
       <span>Veteran-Owned Drone Services • Central Texas</span>
     </a>
 
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#services">Services</a></li>
-        <li><a href="../index.html#about">Why Us</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <!-- Shared navigation (loaded client-side) -->
+    <div id="site-nav" aria-hidden="true"></div>
+    <script>
+    (function(){
+      const mount = document.getElementById('site-nav');
+      if(!mount) return;
+      const tries = [
+        '/includes/nav.html',
+        'includes/nav.html',
+        '../includes/nav.html',
+        '../../includes/nav.html'
+      ];
+      (function tryFetch(i){
+        if(i>=tries.length) return;
+        fetch(tries[i], {cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('not ok'); return r.text() }).then(html=>{
+          mount.innerHTML = html; mount.setAttribute('aria-hidden','false');
+        }).catch(()=>tryFetch(i+1));
+      })(0);
+    })();
+    </script>
   </div>
 </header>
 
 <main>
   <div class="breadcrumbs">
-    <a href="../index.html">Home</a> → <a href="../index.html#services">Services</a> → Construction
+    <a href="/index.html">Home</a> → <a href="/index.html#services">Services</a> → Construction
   </div>
 
   <h1>Construction Drone Services in Central Texas</h1>
@@ -122,8 +134,8 @@
   </p>
 
   <div class="cta-row">
-    <a class="btn primary" href="../contact.html">Request a Quote</a>
-    <a class="btn secondary" href="../index.html#services">View All Services</a>
+    <a class="btn primary" href="/contact.html">Request a Quote</a>
+    <a class="btn secondary" href="/index.html#services">View All Services</a>
   </div>
 
   <div class="grid">
