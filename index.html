@@ -321,14 +321,14 @@
     .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
     .brand span{ color:#ffb3b3;font-size:.85rem; }
 
-    .top-nav nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
-    .top-nav nav a{
+    .top-nav div ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    .top-nav div a{
       color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
       border:1px solid rgba(255,0,0,.18);
       background:linear-gradient(145deg,#111,#050505);
       transition:.25s;font-weight:600;
     }
-    .top-nav nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
+    .top-nav div a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
 
     /* ANIMATED DRONE */
     .drone-background {
@@ -495,21 +495,21 @@
 </div>
 
 <!-- Navigation Bar -->
-<nav class="top-nav">
+<nav class="top-nav" aria-label="Primary">
   <div class="nav-wrap">
     <a class="brand" href="index.html">
       <strong>Second Sight Solutions</strong>
       <span>Veteran-Owned Drone Services • Central Texas</span>
     </a>
 
-    <nav aria-label="Primary">
+    <div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">Why Us</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </div>
 </nav>
 
