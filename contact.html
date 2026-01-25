@@ -141,11 +141,26 @@
     <p>Request a quote for drone services across Central Texas — real estate, construction, inspections, land & ranch, mapping, and events.</p>
   </header>
 
-  <nav aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#about">Why Us</a>
-  </nav>
+  <!-- Shared navigation (loaded client-side) -->
+  <div id="site-nav" aria-hidden="true"></div>
+  <script>
+  (function(){
+    const mount = document.getElementById('site-nav');
+    if(!mount) return;
+    const tries = [
+      '/includes/nav.html',
+      'includes/nav.html',
+      '../includes/nav.html',
+      '../../includes/nav.html'
+    ];
+    (function tryFetch(i){
+      if(i>=tries.length) return;
+      fetch(tries[i], {cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('not ok'); return r.text() }).then(html=>{
+        mount.innerHTML = html; mount.setAttribute('aria-hidden','false');
+      }).catch(()=>tryFetch(i+1));
+    })(0);
+  })();
+  </script>
 
   <section>
     <h2>Request a Quote</h2>
