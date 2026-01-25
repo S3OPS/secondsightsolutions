@@ -140,6 +140,7 @@
     .small { max-width:760px; margin:0 auto 35px; color:#aaa; text-align:center; }
 
     .grid, .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
+    .grid.centered { justify-items: center; }
 
     .card {
       background:#111;
@@ -300,6 +301,13 @@
       .card:hover { transform:none; }
       .cta-button:hover { transform:none; }
     }
+
+    /* Services section enhancement */
+    .services-section-enhanced {
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 100%);
+      border-top: 2px solid rgba(255, 0, 51, 0.4);
+      border-bottom: 2px solid rgba(255, 0, 51, 0.4);
+    }
   </style>
 </head>
 
@@ -401,11 +409,11 @@
   </div>
 </section>
 
-<section id="services" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 100%); border-top: 2px solid rgba(255, 0, 51, 0.4); border-bottom: 2px solid rgba(255, 0, 51, 0.4);">
+<section id="services" class="services-section-enhanced">
   <h2 class="section-title">Drone Services in Central Texas</h2>
   <p class="small">Veteran-owned. Insured. FAA Part 107. Serving jobs across Central Texas.</p>
 
-  <div class="grid" style="justify-items: center;">
+  <div class="grid centered">
     <a class="card" href="services/construction.html">
       <span class="badge">Construction</span>
       <h3 style="margin:0 0 8px;color:#fff;">Progress Photos & Site Updates</h3>
