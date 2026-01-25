@@ -154,13 +154,15 @@
     a.card { display:block; color:inherit; text-decoration:none; }
 
     .badge {
-      display:inline-block;
+      display:block;
       font-size:12px;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(255,0,0,.25);
       color:#ffb3b3;
-      margin-bottom:12px;
+      margin:0 auto 12px;
+      text-align:center;
+      width:fit-content;
     }
 
     /* VIDEO */
@@ -317,6 +319,26 @@
   </div>
 </section>
 
+<section>
+  <h2>Our Mission & Vision</h2>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1000px; margin: auto;">
+    <div class="card">
+      <h3 style="margin: 0 0 15px; color: #ff3333; font-family: 'Orbitron', sans-serif; text-align: center;">Mission</h3>
+      <p style="margin: 0; color: #ccc; line-height: 1.7; text-align: center;">
+        To deliver professional aerial intelligence through disciplined, safe, and mission-focused drone operations—empowering clients with clarity, precision, and actionable visual data.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h3 style="margin: 0 0 15px; color: #ff3333; font-family: 'Orbitron', sans-serif; text-align: center;">Vision</h3>
+      <p style="margin: 0; color: #ccc; line-height: 1.7; text-align: center;">
+        To be Central Texas's trusted provider of veteran-led drone services—recognized for operational excellence, integrity, and commitment to delivering visual intelligence that serves a purpose.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <h2>Why Second Sight Solutions?</h2>
 
@@ -343,11 +365,47 @@
   </p>
 </section>
 
-<section id="services">
+<section class="alt">
+  <h2>Operational Capabilities</h2>
+
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    Our operational approach is built on disciplined planning, regulatory compliance,
+    and precision execution.
+  </p>
+
+  <div class="capability-matrix">
+    <div class="capability">
+      <h3>FAA Part 107 Certified Operations</h3>
+      <p>All flights are conducted in full compliance with FAA Part 107 regulations.</p>
+    </div>
+    <div class="capability">
+      <h3>Mission Planning & Risk Assessment</h3>
+      <p>Each mission is planned in advance with airspace review, terrain analysis, and operational risk assessment.</p>
+    </div>
+    <div class="capability">
+      <h3>Controlled Airspace Authorization (LAANC)</h3>
+      <p>We obtain authorizations when operating near airports or within controlled airspace when required.</p>
+    </div>
+    <div class="capability">
+      <h3>High-Resolution Photo & Video Capture</h3>
+      <p>Professional-grade capture workflows produce sharp imagery for marketing, inspection, and documentation.</p>
+    </div>
+    <div class="capability">
+      <h3>Secure Data Handling</h3>
+      <p>Client assets are handled responsibly and delivered through secure, organized channels.</p>
+    </div>
+    <div class="capability">
+      <h3>Safety-First Execution</h3>
+      <p>Safety is treated as non-negotiable: situational awareness, contingency planning, and respect for people and property.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 100%); border-top: 2px solid rgba(255, 0, 51, 0.4); border-bottom: 2px solid rgba(255, 0, 51, 0.4);">
   <h2 class="section-title">Drone Services in Central Texas</h2>
   <p class="small">Veteran-owned. Insured. FAA Part 107. Serving jobs across Central Texas.</p>
 
-  <div class="grid">
+  <div class="grid" style="justify-items: center;">
     <a class="card" href="services/construction.html">
       <span class="badge">Construction</span>
       <h3 style="margin:0 0 8px;color:#fff;">Progress Photos & Site Updates</h3>
@@ -490,40 +548,6 @@
     <div class="capability reveal">
       <h3>Usage-Ready Formats</h3>
       <p>Files prepared for web, social media, presentations, and internal reporting.</p>
-    </div>
-  </div>
-
-  <h2 style="margin-top:80px;">Operational Capabilities</h2>
-
-  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
-    Our operational approach is built on disciplined planning, regulatory compliance,
-    and precision execution.
-  </p>
-
-  <div class="capability-matrix">
-    <div class="capability">
-      <h3>FAA Part 107 Certified Operations</h3>
-      <p>All flights are conducted in full compliance with FAA Part 107 regulations.</p>
-    </div>
-    <div class="capability">
-      <h3>Mission Planning & Risk Assessment</h3>
-      <p>Each mission is planned in advance with airspace review, terrain analysis, and operational risk assessment.</p>
-    </div>
-    <div class="capability">
-      <h3>Controlled Airspace Authorization (LAANC)</h3>
-      <p>We obtain authorizations when operating near airports or within controlled airspace when required.</p>
-    </div>
-    <div class="capability">
-      <h3>High-Resolution Photo & Video Capture</h3>
-      <p>Professional-grade capture workflows produce sharp imagery for marketing, inspection, and documentation.</p>
-    </div>
-    <div class="capability">
-      <h3>Secure Data Handling</h3>
-      <p>Client assets are handled responsibly and delivered through secure, organized channels.</p>
-    </div>
-    <div class="capability">
-      <h3>Safety-First Execution</h3>
-      <p>Safety is treated as non-negotiable: situational awareness, contingency planning, and respect for people and property.</p>
     </div>
   </div>
 </section>
