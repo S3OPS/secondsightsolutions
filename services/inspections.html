@@ -81,9 +81,162 @@
 
     footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
 
+    /* INSPECTIONS ANIMATION */
+    .service-hero {
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -30px 0 30px;
+      overflow: hidden;
+    }
+    
+    .inspection-scene {
+      position: relative;
+      width: 300px;
+      height: 180px;
+    }
+    
+    .roof-structure {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 60px;
+      border: 2px solid #ff0033;
+      background: linear-gradient(135deg, #444, #666);
+      position: relative;
+    }
+    
+    .roof-structure::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: -20px;
+      width: 0;
+      height: 0;
+      border-left: 95px solid transparent;
+      border-right: 95px solid transparent;
+      border-bottom: 50px solid #ff0033;
+    }
+    
+    .damage-marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: damagePulse 1.5s ease-in-out infinite;
+    }
+    
+    .damage-marker:nth-child(1) { top: 20px; left: 50px; }
+    .damage-marker:nth-child(2) { top: 35px; right: 60px; animation-delay: 0.5s; }
+    
+    .damage-marker::before {
+      content: '!';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ff0033;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    @keyframes damagePulse {
+      0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 5px #ff0033; }
+      50% { transform: scale(1.2); opacity: 0.7; box-shadow: 0 0 15px #ff0033; }
+    }
+    
+    .scanning-drone {
+      position: absolute;
+      top: 30px;
+      left: 50px;
+      width: 30px;
+      height: 30px;
+      animation: inspectMove 5s ease-in-out infinite;
+    }
+    
+    .scanning-drone::before,
+    .scanning-drone::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: rotorSpin 0.3s linear infinite;
+    }
+    
+    .scanning-drone::before { top: 0; left: 0; }
+    .scanning-drone::after { top: 0; right: 0; }
+    
+    .scan-beam {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      border: 2px solid rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      animation: beamExpand 2s ease-out infinite;
+    }
+    
+    @keyframes beamExpand {
+      0% { transform: translateX(-50%) scale(0.3); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1); opacity: 0; }
+    }
+    
+    @keyframes inspectMove {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(80px, -10px); }
+      50% { transform: translate(150px, 5px); }
+      75% { transform: translate(80px, 10px); }
+    }
+    
+    @keyframes rotorSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .checklist-item {
+      position: absolute;
+      right: 20px;
+      font-size: 12px;
+      color: #ff0033;
+      opacity: 0;
+      animation: checklistFade 3s ease-in-out infinite;
+    }
+    
+    .checklist-item:nth-child(5) { top: 50px; animation-delay: 0s; }
+    .checklist-item:nth-child(6) { top: 70px; animation-delay: 1s; }
+    .checklist-item:nth-child(7) { top: 90px; animation-delay: 2s; }
+    
+    .checklist-item::before {
+      content: '✓ ';
+      color: #ff0033;
+    }
+    
+    @keyframes checklistFade {
+      0%, 30% { opacity: 0; }
+      35%, 95% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
     @media (max-width:520px){
       h1{ font-size:2rem; }
       header{ padding:20px 14px; }
+      .service-hero { min-height: 150px; margin: -20px 0 20px; }
+      .inspection-scene { transform: scale(0.8); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .damage-marker, .scanning-drone, .scanning-drone::before, .scanning-drone::after, .scan-beam, .checklist-item { animation: none; }
+      .damage-marker { opacity: 1; }
+      .checklist-item { opacity: 0.7; }
     }
   </style>
 
@@ -119,6 +272,21 @@
 </header>
 
 <main>
+  <div class="service-hero">
+    <div class="inspection-scene">
+      <div class="roof-structure">
+        <div class="damage-marker"></div>
+        <div class="damage-marker"></div>
+      </div>
+      <div class="scanning-drone">
+        <div class="scan-beam"></div>
+      </div>
+      <div class="checklist-item">Roof</div>
+      <div class="checklist-item">Gutters</div>
+      <div class="checklist-item">Structure</div>
+    </div>
+  </div>
+  
   <h1>Aerial Drone Inspections in Central Texas</h1>
   <p class="lead">
     Safe, efficient inspections of roofs, towers, infrastructure, and hard-to-reach areas. 

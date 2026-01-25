@@ -82,9 +82,170 @@
 
     footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
 
+    /* EVENTS ANIMATION */
+    .service-hero {
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -30px 0 30px;
+      overflow: hidden;
+    }
+    
+    .events-scene {
+      position: relative;
+      width: 300px;
+      height: 180px;
+    }
+    
+    .venue {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 90px;
+      border: 2px solid #ff0033;
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      border-radius: 10px;
+    }
+    
+    .stage {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 30px;
+      background: linear-gradient(135deg, #990011, #660000);
+      border: 2px solid #ff0033;
+      border-bottom: none;
+    }
+    
+    .stage::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 8px;
+      background: #ff0033;
+      box-shadow: -10px 0 0 #ff0033, 10px 0 0 #ff0033;
+    }
+    
+    .crowd-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ff0033;
+      border-radius: 50%;
+      animation: crowdBounce 2s ease-in-out infinite;
+    }
+    
+    .crowd-dot:nth-child(2) { bottom: 20%; left: 30%; animation-delay: 0s; }
+    .crowd-dot:nth-child(3) { bottom: 20%; left: 45%; animation-delay: 0.2s; }
+    .crowd-dot:nth-child(4) { bottom: 20%; left: 55%; animation-delay: 0.4s; }
+    .crowd-dot:nth-child(5) { bottom: 20%; right: 30%; animation-delay: 0.6s; }
+    .crowd-dot:nth-child(6) { bottom: 35%; left: 35%; animation-delay: 0.3s; }
+    .crowd-dot:nth-child(7) { bottom: 35%; right: 35%; animation-delay: 0.5s; }
+    
+    @keyframes crowdBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+    
+    .spotlight {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-top: 50px solid rgba(255, 0, 51, 0.3);
+      animation: spotlightSweep 4s ease-in-out infinite;
+    }
+    
+    .spotlight:nth-child(8) {
+      bottom: 80px;
+      left: 20%;
+      animation-delay: 0s;
+    }
+    
+    .spotlight:nth-child(9) {
+      bottom: 80px;
+      right: 20%;
+      animation-delay: 2s;
+    }
+    
+    @keyframes spotlightSweep {
+      0%, 100% { opacity: 0.3; transform: rotate(0deg); }
+      50% { opacity: 0.8; transform: rotate(15deg); }
+    }
+    
+    .aerial-drone {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+      height: 35px;
+      animation: aerialCircle 6s linear infinite;
+    }
+    
+    .aerial-drone::before,
+    .aerial-drone::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: quickSpin 0.2s linear infinite;
+    }
+    
+    .aerial-drone::before { top: 0; left: 0; }
+    .aerial-drone::after { top: 0; right: 0; }
+    
+    @keyframes aerialCircle {
+      0% { transform: translateX(-50%) rotate(0deg) translateX(80px) rotate(0deg); }
+      100% { transform: translateX(-50%) rotate(360deg) translateX(80px) rotate(-360deg); }
+    }
+    
+    @keyframes quickSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .camera-flash {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff0033;
+      border-radius: 50%;
+      opacity: 0;
+      animation: cameraFlash 3s ease-in-out infinite;
+    }
+    
+    .camera-flash:nth-child(11) { top: 40%; left: 20%; animation-delay: 0s; }
+    .camera-flash:nth-child(12) { top: 50%; right: 25%; animation-delay: 1s; }
+    
+    @keyframes cameraFlash {
+      0%, 90%, 100% { opacity: 0; transform: scale(0.5); }
+      5%, 10% { opacity: 1; transform: scale(1); box-shadow: 0 0 20px #ff0033; }
+    }
+
     @media (max-width:520px){
       h1{ font-size:2rem; }
       header{ padding:20px 14px; }
+      .service-hero { min-height: 150px; margin: -20px 0 20px; }
+      .events-scene { transform: scale(0.8); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .crowd-dot, .spotlight, .aerial-drone, .aerial-drone::before, .aerial-drone::after, .camera-flash { animation: none; }
+      .crowd-dot, .spotlight { opacity: 0.7; }
+      .camera-flash { opacity: 0; }
     }
   </style>
 
@@ -120,6 +281,25 @@
 </header>
 
 <main>
+  <div class="service-hero">
+    <div class="events-scene">
+      <div class="venue">
+        <div class="stage"></div>
+        <div class="crowd-dot"></div>
+        <div class="crowd-dot"></div>
+        <div class="crowd-dot"></div>
+        <div class="crowd-dot"></div>
+        <div class="crowd-dot"></div>
+        <div class="crowd-dot"></div>
+        <div class="spotlight"></div>
+        <div class="spotlight"></div>
+      </div>
+      <div class="aerial-drone"></div>
+      <div class="camera-flash"></div>
+      <div class="camera-flash"></div>
+    </div>
+  </div>
+  
   <h1>Event Drone Coverage in Central Texas</h1>
   <p class="lead">
     Capture the scale, energy, and atmosphere of your event from a perspective that ground cameras can’t match.

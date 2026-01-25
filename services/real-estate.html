@@ -81,9 +81,155 @@
 
     footer{ background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem;margin-top:40px; }
 
+    /* REAL ESTATE ANIMATION */
+    .service-hero {
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -30px 0 30px;
+      overflow: hidden;
+    }
+    
+    .real-estate-scene {
+      position: relative;
+      width: 300px;
+      height: 180px;
+    }
+    
+    .house {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 80px;
+      background: linear-gradient(135deg, #555, #777);
+      border: 2px solid #ff0033;
+    }
+    
+    .house::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 40px solid #ff0033;
+    }
+    
+    .house::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 35px;
+      background: #990011;
+      border: 2px solid #ff0033;
+    }
+    
+    .window {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #ffb3b3;
+      border: 2px solid #ff0033;
+      animation: lightFlicker 2s ease-in-out infinite;
+    }
+    
+    .window:nth-child(1) { top: 20px; left: 15px; }
+    .window:nth-child(2) { top: 20px; right: 15px; animation-delay: 0.5s; }
+    
+    @keyframes lightFlicker {
+      0%, 100% { opacity: 0.3; box-shadow: 0 0 5px rgba(255, 179, 179, 0.3); }
+      50% { opacity: 1; box-shadow: 0 0 15px rgba(255, 179, 179, 0.8); }
+    }
+    
+    .key-icon {
+      position: absolute;
+      top: 20px;
+      right: 50px;
+      width: 30px;
+      height: 12px;
+      background: #ff0033;
+      border-radius: 15px 0 0 15px;
+      animation: keyFloat 3s ease-in-out infinite;
+    }
+    
+    .key-icon::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border: 3px solid #ff0033;
+      border-radius: 50%;
+      background: transparent;
+    }
+    
+    .key-icon::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      width: 2px;
+      height: 8px;
+      background: #ff0033;
+    }
+    
+    @keyframes keyFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
+    }
+    
+    .drone-scan {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      width: 35px;
+      height: 35px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: scanCircle 4s linear infinite;
+    }
+    
+    .drone-scan::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px;
+      height: 4px;
+      background: #ff0033;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff0033;
+    }
+    
+    @keyframes scanCircle {
+      0% { transform: scale(0.8); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0.3; }
+    }
+
     @media (max-width:520px){
       h1{ font-size:2rem; }
       header{ padding:20px 14px; }
+      .service-hero { min-height: 150px; margin: -20px 0 20px; }
+      .real-estate-scene { transform: scale(0.8); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .window, .key-icon, .drone-scan { animation: none; }
+      .window { opacity: 0.7; }
     }
   </style>
 
@@ -119,6 +265,17 @@
 </header>
 
 <main>
+  <div class="service-hero">
+    <div class="real-estate-scene">
+      <div class="house">
+        <div class="window"></div>
+        <div class="window"></div>
+      </div>
+      <div class="key-icon"></div>
+      <div class="drone-scan"></div>
+    </div>
+  </div>
+  
   <h1>Real Estate Drone Photography & Video in Central Texas</h1>
   <p class="lead">
     Showcase properties from stunning aerial perspectives. Our professional drone photography and videography 
