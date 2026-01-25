@@ -1,1 +1,371 @@
-<include src="/path/to/shared/loader.html"></include>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Second Sight Solutions | Veteran-Owned Drone Services | Central Texas</title>
+  <meta name="description" content="Professional drone services in Central Texas. FAA Part 107 certified, veteran-owned. Real estate photography, construction progress, inspections, land mapping, ranch & farm imaging, and event coverage." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#e6e6e6;line-height:1.6; }
+
+    /* HEADER */
+    header{
+      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+      padding:22px 18px;
+      position:sticky; top:0; z-index:999;
+      border-bottom:1px solid rgba(255,0,0,.18);
+      backdrop-filter:saturate(150%) blur(8px);
+    }
+    .nav-wrap{ max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
+    .brand{ text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:2px; }
+    .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
+    .brand span{ color:#ffb3b3;font-size:.85rem; }
+
+    nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    nav a{
+      color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
+      border:1px solid rgba(255,0,0,.18);
+      background:linear-gradient(145deg,#111,#050505);
+      transition:.25s;font-weight:600;
+    }
+    nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
+
+    /* HERO */
+    .hero{
+      background:radial-gradient(circle at center,#8b0000 0%,#000 70%);
+      padding:80px 20px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);
+      animation:scan 6s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes scan {0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
+
+    .hero h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:3rem;
+      letter-spacing:2px;
+      margin:0 0 14px;
+      text-shadow:0 0 20px rgba(255,0,0,.5);
+    }
+    .hero .tagline{
+      max-width:700px;
+      margin:0 auto 28px;
+      color:#ffb3b3;
+      font-size:1.15rem;
+    }
+
+    .cta-row{ display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px; }
+    .btn{ display:inline-block;padding:14px 24px;border-radius:40px;text-decoration:none;font-weight:800;transition:.25s; }
+    .btn.primary{ background:linear-gradient(135deg,#ff0033,#990011);color:#fff;box-shadow:0 0 30px rgba(255,0,0,.6); }
+    .btn.primary:hover{ transform:translateY(-2px); }
+    .btn.secondary{ background:transparent;color:#e6e6e6;border:1px solid rgba(255,0,0,.25); }
+    .btn.secondary:hover{ box-shadow:0 0 20px rgba(255,0,0,.2); }
+
+    /* SECTIONS */
+    section{ max-width:1200px;margin:0 auto;padding:60px 20px; }
+    
+    h2{
+      font-family:'Orbitron',sans-serif;
+      color:#ff3333;
+      margin:0 0 18px;
+      text-align:center;
+      font-size:2.2rem;
+      letter-spacing:1px;
+      text-shadow:0 0 18px rgba(255,0,0,.35);
+    }
+
+    .intro-text{
+      max-width:75ch;
+      margin:0 auto 35px;
+      text-align:center;
+      color:#ccc;
+      font-size:1.05rem;
+    }
+
+    /* SERVICES GRID */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+      margin-top:35px;
+    }
+
+    .service-card{
+      background:linear-gradient(145deg,#111,#050505);
+      border:1px solid rgba(255,0,0,.25);
+      padding:28px;
+      border-radius:14px;
+      box-shadow:0 0 25px rgba(255,0,0,.12);
+      transition:.3s;
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .service-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 40px rgba(255,0,0,.28);
+    }
+
+    .service-card h3{
+      font-family:'Orbitron',sans-serif;
+      color:#ff3333;
+      margin:0 0 10px;
+      font-size:1.35rem;
+      letter-spacing:.5px;
+    }
+
+    .service-card p{
+      margin:0 0 14px;
+      color:#ccc;
+      font-size:.98rem;
+    }
+
+    .service-card .learn-more{
+      color:#ffb3b3;
+      font-size:.9rem;
+      font-weight:600;
+    }
+
+    /* ABOUT SECTION */
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      margin-top:30px;
+    }
+
+    .about-card{
+      background:linear-gradient(145deg,#111,#050505);
+      border:1px solid rgba(255,0,0,.25);
+      padding:26px;
+      border-radius:14px;
+      box-shadow:0 0 25px rgba(255,0,0,.12);
+    }
+
+    .about-card h3{
+      font-family:'Orbitron',sans-serif;
+      color:#ff3333;
+      margin:0 0 10px;
+      font-size:1.2rem;
+    }
+
+    .about-card p{
+      margin:0;
+      color:#ccc;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#000;
+      color:#777;
+      text-align:center;
+      padding:25px;
+      font-size:.85rem;
+      margin-top:40px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:768px){
+      .hero h1{ font-size:2.2rem; }
+      .hero{ padding:60px 18px; }
+      h2{ font-size:1.8rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Second Sight Solutions",
+    "description":"Veteran-owned drone services in Central Texas",
+    "areaServed":{"@type":"AdministrativeArea","name":"Central Texas"},
+    "serviceType":["Drone Photography","Aerial Videography","Drone Mapping","Construction Documentation"]
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <strong>Second Sight Solutions</strong>
+      <span>Veteran-Owned Drone Services • Central Texas</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Why Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="home">
+  <h1>Second Sight Solutions</h1>
+  <p class="tagline">
+    Professional drone services across Central Texas. Veteran-owned, FAA Part 107 certified, 
+    delivering high-quality aerial imagery for real estate, construction, inspections, mapping, and events.
+  </p>
+  <div class="cta-row">
+    <a class="btn primary" href="contact.html">Get a Free Quote</a>
+    <a class="btn secondary" href="#services">View Services</a>
+  </div>
+</div>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <p class="intro-text">
+    From real estate marketing to construction documentation, we provide professional drone services 
+    tailored to your needs. All flights are FAA compliant, insured, and safety-first.
+  </p>
+
+  <div class="services-grid">
+    <a href="services/real-estate.html" class="service-card">
+      <h3>Real Estate Photography</h3>
+      <p>
+        Stunning aerial photos and video that showcase properties from unique perspectives. 
+        Perfect for listings, marketing materials, and virtual tours.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+
+    <a href="services/construction.html" class="service-card">
+      <h3>Construction Progress</h3>
+      <p>
+        Document every stage of your project with consistent aerial imagery. 
+        Track progress, communicate with stakeholders, and create marketing content.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+
+    <a href="services/inspections.html" class="service-card">
+      <h3>Aerial Inspections</h3>
+      <p>
+        Safe, efficient inspections of roofs, towers, infrastructure, and hard-to-reach areas. 
+        Reduce risk and get detailed visual documentation.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+
+    <a href="services/mapping.html" class="service-card">
+      <h3>Mapping & Orthomosaics</h3>
+      <p>
+        High-resolution site maps and orthomosaic imagery for planning, surveying, and documentation. 
+        Perfect for large properties and development sites.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+
+    <a href="services/ranch-farm.html" class="service-card">
+      <h3>Ranch & Farm Imaging</h3>
+      <p>
+        Comprehensive aerial views of your agricultural land. Monitor crops, livestock, fencing, 
+        water features, and infrastructure from above.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+
+    <a href="services/events.html" class="service-card">
+      <h3>Event Coverage</h3>
+      <p>
+        Capture the scale and atmosphere of your event with cinematic aerial footage. 
+        Great for festivals, weddings, sports events, and corporate gatherings.
+      </p>
+      <span class="learn-more">Learn More →</span>
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>Why Choose Second Sight Solutions?</h2>
+  <p class="intro-text">
+    We're a veteran-owned business committed to professionalism, safety, and delivering exceptional results.
+  </p>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>FAA Part 107 Certified</h3>
+      <p>
+        Fully licensed and compliant with all FAA regulations. We handle airspace authorization, 
+        flight planning, and safety protocols for every mission.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Veteran-Owned</h3>
+      <p>
+        Military discipline meets professional drone operations. We bring the same attention to detail, 
+        planning, and execution that defined our service.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Professional Equipment</h3>
+      <p>
+        High-quality drones equipped with 4K cameras, stabilization systems, and the latest technology 
+        to ensure crisp, smooth, professional deliverables.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Central Texas Coverage</h3>
+      <p>
+        Serving communities throughout Central Texas. Fast response times, local knowledge, 
+        and personalized service for your project.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Insured & Safe</h3>
+      <p>
+        Liability insurance in place, with every flight planned for safety. We assess risks, 
+        check weather conditions, and operate within strict safety protocols.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Fast Turnaround</h3>
+      <p>
+        Quick delivery of edited, organized files. We understand deadlines and work efficiently 
+        to get you the imagery you need when you need it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center;padding:50px 20px;">
+  <h2>Ready to Get Started?</h2>
+  <p class="intro-text">
+    Contact us today for a free quote. Tell us about your project and we'll provide 
+    a straightforward estimate with no hidden fees.
+  </p>
+  <div class="cta-row">
+    <a class="btn primary" href="contact.html">Request a Quote</a>
+  </div>
+</section>
+
+<footer>© 2026 Second Sight Solutions • Central Texas • Veteran-Owned Drone Services</footer>
+</body>
+</html>
