@@ -92,30 +92,19 @@
 
     /* HEADER */
     header {
-      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
-      padding:120px 20px;
+      background:linear-gradient(180deg,#8b0000 0%,#000 100%);
+      padding:100px 20px;
       text-align:center;
       position:relative;
-      overflow:hidden;
     }
-    header::after {
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent 45%,rgba(255,0,0,.15),transparent 55%);
-      animation:scan 6s linear infinite;
-      pointer-events:none;
-    }
-    @keyframes scan {0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
 
     .hero-logo {
       max-width: 420px;
       width: 90%;
       margin-bottom: 30px;
-      filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.75));
+      filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
     }
 
-    /* ✅ ONE SINGLE MOBILE MEDIA QUERY (fixed + not duplicated) */
     @media (max-width: 480px) {
       .hero-logo { max-width: 320px; }
     }
@@ -133,7 +122,6 @@
       text-align:center;
       font-size:2.6rem;
       letter-spacing:1px;
-      text-shadow:0 0 18px rgba(255,0,0,0.4);
     }
     h2::after{
       content:"";
@@ -154,14 +142,13 @@
     .grid, .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
 
     .card {
-      background:linear-gradient(145deg,#111,#050505);
+      background:#111;
       border:1px solid rgba(255,0,0,.25);
       padding:30px;
       border-radius:14px;
-      box-shadow:0 0 25px rgba(255,0,0,.15);
       transition:.3s;
     }
-    .card:hover { transform:translateY(-6px); box-shadow:0 0 40px rgba(255,0,0,.4); }
+    .card:hover { transform:translateY(-4px); box-shadow:0 0 30px rgba(255,0,0,.3); }
 
     /* Make linked service cards behave nicely */
     a.card { display:block; color:inherit; text-decoration:none; }
@@ -176,13 +163,8 @@
       margin-bottom:12px;
     }
 
-    /* GALLERY */
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px; }
-    .gallery-image { aspect-ratio:16/9; overflow:hidden; border-radius:10px; }
-    .gallery-image img { width:100%; height:100%; object-fit:cover; cursor:pointer; }
-
     /* VIDEO */
-    .video-wrapper { position:relative; padding-bottom:56.25%; height:0; border-radius:16px; overflow:hidden; box-shadow:0 0 40px rgba(255,0,0,.4); }
+    .video-wrapper { position:relative; padding-bottom:56.25%; height:0; border-radius:16px; overflow:hidden; box-shadow:0 0 30px rgba(255,0,0,.3); }
     .video-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
 
     /* CTA */
@@ -195,10 +177,10 @@
       text-decoration:none;
       font-weight:700;
       border-radius:40px;
-      box-shadow:0 0 30px rgba(255,0,0,.7);
+      box-shadow:0 0 20px rgba(255,0,0,.5);
       transition:.25s;
     }
-    .cta-button:hover { transform: translateY(-2px); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow:0 0 30px rgba(255,0,0,.7); }
 
     /* FORM (if you add a form section later) */
     form input, form textarea, form button {
@@ -219,7 +201,7 @@
 
     /* LIGHTBOX */
     #lightbox { position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
-    #lightbox img { max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 40px rgba(255,0,0,.8); }
+    #lightbox img { max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 30px rgba(255,0,0,.6); }
 
     /* 📱 MOBILE FLOATING CTA */
     .mobile-cta {
@@ -233,7 +215,7 @@
       border-radius:40px;
       font-weight:700;
       text-decoration:none;
-      box-shadow:0 0 35px rgba(255,0,0,.8);
+      box-shadow:0 0 25px rgba(255,0,0,.6);
       z-index:9998;
       display:none;
     }
@@ -261,7 +243,6 @@
       height: 10px;
       background: #ff0033;
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(255, 0, 51, 0.8);
     }
     .how-number {
       font-family: 'Orbitron', sans-serif;
@@ -285,10 +266,9 @@
       grid-template-columns: 1fr 2fr;
       gap: 30px;
       padding: 25px 30px;
-      background: linear-gradient(145deg, #0d0d0d, #050505);
+      background: #0d0d0d;
       border-left: 4px solid rgba(255, 0, 51, 0.6);
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
     }
     .capability h3 {
       margin: 0;
@@ -314,7 +294,6 @@
     /* Reduced motion support (bulletproof UX) */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      header::after { animation: none; }
       .reveal { transition: none; transform:none; opacity: 1; }
       .card:hover { transform:none; }
       .cta-button:hover { transform:none; }
@@ -330,38 +309,37 @@
   <p>Veteran-owned drone services delivering professional aerial imagery and visual intelligence across Central Texas.</p>
 </header>
 
-<section>
-  <h2>Mission & Vision</h2>
+<section style="padding:40px 20px;background:#000;">
+  <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:center;text-align:center;">
+    <div style="font-family:'Orbitron',sans-serif;color:#ff3333;">FAA Part 107 Certified</div>
+    <div style="font-family:'Orbitron',sans-serif;color:#ff3333;">Veteran-Owned Business</div>
+    <div style="font-family:'Orbitron',sans-serif;color:#ff3333;">Insured Operations</div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>Why Second Sight Solutions?</h2>
 
   <p>
-    <strong>Our Mission</strong><br>
-    At Second Sight Solutions, our mission is to deliver precision-driven aerial imagery
-    and visual intelligence that helps clients make informed, confident decisions.
-    We combine advanced drone technology with disciplined planning, safety-first execution,
-    and professional post-processing to produce imagery that is accurate, actionable,
-    and reliable.
+    Second Sight Solutions is a <strong>veteran-owned business</strong> founded on experience in
+    <strong>technology and intelligence operations within the United States Marine Corps</strong>.
+    That background shapes everything we do—from mission planning and risk assessment to execution and delivery.
   </p>
 
   <p>
-    Every project—whether real estate, construction, land management, or creative work—
-    is approached with the mindset that aerial data is more than visuals.
-    It is information. Our mission is to capture that information clearly,
-    responsibly, and with purpose.
+    We don't approach projects casually. Each flight is planned with intent, safety considerations, and clear objectives.
+    This disciplined approach ensures consistent results while minimizing risk to people, property, and operations.
   </p>
 
   <p>
-    <strong>Our Vision</strong><br>
-    Our vision is to become Central Texas' most trusted aerial services partner by setting
-    a higher standard for professionalism, accountability, and technical excellence.
-    We aim to bridge cutting-edge aerial technology with real-world applications,
-    delivering imagery that supports planning, progress tracking, marketing,
-    and long-term decision-making.
+    What sets Second Sight Solutions apart is our focus on <em>visual intelligence</em>.
+    We don't simply capture images—we capture perspective. Our clients rely on us for clarity:
+    understanding site conditions, tracking progress, showcasing assets, and telling a visual story that serves a purpose.
   </p>
 
   <p>
-    As technology evolves, Second Sight Solutions will continue to expand capabilities,
-    refine processes, and invest in tools that allow our clients to see more,
-    understand more, and operate with greater clarity.
+    Whether working with real estate professionals, construction teams, landowners, or creative partners,
+    we operate with professionalism, discretion, and accountability.
   </p>
 </section>
 
@@ -419,74 +397,6 @@
   </div>
 </section>
 
-<section>
-  <h2>Operational Capabilities</h2>
-
-  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
-    Our operational approach is built on disciplined planning, regulatory compliance,
-    and precision execution. Every capability listed below supports safe,
-    reliable, and repeatable aerial operations.
-  </p>
-
-  <div class="capability-matrix">
-    <div class="capability">
-      <h3>FAA Part 107 Certified Operations</h3>
-      <p>All flights are conducted in full compliance with FAA Part 107 regulations.</p>
-    </div>
-    <div class="capability">
-      <h3>Mission Planning & Risk Assessment</h3>
-      <p>Each mission is planned in advance with airspace review, terrain analysis, and operational risk assessment.</p>
-    </div>
-    <div class="capability">
-      <h3>Controlled Airspace Authorization (LAANC)</h3>
-      <p>We obtain authorizations when operating near airports or within controlled airspace when required.</p>
-    </div>
-    <div class="capability">
-      <h3>High-Resolution Photo & Video Capture</h3>
-      <p>Professional-grade capture workflows produce sharp imagery for marketing, inspection, and documentation.</p>
-    </div>
-    <div class="capability">
-      <h3>Secure Data Handling</h3>
-      <p>Client assets are handled responsibly and delivered through secure, organized channels.</p>
-    </div>
-    <div class="capability">
-      <h3>Safety-First Execution</h3>
-      <p>Safety is treated as non-negotiable: situational awareness, contingency planning, and respect for people and property.</p>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <h2>Who We Work With</h2>
-
-  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
-    We partner with professionals and organizations that value precision, safety, and reliable aerial data.
-  </p>
-
-  <div class="services">
-    <div class="card reveal">
-      <h3 style="margin:0 0 8px;color:#fff;">Real Estate Professionals</h3>
-      <p>Agents and brokers who need elevated visuals to showcase properties and land competitively.</p>
-    </div>
-    <div class="card reveal">
-      <h3 style="margin:0 0 8px;color:#fff;">Construction & Development Firms</h3>
-      <p>Teams that require consistent aerial documentation to track progress and support reporting.</p>
-    </div>
-    <div class="card reveal">
-      <h3 style="margin:0 0 8px;color:#fff;">Landowners & Ranch Managers</h3>
-      <p>Property owners needing clear aerial visibility of terrain, boundaries, and improvements.</p>
-    </div>
-    <div class="card reveal">
-      <h3 style="margin:0 0 8px;color:#fff;">Marketing & Creative Teams</h3>
-      <p>Creators seeking cinematic aerial content that supports storytelling and brand presentation.</p>
-    </div>
-    <div class="card reveal">
-      <h3 style="margin:0 0 8px;color:#fff;">Event Organizers</h3>
-      <p>Coordinators looking to capture the scale, energy, and atmosphere of outdoor events and venues.</p>
-    </div>
-  </div>
-</section>
-
 <section class="alt">
   <h2>How It Works</h2>
 
@@ -526,6 +436,37 @@
   </div>
 </section>
 
+<section>
+  <h2>Who We Work With</h2>
+
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    We partner with professionals and organizations that value precision, safety, and reliable aerial data.
+  </p>
+
+  <div class="services">
+    <div class="card reveal">
+      <h3 style="margin:0 0 8px;color:#fff;">Real Estate Professionals</h3>
+      <p>Agents and brokers who need elevated visuals to showcase properties and land competitively.</p>
+    </div>
+    <div class="card reveal">
+      <h3 style="margin:0 0 8px;color:#fff;">Construction & Development Firms</h3>
+      <p>Teams that require consistent aerial documentation to track progress and support reporting.</p>
+    </div>
+    <div class="card reveal">
+      <h3 style="margin:0 0 8px;color:#fff;">Landowners & Ranch Managers</h3>
+      <p>Property owners needing clear aerial visibility of terrain, boundaries, and improvements.</p>
+    </div>
+    <div class="card reveal">
+      <h3 style="margin:0 0 8px;color:#fff;">Marketing & Creative Teams</h3>
+      <p>Creators seeking cinematic aerial content that supports storytelling and brand presentation.</p>
+    </div>
+    <div class="card reveal">
+      <h3 style="margin:0 0 8px;color:#fff;">Event Organizers</h3>
+      <p>Coordinators looking to capture the scale, energy, and atmosphere of outdoor events and venues.</p>
+    </div>
+  </div>
+</section>
+
 <section class="alt">
   <h2>What You Receive</h2>
 
@@ -551,39 +492,39 @@
       <p>Files prepared for web, social media, presentations, and internal reporting.</p>
     </div>
   </div>
-</section>
 
-<section class="alt" id="about">
-  <h2>Why Second Sight Solutions?</h2>
+  <h2 style="margin-top:80px;">Operational Capabilities</h2>
 
-  <p>
-    Second Sight Solutions is a <strong>veteran-owned business</strong> founded on experience in
-    <strong>technology and intelligence operations within the United States Marine Corps</strong>.
-    That background shapes everything we do—from mission planning and risk assessment to execution and delivery.
+  <p style="max-width:760px;margin:0 auto 50px;color:#aaa;text-align:center;">
+    Our operational approach is built on disciplined planning, regulatory compliance,
+    and precision execution.
   </p>
 
-  <p>
-    We don't approach projects casually. Each flight is planned with intent, safety considerations, and clear objectives.
-    This disciplined approach ensures consistent results while minimizing risk to people, property, and operations.
-  </p>
-
-  <p>
-    What sets Second Sight Solutions apart is our focus on <em>visual intelligence</em>.
-    We don't simply capture images—we capture perspective. Our clients rely on us for clarity:
-    understanding site conditions, tracking progress, showcasing assets, and telling a visual story that serves a purpose.
-  </p>
-
-  <p>
-    Whether working with real estate professionals, construction teams, landowners, or creative partners,
-    we operate with professionalism, discretion, and accountability.
-  </p>
-</section>
-
-<section style="padding:50px 20px;background:#000;">
-  <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:center;text-align:center;">
-    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">FAA Part 107 Certified</div>
-    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">Veteran-Owned Business</div>
-    <div class="reveal" style="font-family:'Orbitron',sans-serif;color:#ff3333;">Insured Operations</div>
+  <div class="capability-matrix">
+    <div class="capability">
+      <h3>FAA Part 107 Certified Operations</h3>
+      <p>All flights are conducted in full compliance with FAA Part 107 regulations.</p>
+    </div>
+    <div class="capability">
+      <h3>Mission Planning & Risk Assessment</h3>
+      <p>Each mission is planned in advance with airspace review, terrain analysis, and operational risk assessment.</p>
+    </div>
+    <div class="capability">
+      <h3>Controlled Airspace Authorization (LAANC)</h3>
+      <p>We obtain authorizations when operating near airports or within controlled airspace when required.</p>
+    </div>
+    <div class="capability">
+      <h3>High-Resolution Photo & Video Capture</h3>
+      <p>Professional-grade capture workflows produce sharp imagery for marketing, inspection, and documentation.</p>
+    </div>
+    <div class="capability">
+      <h3>Secure Data Handling</h3>
+      <p>Client assets are handled responsibly and delivered through secure, organized channels.</p>
+    </div>
+    <div class="capability">
+      <h3>Safety-First Execution</h3>
+      <p>Safety is treated as non-negotiable: situational awareness, contingency planning, and respect for people and property.</p>
+    </div>
   </div>
 </section>
 
