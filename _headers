@@ -1,0 +1,29 @@
+# Security Headers Configuration
+# Use this file with your hosting provider or server configuration
+
+# Prevent clickjacking attacks
+X-Frame-Options: DENY
+
+# Enable XSS protection
+X-Content-Type-Options: nosniff
+
+# XSS Filter
+X-XSS-Protection: 1; mode=block
+
+# Referrer Policy
+Referrer-Policy: strict-origin-when-cross-origin
+
+# Permissions Policy (formerly Feature Policy)
+Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Content Security Policy
+# Note: Update font-src and img-src as needed for your assets
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https://formspree.io https://www.google-analytics.com
+
+# HSTS (HTTP Strict Transport Security)
+# Enable this when you have HTTPS configured
+# Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Additional Headers
+X-Powered-By: 
+Server:

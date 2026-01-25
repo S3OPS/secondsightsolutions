@@ -1,0 +1,13 @@
+# robots.txt for Second Sight Solutions
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin/temp directories if any
+Disallow: /tmp/
+Disallow: /scripts/
+Disallow: /.git/
+
+# Sitemap location (update when you create a sitemap)
+# Sitemap: https://yourdomain.com/sitemap.xml
