@@ -308,10 +308,210 @@
       border-top: 2px solid rgba(255, 0, 51, 0.4);
       border-bottom: 2px solid rgba(255, 0, 51, 0.4);
     }
+    /* NAVIGATION BAR */
+    .top-nav {
+      background:radial-gradient(circle at top,#8b0000 0%,#000 65%);
+      padding:22px 18px;
+      position:sticky; top:0; z-index:999;
+      border-bottom:1px solid rgba(255,0,0,.18);
+      backdrop-filter:saturate(150%) blur(8px);
+    }
+    .nav-wrap{ max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
+    .brand{ text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:2px; }
+    .brand strong{ font-family:'Orbitron',sans-serif;letter-spacing:1px;font-size:1.05rem; }
+    .brand span{ color:#ffb3b3;font-size:.85rem; }
+
+    .top-nav nav ul{ list-style:none;display:flex;gap:10px;padding:0;margin:0;flex-wrap:wrap; }
+    .top-nav nav a{
+      color:#e6e6e6;text-decoration:none;padding:10px 12px;border-radius:10px;
+      border:1px solid rgba(255,0,0,.18);
+      background:linear-gradient(145deg,#111,#050505);
+      transition:.25s;font-weight:600;
+    }
+    .top-nav nav a:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(255,0,0,.25); }
+
+    /* ANIMATED DRONE */
+    .drone-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .drone {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      animation: flyDrone 20s linear infinite;
+    }
+
+    @keyframes flyDrone {
+      0% {
+        left: -100px;
+        top: 20%;
+      }
+      25% {
+        left: 50%;
+        top: 40%;
+      }
+      50% {
+        left: 110%;
+        top: 30%;
+      }
+      75% {
+        left: 50%;
+        top: 60%;
+      }
+      100% {
+        left: -100px;
+        top: 20%;
+      }
+    }
+
+    .drone-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .drone-main {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 15px;
+      background: linear-gradient(135deg, #333, #666);
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .drone-arm {
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      background: #444;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .drone-arm.arm-1 { left: -5px; top: 20%; transform: rotate(-45deg); }
+    .drone-arm.arm-2 { right: -5px; top: 20%; transform: rotate(45deg); }
+    .drone-arm.arm-3 { left: -5px; top: 70%; transform: rotate(45deg); }
+    .drone-arm.arm-4 { right: -5px; top: 70%; transform: rotate(-45deg); }
+
+    .propeller {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: spin 0.3s linear infinite;
+    }
+
+    .propeller.prop-1 { left: -10px; top: 5px; }
+    .propeller.prop-2 { right: -10px; top: 5px; }
+    .propeller.prop-3 { left: -10px; bottom: 5px; }
+    .propeller.prop-4 { right: -10px; bottom: 5px; }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .laser-beam {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 2px;
+      height: 0;
+      background: linear-gradient(to bottom, #ff0033, transparent);
+      transform: translateX(-50%);
+      animation: laser 3s ease-in-out infinite;
+      box-shadow: 0 0 10px #ff0033, 0 0 20px #ff0033;
+    }
+
+    @keyframes laser {
+      0%, 100% { height: 0; opacity: 0; }
+      10% { height: 200px; opacity: 1; }
+      30% { height: 200px; opacity: 1; }
+      40% { height: 0; opacity: 0; }
+    }
+
+    .scan-target {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ff0033;
+      border-radius: 50%;
+      animation: scanPulse 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes scanPulse {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      15%, 35% { opacity: 0.8; transform: scale(1); }
+      40% { opacity: 0; transform: scale(1.2); }
+    }
+
+    /* Ensure content is above the drone background */
+    body > *:not(.drone-background) {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .drone { animation: none; opacity: 0.3; }
+      .laser-beam { animation: none; opacity: 0; }
+      .propeller { animation: none; }
+      .scan-target { animation: none; opacity: 0; }
+    }
   </style>
 </head>
 
 <body id="top">
+
+<!-- Animated Drone Background -->
+<div class="drone-background">
+  <div class="drone">
+    <div class="drone-body">
+      <div class="drone-main"></div>
+      <div class="drone-arm arm-1"></div>
+      <div class="drone-arm arm-2"></div>
+      <div class="drone-arm arm-3"></div>
+      <div class="drone-arm arm-4"></div>
+      <div class="propeller prop-1"></div>
+      <div class="propeller prop-2"></div>
+      <div class="propeller prop-3"></div>
+      <div class="propeller prop-4"></div>
+      <div class="laser-beam"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="top-nav">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <strong>Second Sight Solutions</strong>
+      <span>Veteran-Owned Drone Services • Central Texas</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Why Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</nav>
 
 <header>
   <img src="logo.png" alt="Second Sight Solutions Logo" class="hero-logo">
@@ -598,6 +798,25 @@
 
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
+
+  // Drone scanning targets
+  function createScanTargets() {
+    const droneBackground = document.querySelector('.drone-background');
+    if (!droneBackground) return;
+
+    const numTargets = 5;
+    for (let i = 0; i < numTargets; i++) {
+      const target = document.createElement('div');
+      target.className = 'scan-target';
+      target.style.left = `${Math.random() * 90 + 5}%`;
+      target.style.top = `${Math.random() * 80 + 10}%`;
+      target.style.animationDelay = `${Math.random() * 3}s`;
+      droneBackground.appendChild(target);
+    }
+  }
+
+  // Initialize scan targets on load
+  window.addEventListener('load', createScanTargets);
 </script>
 
 </body>
