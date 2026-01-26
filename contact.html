@@ -183,10 +183,25 @@
 
     footer { background:#000;color:#777;text-align:center;padding:25px;font-size:.85rem; }
 
-    /* Small screens */
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+      header{padding:50px 18px;}
+      header h1{font-size:1.8rem;}
+      header p{font-size:0.95rem;}
+      nav a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+      }
+    }
+
     @media (max-width: 520px){
-      header{padding:55px 18px;}
-      header h1{font-size:2.15rem;}
+      header{padding:40px 15px;}
+      header h1{font-size:1.5rem;}
+      header p{font-size:0.85rem;}
+      nav a {
+        font-size: 0.8rem;
+        padding: 7px 10px;
+      }
     }
   </style>
 </head>
