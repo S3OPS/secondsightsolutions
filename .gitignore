@@ -47,3 +47,4 @@ Desktop.ini
 # Backup files
 *.bak
 *.backup
+nohup.out
