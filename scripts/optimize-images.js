@@ -5,9 +5,13 @@
  * Generates 400w, 800w, 1200w versions for mobile optimization
  */
 
-const sharp = require('sharp');
-const fs = require('fs').promises;
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const IMAGE_DIRS = ['images', '.'];
 const EXCLUDE_FILES = ['logo.png', 'favicon.ico'];
