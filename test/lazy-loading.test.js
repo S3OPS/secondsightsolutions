@@ -204,6 +204,9 @@ describe('Lazy Loading Module', () => {
     describe('without IntersectionObserver support', () => {
       beforeEach(() => {
         // Remove IntersectionObserver from window by deleting it
+        // Note: Using delete is required because the module checks
+        // 'IntersectionObserver' in window, which only returns false
+        // when the property doesn't exist (not when it's undefined)
         delete dom.window.IntersectionObserver;
       });
 

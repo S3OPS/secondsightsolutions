@@ -229,12 +229,7 @@ describe('Lightbox Module', () => {
     });
 
     it('uses default aria-label for images without alt text', () => {
-      const noAltImg = document.createElement('img');
-      noAltImg.classList.add('gallery');
-      noAltImg.src = 'no-alt.jpg';
-      document.body.appendChild(noAltImg);
-      
-      // Re-query for gallery images
+      // Get the data-lightbox image and remove its alt attribute
       const imgWithDataLightbox = document.querySelector('[data-lightbox]');
       imgWithDataLightbox.removeAttribute('alt');
       
