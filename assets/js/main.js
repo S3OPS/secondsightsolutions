@@ -151,7 +151,11 @@
       img.style.cursor = 'pointer';
       img.setAttribute('role', 'button');
       img.setAttribute('tabindex', '0');
-      img.setAttribute('aria-label', img.alt || 'View image in lightbox');
+      
+      // Enhance the existing alt text with context
+      const currentAlt = img.alt || '';
+      const enhancedAlt = currentAlt ? `${currentAlt} - Click to view larger` : 'View image in lightbox';
+      img.setAttribute('aria-label', enhancedAlt);
       
       // Click handler
       img.addEventListener('click', function() {
@@ -170,7 +174,8 @@
     function openLightbox(img) {
       previouslyFocusedElement = document.activeElement;
       lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || 'Enlarged image';
+      // Preserve the original alt text for better screen reader experience
+      lightboxImg.alt = img.alt || 'Image in lightbox view';
       lightbox.style.display = 'flex';
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -252,7 +257,7 @@
     
     // Throttled scroll handler for better performance
     function updateMobileCTA() {
-      const currentScroll = window.scrollY || window.pageYOffset;
+      const currentScroll = window.scrollY;
       
       // Show CTA when scrolling down past 300px
       if (currentScroll > 300 && currentScroll > lastScroll) {
