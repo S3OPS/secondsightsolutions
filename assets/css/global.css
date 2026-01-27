@@ -386,6 +386,40 @@ form button {
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input.field-error,
+form textarea.field-error,
+form select.field-error {
+  border-color: var(--primary-red);
+  animation: field-error-shake 0.3s ease;
+}
+
+@keyframes field-error-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error-message {
+  color: var(--primary-red);
+  font-size: 0.85rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: block;
+  animation: error-fade-in 0.3s ease;
+}
+
+@keyframes error-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 form button {
@@ -409,6 +443,12 @@ form label {
   margin-bottom: 8px;
   color: var(--text-light);
   font-weight: 600;
+}
+
+form label abbr {
+  color: var(--primary-red);
+  text-decoration: none;
+  cursor: help;
 }
 
 /* ===================================
@@ -462,7 +502,7 @@ footer a:hover {
   position: fixed;
   bottom: 15px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(100px);
   background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
   color: #fff;
   padding: 16px 34px;
@@ -472,6 +512,18 @@ footer a:hover {
   box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
   z-index: 9998;
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-cta.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mobile-cta.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100px);
 }
 
 /* Show only on mobile */
