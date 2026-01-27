@@ -1,17 +1,22 @@
 /**
  * Unit tests for utils.js module
- * Tests email validation, phone validation, throttle, and WebP support
+ * Tests email validation, phone validation, name validation, throttle, debounce, and WebP support
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-// Mock the config module
+// Mock the config module with enhanced validation patterns
 vi.mock('../assets/js/modules/config.js', () => ({
   config: {
     validation: {
-      emailPattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      emailPattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       phonePattern: /^[\d\s\-\(\)\+]+$/,
+      phonePatternStrict: /^\+?[1-9]\d{1,14}$/,
+      namePattern: /^[\p{L}\s\-']{2,100}$/u,
       phoneMinLength: 10,
+      phoneMaxLength: 20,
+      nameMinLength: 2,
+      nameMaxLength: 100,
     },
     webp: {
       testImage: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=',
@@ -66,8 +71,10 @@ describe('Email Validation', () => {
       expect(utils.isValidEmail('@example.com')).toBe(false);
     });
 
-    it('rejects email without TLD', () => {
-      expect(utils.isValidEmail('user@example')).toBe(false);
+    it('handles email without TLD (RFC 5322 allows local addresses)', () => {
+      // RFC 5322 technically allows local addresses without TLD
+      // In real-world web forms, this might be valid for internal systems
+      expect(utils.isValidEmail('user@example')).toBe(true);
     });
 
     it('rejects email with spaces', () => {
@@ -209,5 +216,251 @@ describe('WebP Support Check', () => {
     expect(() => {
       utils.checkWebPSupport(() => {});
     }).not.toThrow();
+  });
+});
+
+describe('Strict Phone Validation (E.164)', () => {
+  describe('valid E.164 phone numbers', () => {
+    it('accepts E.164 format with plus', () => {
+      expect(utils.isValidPhoneStrict('+15551234567')).toBe(true);
+    });
+
+    it('accepts E.164 format without plus', () => {
+      expect(utils.isValidPhoneStrict('15551234567')).toBe(true);
+    });
+
+    it('accepts international numbers', () => {
+      expect(utils.isValidPhoneStrict('+442079460958')).toBe(true);
+    });
+
+    it('accepts formatted number after stripping', () => {
+      expect(utils.isValidPhoneStrict('+1 (555) 123-4567')).toBe(true);
+    });
+  });
+
+  describe('invalid E.164 phone numbers', () => {
+    it('rejects number starting with 0', () => {
+      expect(utils.isValidPhoneStrict('+05551234567')).toBe(false);
+    });
+
+    it('rejects empty string', () => {
+      expect(utils.isValidPhoneStrict('')).toBe(false);
+    });
+
+    it('rejects null', () => {
+      expect(utils.isValidPhoneStrict(null)).toBe(false);
+    });
+
+    it('rejects undefined', () => {
+      expect(utils.isValidPhoneStrict(undefined)).toBe(false);
+    });
+
+    it('rejects phone with letters', () => {
+      expect(utils.isValidPhoneStrict('+1555ABC4567')).toBe(false);
+    });
+  });
+});
+
+describe('Name Validation', () => {
+  describe('valid names', () => {
+    it('accepts simple name', () => {
+      expect(utils.isValidName('John')).toBe(true);
+    });
+
+    it('accepts full name', () => {
+      expect(utils.isValidName('John Doe')).toBe(true);
+    });
+
+    it('accepts hyphenated name', () => {
+      expect(utils.isValidName('Mary-Jane')).toBe(true);
+    });
+
+    it('accepts name with apostrophe', () => {
+      expect(utils.isValidName("O'Connor")).toBe(true);
+    });
+
+    it('accepts international characters', () => {
+      expect(utils.isValidName('José García')).toBe(true);
+    });
+
+    it('accepts names with multiple spaces', () => {
+      expect(utils.isValidName('Mary Jane Watson')).toBe(true);
+    });
+
+    it('trims whitespace', () => {
+      expect(utils.isValidName('  John Doe  ')).toBe(true);
+    });
+  });
+
+  describe('invalid names', () => {
+    it('rejects empty string', () => {
+      expect(utils.isValidName('')).toBe(false);
+    });
+
+    it('rejects null', () => {
+      expect(utils.isValidName(null)).toBe(false);
+    });
+
+    it('rejects undefined', () => {
+      expect(utils.isValidName(undefined)).toBe(false);
+    });
+
+    it('rejects single character', () => {
+      expect(utils.isValidName('J')).toBe(false);
+    });
+
+    it('rejects name with numbers', () => {
+      expect(utils.isValidName('John123')).toBe(false);
+    });
+
+    it('rejects name with special characters', () => {
+      expect(utils.isValidName('John@Doe')).toBe(false);
+    });
+
+    it('rejects whitespace only', () => {
+      expect(utils.isValidName('   ')).toBe(false);
+    });
+  });
+});
+
+describe('Debounce Function', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('delays function execution', () => {
+    const fn = vi.fn();
+    const debounced = utils.debounce(fn, 100);
+    
+    debounced();
+    expect(fn).not.toHaveBeenCalled();
+    
+    vi.advanceTimersByTime(100);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it('resets delay on subsequent calls', () => {
+    const fn = vi.fn();
+    const debounced = utils.debounce(fn, 100);
+    
+    debounced();
+    vi.advanceTimersByTime(50);
+    debounced(); // Reset the timer
+    vi.advanceTimersByTime(50);
+    expect(fn).not.toHaveBeenCalled();
+    
+    vi.advanceTimersByTime(50);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it('executes immediately when immediate is true', () => {
+    const fn = vi.fn();
+    const debounced = utils.debounce(fn, 100, true);
+    
+    debounced();
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not execute again during wait period with immediate', () => {
+    const fn = vi.fn();
+    const debounced = utils.debounce(fn, 100, true);
+    
+    debounced();
+    debounced();
+    debounced();
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it('passes arguments to debounced function', () => {
+    const fn = vi.fn();
+    const debounced = utils.debounce(fn, 100);
+    
+    debounced('arg1', 'arg2');
+    vi.advanceTimersByTime(100);
+    
+    expect(fn).toHaveBeenCalledWith('arg1', 'arg2');
+  });
+
+  it('preserves context when called', () => {
+    const obj = {
+      value: 42,
+      method: vi.fn(function() { return this.value; }),
+    };
+    obj.debounced = utils.debounce(obj.method, 100);
+    
+    obj.debounced();
+    vi.advanceTimersByTime(100);
+    
+    expect(obj.method).toHaveBeenCalled();
+  });
+});
+
+describe('Sanitize String', () => {
+  it('returns empty string for null', () => {
+    expect(utils.sanitizeString(null)).toBe('');
+  });
+
+  it('returns empty string for undefined', () => {
+    expect(utils.sanitizeString(undefined)).toBe('');
+  });
+
+  it('returns empty string for empty input', () => {
+    expect(utils.sanitizeString('')).toBe('');
+  });
+
+  it('escapes HTML tags', () => {
+    const result = utils.sanitizeString('<script>alert("xss")</script>');
+    expect(result).not.toContain('<script>');
+    expect(result).toContain('&lt;');
+    expect(result).toContain('&gt;');
+  });
+
+  it('escapes ampersands', () => {
+    const result = utils.sanitizeString('Tom & Jerry');
+    expect(result).toContain('&amp;');
+  });
+
+  it('returns plain text unchanged', () => {
+    expect(utils.sanitizeString('Hello World')).toBe('Hello World');
+  });
+});
+
+describe('Edge Cases for Email Validation', () => {
+  it('handles null input', () => {
+    expect(utils.isValidEmail(null)).toBe(false);
+  });
+
+  it('handles undefined input', () => {
+    expect(utils.isValidEmail(undefined)).toBe(false);
+  });
+
+  it('handles non-string input', () => {
+    expect(utils.isValidEmail(123)).toBe(false);
+  });
+
+  it('trims whitespace', () => {
+    expect(utils.isValidEmail('  test@example.com  ')).toBe(true);
+  });
+});
+
+describe('Edge Cases for Phone Validation', () => {
+  it('handles null input', () => {
+    expect(utils.isValidPhone(null)).toBe(false);
+  });
+
+  it('handles undefined input', () => {
+    expect(utils.isValidPhone(undefined)).toBe(false);
+  });
+
+  it('handles non-string input', () => {
+    expect(utils.isValidPhone(5551234567)).toBe(false);
+  });
+
+  it('rejects phone that exceeds max length', () => {
+    expect(utils.isValidPhone('123456789012345678901')).toBe(false);
   });
 });

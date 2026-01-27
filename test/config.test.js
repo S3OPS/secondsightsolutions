@@ -92,18 +92,45 @@ describe('Config Module', () => {
       expect(config.validation.phonePattern).toBeInstanceOf(RegExp);
     });
 
+    it('has strict phone pattern as regex', () => {
+      expect(config.validation.phonePatternStrict).toBeInstanceOf(RegExp);
+    });
+
+    it('has name pattern as regex', () => {
+      expect(config.validation.namePattern).toBeInstanceOf(RegExp);
+    });
+
     it('has phone min length defined', () => {
       expect(config.validation.phoneMinLength).toBe(10);
+    });
+
+    it('has phone max length defined', () => {
+      expect(config.validation.phoneMaxLength).toBe(20);
+    });
+
+    it('has name min length defined', () => {
+      expect(config.validation.nameMinLength).toBe(2);
+    });
+
+    it('has name max length defined', () => {
+      expect(config.validation.nameMaxLength).toBe(100);
     });
 
     it('has error messages defined', () => {
       expect(config.validation.messages.required).toBeDefined();
       expect(config.validation.messages.invalidEmail).toBeDefined();
       expect(config.validation.messages.invalidPhone).toBeDefined();
+      expect(config.validation.messages.invalidName).toBeDefined();
+      expect(config.validation.messages.tooShort).toBeDefined();
+      expect(config.validation.messages.tooLong).toBeDefined();
     });
 
     it('email pattern matches valid emails', () => {
       expect(config.validation.emailPattern.test('test@example.com')).toBe(true);
+    });
+
+    it('email pattern matches emails with plus tags', () => {
+      expect(config.validation.emailPattern.test('user+tag@example.com')).toBe(true);
     });
 
     it('email pattern rejects invalid emails', () => {
@@ -116,6 +143,26 @@ describe('Config Module', () => {
 
     it('phone pattern rejects invalid phones', () => {
       expect(config.validation.phonePattern.test('abc-def-ghij')).toBe(false);
+    });
+
+    it('strict phone pattern matches E.164 format', () => {
+      expect(config.validation.phonePatternStrict.test('+15551234567')).toBe(true);
+    });
+
+    it('strict phone pattern rejects invalid format', () => {
+      expect(config.validation.phonePatternStrict.test('555-123-4567')).toBe(false);
+    });
+
+    it('name pattern matches valid names', () => {
+      expect(config.validation.namePattern.test('John Doe')).toBe(true);
+    });
+
+    it('name pattern matches names with hyphens', () => {
+      expect(config.validation.namePattern.test("Mary-Jane O'Connor")).toBe(true);
+    });
+
+    it('name pattern rejects names with numbers', () => {
+      expect(config.validation.namePattern.test('John123')).toBe(false);
     });
   });
 
