@@ -7,6 +7,7 @@ build/
 *.min.css
 *.min.js
 *.min.js.map
+*.webp
 
 # Test coverage
 coverage/
