@@ -182,6 +182,18 @@ The contact form uses Formspree. To change the endpoint:
 
 Copyright © 2024-2026 Second Sight Solutions. All rights reserved.
 
+## Documentation
+
+This repository includes comprehensive documentation:
+
+- **THE_ONE_RING.md** - Master strategic roadmap and comprehensive status
+- **CHANGELOG.md** - Detailed version history and notable changes  
+- **DEPLOYMENT.md** - Step-by-step deployment guides for multiple platforms
+- **OPTIMIZATION.md** - Technical optimization details and best practices
+- **SECURITY.md** - Security audit results and security best practices
+- **AI_IMAGE_GENERATION.md** - AI-powered image generation tools and workflow
+- **docs/archive/** - Historical documentation from completed enhancement tasks
+
 ## Contact
 
 For questions about this website or our services, visit the contact page on the deployed website.

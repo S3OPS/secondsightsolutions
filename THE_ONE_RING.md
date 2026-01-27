@@ -3,8 +3,10 @@
 
 **Generated:** January 27, 2026  
 **Last Updated:** January 27, 2026  
-**Version:** 1.2  
+**Version:** 1.3  
 **Purpose:** Comprehensive repository assessment and actionable roadmap for continuous improvement
+
+> **Latest Update (v1.3):** Documentation cleanup completed - redundant files archived to `docs/archive/` for cleaner repository structure.
 
 ---
 
@@ -54,6 +56,7 @@ The Second Sight Solutions website is a well-architected, secure, and performant
 - ✅ **JavaScript bundling** - Rollup configuration for production bundles
 - ✅ **CI/CD pipeline** - GitHub Actions workflow for automated quality checks
 - ✅ **Responsive image tooling** - optimize-images.js with `--srcset` flag for multi-size output
+- ✅ **Documentation cleanup** - Redundant docs archived, cleaner repository structure
 
 ### Remaining Opportunities
 - 🖼️ Apply responsive image srcsets to HTML pages
@@ -980,9 +983,11 @@ if ('serviceWorker' in navigator) {
 ### Documentation Links
 - [OPTIMIZATION.md](./OPTIMIZATION.md) - Detailed optimization documentation
 - [SECURITY.md](./SECURITY.md) - Security audit summary
-- [IMPROVEMENT_ROADMAP.md](./IMPROVEMENT_ROADMAP.md) - Detailed improvement roadmap
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
 - [README.md](./README.md) - Project overview and setup
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - Deployment guides for multiple platforms
+- [AI_IMAGE_GENERATION.md](./AI_IMAGE_GENERATION.md) - AI image generation tools
+- [docs/archive/](./docs/archive/) - Historical documentation from completed tasks
 
 ### External Resources
 - [Web.dev Performance](https://web.dev/performance/) - Performance best practices
