@@ -109,4 +109,7 @@ async function main() {
   console.log('\n✨ Service pages updated!');
 }
 
-main().catch(console.error);
+// Run if called directly
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(console.error);
+}
