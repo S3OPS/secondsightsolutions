@@ -983,9 +983,11 @@ if ('serviceWorker' in navigator) {
 ### Documentation Links
 - [OPTIMIZATION.md](./OPTIMIZATION.md) - Detailed optimization documentation
 - [SECURITY.md](./SECURITY.md) - Security audit summary
-- [IMPROVEMENT_ROADMAP.md](./IMPROVEMENT_ROADMAP.md) - Detailed improvement roadmap
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
 - [README.md](./README.md) - Project overview and setup
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - Deployment guides for multiple platforms
+- [AI_IMAGE_GENERATION.md](./AI_IMAGE_GENERATION.md) - AI image generation tools
+- [docs/archive/](./docs/archive/) - Historical documentation from completed tasks
 
 ### External Resources
 - [Web.dev Performance](https://web.dev/performance/) - Performance best practices
