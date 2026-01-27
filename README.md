@@ -74,6 +74,24 @@ npm run build
 
 # Validate HTML and CSS
 npm run validate
+
+# Generate AI-optimized service page images
+npm run generate-images
+
+# Update service pages with generated images
+npm run update-page-images
+```
+
+### AI Image Generation
+
+This project includes AI-powered image generation for service pages. See [AI_IMAGE_GENERATION.md](./AI_IMAGE_GENERATION.md) for details.
+
+```bash
+# Generate placeholder images and AI prompts
+npm run generate-images
+
+# Export AI prompts for professional generation
+npm run export-prompts
 ```
 
 ## Deployment

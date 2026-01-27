@@ -1,0 +1,272 @@
+{
+  "real-estate": {
+    "serviceName": "Real Estate",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "real-estate-1.jpg",
+        "title": "Luxury Property Overview",
+        "aiPrompt": "Professional aerial drone photograph of a luxury residential property in Central Texas, showcasing modern home with pool, landscaped yard, and surrounding neighborhood, golden hour lighting, 4K quality, real estate marketing style",
+        "description": "Luxury home aerial view showcasing property and landscaping"
+      },
+      {
+        "filename": "real-estate-2.jpg",
+        "title": "Neighborhood Context Shot",
+        "aiPrompt": "Aerial drone view of residential neighborhood in Central Texas, modern suburban homes with streets and community features, midday lighting, professional real estate photography, high resolution",
+        "description": "Residential property with surrounding neighborhood context"
+      },
+      {
+        "filename": "real-estate-3.jpg",
+        "title": "Estate Aerial View",
+        "aiPrompt": "Wide aerial photograph of estate property with expansive land, showing main house, outbuildings, pastures, and tree lines, Central Texas landscape, professional drone photography for real estate marketing",
+        "description": "Estate property showcasing land and outdoor features"
+      },
+      {
+        "filename": "real-estate-4.jpg",
+        "title": "Commercial Property",
+        "aiPrompt": "Professional aerial drone photograph of commercial real estate building with parking lot, landscaping, and surrounding area, modern architecture, Central Texas, commercial real estate marketing photography",
+        "description": "Commercial real estate aerial perspective"
+      },
+      {
+        "filename": "real-estate-5.jpg",
+        "title": "Twilight Property Shot",
+        "aiPrompt": "Stunning twilight aerial photograph of luxury home with interior and exterior lights glowing, dramatic blue hour sky, pool and landscape illuminated, professional real estate drone photography, high-end marketing image",
+        "description": "Property at twilight with dramatic lighting"
+      },
+      {
+        "filename": "real-estate-6.jpg",
+        "title": "Property Layout View",
+        "aiPrompt": "Aerial drone photograph showing complete property layout from above, property boundaries, structures, driveways, landscaping features, Central Texas real estate, professional site documentation style",
+        "description": "Wide angle property and land overview"
+      }
+    ]
+  },
+  "construction": {
+    "serviceName": "Construction",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "construction-1.jpg",
+        "title": "Construction Site Overview",
+        "aiPrompt": "Professional aerial drone photograph of active construction site in Central Texas, showing building progress, equipment, materials staging areas, and site layout, industrial construction documentation style, high detail",
+        "description": "Aerial view of construction site showing progress and layout"
+      },
+      {
+        "filename": "construction-2.jpg",
+        "title": "Wide-Angle Site View",
+        "aiPrompt": "Wide aerial view of large construction project site, showing multiple buildings under construction, equipment staging, access roads, and surrounding area, Central Texas construction site, professional documentation photography",
+        "description": "Wide-angle construction site overview with staging areas"
+      },
+      {
+        "filename": "construction-3.jpg",
+        "title": "Construction Milestone",
+        "aiPrompt": "Aerial drone photograph of construction milestone moment, building structure at key completion phase, workers and equipment visible, Central Texas commercial construction, progress documentation style",
+        "description": "Construction milestone documentation from aerial perspective"
+      },
+      {
+        "filename": "construction-4.jpg",
+        "title": "Building Progress",
+        "aiPrompt": "Professional aerial photograph showing building structure progress with steel framework or concrete work in progress, construction equipment operating, site activity, Central Texas construction project documentation",
+        "description": "Building structure progress with surrounding area"
+      },
+      {
+        "filename": "construction-5.jpg",
+        "title": "Site Comparison",
+        "aiPrompt": "Aerial drone photograph ideal for before/after construction comparison, showing developed site with progress visible, construction phases documented, professional site monitoring photography",
+        "description": "Construction site before and after comparison"
+      },
+      {
+        "filename": "construction-6.jpg",
+        "title": "Construction Showcase",
+        "aiPrompt": "Professional showcase aerial photograph of construction excellence, modern commercial building under construction, clean site management, safety protocols visible, Central Texas construction marketing image",
+        "description": "Professional construction site aerial photography showcase"
+      }
+    ]
+  },
+  "inspections": {
+    "serviceName": "Inspections",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "inspections-1.jpg",
+        "title": "Roof Inspection Detail",
+        "aiPrompt": "Close-up aerial drone photograph of commercial building roof inspection, showing roof condition, HVAC units, details of roofing materials, professional inspection documentation, high resolution detail",
+        "description": "Close-up aerial roof inspection showing detail and condition"
+      },
+      {
+        "filename": "inspections-2.jpg",
+        "title": "Tower Structure",
+        "aiPrompt": "Aerial drone photograph of telecommunications tower or industrial structure inspection, showing structural details, equipment, and condition assessment perspective, professional infrastructure inspection image",
+        "description": "Tower structure inspection from aerial drone perspective"
+      },
+      {
+        "filename": "inspections-3.jpg",
+        "title": "Building Facade",
+        "aiPrompt": "Professional aerial drone photograph inspecting building facade, showing wall condition, windows, architectural details, commercial building exterior inspection documentation",
+        "description": "Building facade inspection aerial documentation"
+      },
+      {
+        "filename": "inspections-4.jpg",
+        "title": "Infrastructure Inspection",
+        "aiPrompt": "Aerial drone photograph of infrastructure inspection - bridge, power lines, or industrial facility, detailed inspection perspective, safety documentation style, professional engineering photography",
+        "description": "Infrastructure inspection with detailed aerial imaging"
+      },
+      {
+        "filename": "inspections-5.jpg",
+        "title": "Rooftop Equipment",
+        "aiPrompt": "Aerial photograph of commercial building rooftop showing HVAC equipment, solar panels, and mechanical systems, inspection documentation perspective, detailed equipment condition assessment",
+        "description": "Commercial building rooftop equipment inspection"
+      },
+      {
+        "filename": "inspections-6.jpg",
+        "title": "Professional Inspection",
+        "aiPrompt": "Professional aerial inspection photograph showcasing drone inspection capabilities, detailed view of building or structure requiring assessment, Central Texas inspection services marketing image",
+        "description": "Professional inspection aerial photography for documentation"
+      }
+    ]
+  },
+  "mapping": {
+    "serviceName": "Mapping",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "mapping-1.jpg",
+        "title": "Orthomosaic Map",
+        "aiPrompt": "Professional aerial orthomosaic map of large property or development site, showing detailed layout, features, and measurements, GIS-style mapping visualization, Central Texas topography, survey-grade imagery",
+        "description": "Aerial orthomosaic map showing detailed site layout and features"
+      },
+      {
+        "filename": "mapping-2.jpg",
+        "title": "Large Property Survey",
+        "aiPrompt": "Aerial drone mapping photograph of large property with survey grid overlay visible, showing land features, boundaries, and topography, professional land surveying style, Central Texas landscape",
+        "description": "Large property aerial mapping survey with grid overlay"
+      },
+      {
+        "filename": "mapping-3.jpg",
+        "title": "Construction Progress Map",
+        "aiPrompt": "Aerial mapping photograph for construction site progress tracking, orthomosaic view showing site changes over time, measurement data visible, professional construction monitoring imagery",
+        "description": "Construction site progress tracking with aerial mapping"
+      },
+      {
+        "filename": "mapping-4.jpg",
+        "title": "Land Development Plan",
+        "aiPrompt": "Detailed aerial mapping imagery for land development planning, showing terrain, existing features, and potential development areas, Central Texas land, professional planning and engineering visualization",
+        "description": "Land development planning with detailed aerial imagery"
+      },
+      {
+        "filename": "mapping-5.jpg",
+        "title": "Topographic Mapping",
+        "aiPrompt": "Professional topographic aerial mapping photograph showing elevation contours, terrain features, and land analysis data, survey-grade topographic visualization for Central Texas property",
+        "description": "Topographic aerial mapping for land analysis"
+      },
+      {
+        "filename": "mapping-6.jpg",
+        "title": "Mapping Services Showcase",
+        "aiPrompt": "Professional aerial mapping services showcase image, demonstrating precision mapping capabilities, detailed orthomosaic or 3D terrain model, Central Texas aerial surveying and mapping marketing photography",
+        "description": "Professional aerial mapping services showcase"
+      }
+    ]
+  },
+  "ranch-farm": {
+    "serviceName": "Ranch & Farm",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "ranch-farm-1.jpg",
+        "title": "Ranch Property Overview",
+        "aiPrompt": "Aerial drone photograph of ranch property in Central Texas showing land features, fencing, structures, pastures, and improvements, professional rural real estate photography, expansive landscape view",
+        "description": "Aerial view of ranch property showing land features and improvements"
+      },
+      {
+        "filename": "ranch-farm-2.jpg",
+        "title": "Farm Acreage",
+        "aiPrompt": "Aerial photograph of farm acreage showing crop fields, access roads, agricultural patterns, and farming operations, Central Texas farmland, professional agricultural real estate photography",
+        "description": "Farm acreage with crop fields and access roads"
+      },
+      {
+        "filename": "ranch-farm-3.jpg",
+        "title": "Land Listing",
+        "aiPrompt": "Professional aerial photograph for land listing showing property boundaries, acreage overview, natural features, and access points, Central Texas rural property, real estate marketing photography",
+        "description": "Land listing aerial photography showing property boundaries"
+      },
+      {
+        "filename": "ranch-farm-4.jpg",
+        "title": "Ranch Facilities",
+        "aiPrompt": "Aerial drone photograph of ranch facilities and structures including barns, corrals, outbuildings, from aerial perspective, showing layout and condition, Central Texas ranch property documentation",
+        "description": "Ranch facilities and structures from aerial perspective"
+      },
+      {
+        "filename": "ranch-farm-5.jpg",
+        "title": "Water Features & Pastures",
+        "aiPrompt": "Aerial photograph of ranch or farm property showing water features like ponds or creeks, pasture land, grazing areas, and natural landscape, Central Texas agricultural land documentation",
+        "description": "Water features and pasture land aerial documentation"
+      },
+      {
+        "filename": "ranch-farm-6.jpg",
+        "title": "Ranch Marketing",
+        "aiPrompt": "Professional aerial marketing photograph for ranch and farm properties, showcasing expansive Central Texas agricultural land, beautiful landscape, and property features, luxury rural real estate photography",
+        "description": "Professional ranch and farm aerial photography for marketing"
+      }
+    ]
+  },
+  "events": {
+    "serviceName": "Events",
+    "dimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "images": [
+      {
+        "filename": "events-1.jpg",
+        "title": "Event Venue Aerial",
+        "aiPrompt": "Professional aerial drone photograph of outdoor event showing crowd and venue layout, festival or concert setting, Central Texas outdoor venue, dynamic event photography perspective",
+        "description": "Aerial view of outdoor event showing crowd and venue layout"
+      },
+      {
+        "filename": "events-2.jpg",
+        "title": "Crowd Scale",
+        "aiPrompt": "Aerial photograph showing event crowd scale and atmosphere, large gathering from above, showing scope and energy of event, professional event documentation photography",
+        "description": "Crowd scale and event atmosphere from aerial perspective"
+      },
+      {
+        "filename": "events-3.jpg",
+        "title": "Cinematic Event Shot",
+        "aiPrompt": "Cinematic aerial shot of event in progress, dramatic perspective of outdoor festival or concert, stage and audience visible, Central Texas event, professional event videography style photography",
+        "description": "Cinematic aerial shot of event in progress"
+      },
+      {
+        "filename": "events-4.jpg",
+        "title": "Event Staging",
+        "aiPrompt": "Aerial documentation of event staging and layout, showing setup of outdoor event including stage, seating areas, vendor areas, and logistics, professional event planning photography",
+        "description": "Event staging and layout aerial documentation"
+      },
+      {
+        "filename": "events-5.jpg",
+        "title": "Night Event",
+        "aiPrompt": "Aerial photograph of night event coverage with lighting display, outdoor concert or festival at twilight or night, dramatic lighting effects visible from above, professional event photography",
+        "description": "Night event coverage with lighting display"
+      },
+      {
+        "filename": "events-6.jpg",
+        "title": "Event Marketing",
+        "aiPrompt": "Professional aerial photograph for event marketing, showcasing successful outdoor event in Central Texas, energetic atmosphere, professional event coverage and promotion photography",
+        "description": "Professional event aerial photography for marketing"
+      }
+    ]
+  }
+}
