@@ -882,14 +882,18 @@ if ('serviceWorker' in navigator) {
 ### Git Workflow
 
 1. **Branch Naming**
+   
+   Use descriptive, lowercase branch names with a clear prefix:
    ```
-   feature/add-unit-tests
-   fix/html-validation-errors
-   refactor/extract-inline-styles
-   docs/update-readme
+   copilot/<task-description>    # AI-assisted changes
+   feature/<feature-name>        # New features
+   fix/<bug-description>         # Bug fixes
+   docs/<documentation-update>   # Documentation changes
    ```
 
 2. **Commit Messages**
+   
+   Follow conventional commit format:
    ```
    feat: add unit tests for utils module
    fix: correct HTML validation errors
@@ -904,6 +908,11 @@ if ('serviceWorker' in navigator) {
    - Request code review
    - Pass all CI checks
    - Update documentation if needed
+
+4. **Branch Maintenance**
+   - Delete branches after merging PRs
+   - Keep only active development branches
+   - Use `backup/` prefix for important snapshots
 
 ### Testing Guidelines
 
