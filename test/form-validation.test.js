@@ -6,17 +6,25 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { JSDOM } from 'jsdom';
 
-// Mock the config and utils modules
+// Mock the config and utils modules with enhanced validation patterns
 vi.mock('../assets/js/modules/config.js', () => ({
   config: {
     validation: {
-      emailPattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      emailPattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       phonePattern: /^[\d\s\-\(\)\+]+$/,
+      phonePatternStrict: /^\+?[1-9]\d{1,14}$/,
+      namePattern: /^[\p{L}\s\-']{2,100}$/u,
       phoneMinLength: 10,
+      phoneMaxLength: 20,
+      nameMinLength: 2,
+      nameMaxLength: 100,
       messages: {
         required: 'This field is required',
         invalidEmail: 'Please enter a valid email address',
         invalidPhone: 'Please enter a valid phone number',
+        invalidName: 'Please enter a valid name (2-100 characters)',
+        tooShort: 'This field is too short',
+        tooLong: 'This field is too long',
       },
     },
   },
@@ -24,8 +32,15 @@ vi.mock('../assets/js/modules/config.js', () => ({
 
 vi.mock('../assets/js/modules/utils.js', () => ({
   utils: {
-    isValidEmail: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-    isValidPhone: (phone) => phone.length >= 10 && /^[\d\s\-\(\)\+]+$/.test(phone),
+    isValidEmail: (email) => {
+      if (!email || typeof email !== 'string') return false;
+      return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email.trim());
+    },
+    isValidPhone: (phone) => {
+      if (!phone || typeof phone !== 'string') return false;
+      const trimmed = phone.trim();
+      return trimmed.length >= 10 && trimmed.length <= 20 && /^[\d\s\-\(\)\+]+$/.test(trimmed);
+    },
   },
 }));
 
