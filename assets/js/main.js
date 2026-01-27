@@ -110,14 +110,11 @@
     
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
-    errorDiv.style.color = '#ff0033';
-    errorDiv.style.fontSize = '0.85rem';
-    errorDiv.style.marginTop = '-10px';
-    errorDiv.style.marginBottom = '10px';
     errorDiv.textContent = message;
     errorDiv.setAttribute('role', 'alert');
+    errorDiv.setAttribute('aria-live', 'polite');
     
-    field.style.borderColor = '#ff0033';
+    field.classList.add('field-error');
     field.parentNode.insertBefore(errorDiv, field.nextSibling);
   }
 
@@ -126,7 +123,7 @@
     if (errorMsg && errorMsg.classList.contains('error-message')) {
       errorMsg.remove();
     }
-    field.style.borderColor = '';
+    field.classList.remove('field-error');
   }
 
   function isValidEmail(email) {
@@ -148,28 +145,71 @@
     
     const lightboxImg = lightbox.querySelector('img');
     const galleryImages = document.querySelectorAll('.gallery img, [data-lightbox]');
+    let previouslyFocusedElement = null;
     
     galleryImages.forEach(img => {
       img.style.cursor = 'pointer';
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('aria-label', img.alt || 'View image in lightbox');
+      
+      // Click handler
       img.addEventListener('click', function() {
-        lightboxImg.src = this.src;
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        openLightbox(this);
+      });
+      
+      // Keyboard handler
+      img.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(this);
+        }
       });
     });
     
-    lightbox.addEventListener('click', function() {
-      this.style.display = 'none';
+    function openLightbox(img) {
+      previouslyFocusedElement = document.activeElement;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Enlarged image';
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      
+      // Focus the lightbox for keyboard accessibility
+      lightbox.focus();
+    }
+    
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      
+      // Return focus to the element that opened the lightbox
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+      }
+    }
+    
+    // Click outside image to close
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
     });
     
     // ESC key to close
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = '';
+        closeLightbox();
       }
     });
+    
+    // Make lightbox focusable
+    lightbox.setAttribute('tabindex', '-1');
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Image lightbox');
+    lightbox.setAttribute('aria-hidden', 'true');
   }
 
   // ==========================================
@@ -208,24 +248,32 @@
     if (!mobileCTA) return;
     
     let lastScroll = 0;
-    window.addEventListener('scroll', function() {
-      const currentScroll = window.pageYOffset;
+    let ticking = false;
+    
+    // Throttled scroll handler for better performance
+    function updateMobileCTA() {
+      const currentScroll = window.scrollY || window.pageYOffset;
       
       // Show CTA when scrolling down past 300px
       if (currentScroll > 300 && currentScroll > lastScroll) {
-        mobileCTA.style.opacity = '1';
-        mobileCTA.style.transform = 'translateX(-50%) translateY(0)';
+        mobileCTA.classList.add('visible');
+        mobileCTA.classList.remove('hidden');
       } else if (currentScroll < lastScroll) {
         // Hide when scrolling up
-        mobileCTA.style.opacity = '0';
-        mobileCTA.style.transform = 'translateX(-50%) translateY(100px)';
+        mobileCTA.classList.add('hidden');
+        mobileCTA.classList.remove('visible');
       }
       
       lastScroll = currentScroll;
-    });
+      ticking = false;
+    }
     
-    // Add transition styles
-    mobileCTA.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateMobileCTA);
+        ticking = true;
+      }
+    });
   }
 
   // ==========================================
