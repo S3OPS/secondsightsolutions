@@ -393,10 +393,10 @@ form input.field-error,
 form textarea.field-error,
 form select.field-error {
   border-color: var(--primary-red);
-  animation: fieldErrorShake 0.3s ease;
+  animation: field-error-shake 0.3s ease;
 }
 
-@keyframes fieldErrorShake {
+@keyframes field-error-shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
@@ -408,10 +408,10 @@ form select.field-error {
   margin-top: -10px;
   margin-bottom: 10px;
   display: block;
-  animation: errorFadeIn 0.3s ease;
+  animation: error-fade-in 0.3s ease;
 }
 
-@keyframes errorFadeIn {
+@keyframes error-fade-in {
   from {
     opacity: 0;
     transform: translateY(-5px);
@@ -443,6 +443,12 @@ form label {
   margin-bottom: 8px;
   color: var(--text-light);
   font-weight: 600;
+}
+
+form label abbr {
+  color: var(--primary-red);
+  text-decoration: none;
+  cursor: help;
 }
 
 /* ===================================
