@@ -6,7 +6,7 @@ This guide provides step-by-step instructions for deploying the Second Sight Sol
 
 Before deploying, ensure you've completed the following:
 
-- [ ] Update all `yourdomain.com` placeholders with your actual domain
+- [ ] Update all domain references in HTML files with your actual domain
 - [ ] Update Formspree form endpoint in `contact.html` (if changing)
 - [ ] Test all pages locally with `npm start`
 - [ ] Run validation: `npm run validate`
@@ -16,17 +16,9 @@ Before deploying, ensure you've completed the following:
 - [ ] Add Google Analytics tracking ID (if using)
 - [ ] Test on multiple browsers and devices
 
-## Update Domain Placeholders
+## Update Domain References
 
-Search and replace all instances of `yourdomain.com` with your actual domain:
-
-```bash
-# macOS/Linux
-find . -type f -name "*.html" -exec sed -i '' 's/yourdomain.com/youractualdomain.com/g' {} +
-
-# Linux (Ubuntu/Debian)
-find . -type f -name "*.html" -exec sed -i 's/yourdomain.com/youractualdomain.com/g' {} +
-```
+Search and replace all instances of placeholder domains with your actual domain in HTML files and sitemap.xml.
 
 Also update:
 - `sitemap.xml` - replace domain

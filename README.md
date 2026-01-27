@@ -34,7 +34,7 @@ secondsightsolutions/
 │   └── events.html
 ├── assets/
 │   ├── css/
-│   │   ├── global.css      # Global styles (NEW)
+│   │   ├── global.css      # Global styles
 │   │   └── styles.css      # Legacy/page-specific styles
 │   └── img/                # Images
 ├── images/                 # Service images
@@ -180,22 +180,12 @@ The contact form uses Formspree. To change the endpoint:
 
 ## License
 
-Copyright © 2026 Second Sight Solutions. All rights reserved.
+Copyright © 2024-2026 Second Sight Solutions. All rights reserved.
 
 ## Contact
 
-For questions about this website or our services:
-- Website: [Add your domain]
-- Email: [Add your email]
-- Phone: [Add your phone]
+For questions about this website or our services, visit the contact page on the deployed website.
 
 ## Changelog
 
-### Version 2.0.0 (2026-01-25)
-- Extracted common styles to global.css
-- Added modern CSS variables
-- Improved accessibility (keyboard navigation, reduced motion)
-- Added build tooling (package.json)
-- Optimized images with lazy loading
-- Enhanced SEO metadata
-- Added comprehensive documentation
+See [CHANGELOG.md](./CHANGELOG.md) for detailed version history.
