@@ -6,6 +6,10 @@ dist/
 build/
 *.min.css
 *.min.js
+*.min.js.map
+
+# Test coverage
+coverage/
 
 # Temporary files
 tmp/

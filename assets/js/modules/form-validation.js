@@ -1,10 +1,83 @@
 /**
  * Form Validation Module
  * Handles client-side form validation with accessibility support
+ * Includes rate limiting to prevent spam submissions
  */
 
 import { utils } from './utils.js';
 import { config } from './config.js';
+
+/**
+ * Rate limiting configuration and tracking
+ * Prevents spam by limiting form submissions per time window
+ */
+const rateLimit = {
+  maxSubmissions: 3,
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  storageKey: 'sss_form_submissions',
+
+  /**
+   * Check if user can submit the form
+   * @returns {boolean} True if submission is allowed
+   */
+  canSubmit() {
+    try {
+      const submissions = JSON.parse(
+        localStorage.getItem(this.storageKey) || '[]'
+      );
+      const now = Date.now();
+      const recentSubmissions = submissions.filter(
+        (time) => now - time < this.windowMs
+      );
+      return recentSubmissions.length < this.maxSubmissions;
+    } catch {
+      return true; // Allow if localStorage fails
+    }
+  },
+
+  /**
+   * Record a form submission
+   */
+  recordSubmission() {
+    try {
+      const submissions = JSON.parse(
+        localStorage.getItem(this.storageKey) || '[]'
+      );
+      const now = Date.now();
+
+      // Add new submission
+      submissions.push(now);
+
+      // Clean old submissions
+      const cleaned = submissions.filter(
+        (time) => now - time < this.windowMs
+      );
+
+      localStorage.setItem(this.storageKey, JSON.stringify(cleaned));
+    } catch {
+      // Silently fail if localStorage is unavailable
+    }
+  },
+
+  /**
+   * Get remaining time until rate limit resets (in seconds)
+   * @returns {number} Seconds until reset, or 0 if not rate limited
+   */
+  getRemainingTime() {
+    try {
+      const submissions = JSON.parse(
+        localStorage.getItem(this.storageKey) || '[]'
+      );
+      if (submissions.length === 0) return 0;
+
+      const oldest = Math.min(...submissions);
+      const elapsed = Date.now() - oldest;
+      return Math.max(0, Math.ceil((this.windowMs - elapsed) / 1000));
+    } catch {
+      return 0;
+    }
+  },
+};
 
 export const formValidation = {
   /**
@@ -42,6 +115,18 @@ export const formValidation = {
     
     // Clear previous error messages
     form.querySelectorAll('.error-message').forEach(msg => msg.remove());
+    form.querySelectorAll('.rate-limit-message').forEach(msg => msg.remove());
+
+    // Check rate limiting first
+    if (!rateLimit.canSubmit()) {
+      e.preventDefault();
+      const remainingTime = rateLimit.getRemainingTime();
+      const minutes = Math.ceil(remainingTime / 60);
+      this._showRateLimitError(form, 
+        `Too many submissions. Please try again in ${minutes} minute${minutes === 1 ? '' : 's'}.`
+      );
+      return;
+    }
     
     requiredFields.forEach(field => {
       if (!field.value.trim()) {
@@ -64,6 +149,30 @@ export const formValidation = {
       if (firstError && firstError.previousElementSibling) {
         firstError.previousElementSibling.focus();
       }
+    } else {
+      // Record successful submission attempt
+      rateLimit.recordSubmission();
+    }
+  },
+
+  /**
+   * Show rate limit error message on form
+   * @param {HTMLFormElement} form - Form to show error on
+   * @param {string} message - Error message to display
+   * @private
+   */
+  _showRateLimitError(form, message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'rate-limit-message error-message';
+    errorDiv.textContent = message;
+    errorDiv.setAttribute('role', 'alert');
+    errorDiv.setAttribute('aria-live', 'assertive');
+    
+    const submitButton = form.querySelector('[type="submit"]');
+    if (submitButton) {
+      submitButton.parentNode.insertBefore(errorDiv, submitButton);
+    } else {
+      form.prepend(errorDiv);
     }
   },
 
@@ -114,3 +223,6 @@ export const formValidation = {
     field.classList.remove('field-error');
   }
 };
+
+// Export rate limit for testing
+export { rateLimit };

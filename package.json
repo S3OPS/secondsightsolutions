@@ -1,28 +1,39 @@
 {
   "name": "second-sight-solutions",
   "version": "2.0.0",
+  "type": "module",
   "description": "Veteran-owned drone services website for Central Texas",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 8000",
     "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images:srcset": "node scripts/optimize-images.js --srcset",
     "minify": "node scripts/minify-css.js",
     "build": "npm run optimize-images && npm run minify",
+    "build:bundle": "rollup -c",
     "lint:css": "stylelint 'assets/css/**/*.css'",
     "lint:html": "html-validate '*.html' 'services/*.html'",
     "validate": "npm run lint:css && npm run lint:html",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "generate-images": "node scripts/generate-service-images.js",
     "update-page-images": "node scripts/update-service-page-images.js",
     "export-prompts": "node scripts/generate-service-images.js --export-prompts"
   },
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@vitest/coverage-v8": "^2.1.9",
     "cssnano": "^6.0.3",
     "html-validate": "^8.9.1",
+    "jsdom": "^25.0.1",
     "postcss": "^8.4.35",
     "postcss-cli": "^11.0.0",
+    "rollup": "^4.29.1",
     "sharp": "^0.33.2",
     "stylelint": "^16.2.0",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint-config-standard": "^36.0.0",
+    "vitest": "^2.1.9"
   },
   "keywords": [
     "drone",
