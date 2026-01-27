@@ -2,6 +2,8 @@
 
 This directory contains historical documentation that was created during specific optimization and enhancement tasks. These documents have been archived as they represent completed milestones and their information has been consolidated into the main documentation.
 
+**Note:** These archived documents contain references to other files that may also be archived. This is intentional - the documents are preserved in their original state to maintain historical accuracy.
+
 ## Archived Files
 
 ### IMPLEMENTATION_SUMMARY.md
