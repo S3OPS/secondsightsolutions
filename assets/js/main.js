@@ -22,24 +22,47 @@ class App {
   }
 
   /**
+   * Initialize a module with error boundary
+   * @param {Object} module - Module to initialize
+   * @param {string} name - Module name for logging
+   */
+  initModule(module, name) {
+    try {
+      module.init();
+      if (config.isDevelopment()) {
+        console.log(`✅ ${name} initialized`);
+      }
+    } catch (error) {
+      console.error(`❌ ${name} failed to initialize:`, error);
+      // Continue with other modules - graceful degradation
+    }
+  }
+
+  /**
    * Initialize all application modules
    */
   init() {
     if (this.initialized) return;
 
-    // Check WebP support
-    utils.checkWebPSupport((isSupported) => {
-      document.documentElement.classList.add(isSupported ? 'webp' : 'no-webp');
-    });
+    // Check WebP support (wrapped in try-catch)
+    try {
+      utils.checkWebPSupport((isSupported) => {
+        document.documentElement.classList.add(isSupported ? 'webp' : 'no-webp');
+      });
+    } catch (error) {
+      console.error('WebP detection failed:', error);
+      // Fallback: assume no WebP support
+      document.documentElement.classList.add('no-webp');
+    }
 
-    // Initialize all modules
-    lazyLoading.init();
-    formValidation.init();
-    lightbox.init();
-    smoothScroll.init();
-    mobileCTA.init();
-    analytics.init();
-    performance.init();
+    // Initialize all modules with error boundaries
+    this.initModule(lazyLoading, 'Lazy Loading');
+    this.initModule(formValidation, 'Form Validation');
+    this.initModule(lightbox, 'Lightbox');
+    this.initModule(smoothScroll, 'Smooth Scroll');
+    this.initModule(mobileCTA, 'Mobile CTA');
+    this.initModule(analytics, 'Analytics');
+    this.initModule(performance, 'Performance Monitoring');
 
     this.initialized = true;
     

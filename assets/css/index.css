@@ -14,33 +14,35 @@
       filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       .hero-logo { max-width: 640px; }
     }
 
-    header h1 { font-family:'Orbitron',sans-serif; font-size:3.2rem; letter-spacing:2px; margin:0; }
+    header h1 { font-family:Orbitron,sans-serif; font-size:3.2rem; letter-spacing:2px; margin:0; }
     header p  { max-width:760px; margin:16px auto 0; color:#ffb3b3; font-size:1.15rem; }
 
     section { max-width:1200px; margin:auto; padding:80px 20px; }
     .alt { background:#050505; }
 
     h2 {
-      font-family:'Orbitron',sans-serif;
-      color:#ff3333;
+      font-family:Orbitron,sans-serif;
+      color:#f33;
       margin-bottom:40px;
       text-align:center;
       font-size:2.6rem;
       letter-spacing:1px;
     }
+
     h2::after{
       content:"";
       display:block;
       width:90px;
       height:3px;
       margin:18px auto 0;
-      background:linear-gradient(90deg,transparent,#ff0033,transparent);
+      background:linear-gradient(90deg,transparent,#f03,transparent);
     }
-    @media (max-width: 600px) {
+
+    @media (width <= 600px) {
       h2 { font-size: 2rem; margin-bottom: 30px; }
     }
 
@@ -81,10 +83,11 @@
 
     /* CTA */
     .cta { background:linear-gradient(135deg,#8b0000,#000); text-align:center; padding:100px 20px; }
+
     .cta-button {
       display:inline-block;
       padding:18px 42px;
-      background:linear-gradient(135deg,#ff0033,#990011);
+      background:linear-gradient(135deg,#f03,#901);
       color:#fff;
       text-decoration:none;
       font-weight:700;
@@ -121,7 +124,7 @@
       bottom:15px;
       left:50%;
       transform:translateX(-50%);
-      background:linear-gradient(135deg,#ff0033,#990011);
+      background:linear-gradient(135deg,#f03,#901);
       color:#fff;
       padding:16px 34px;
       border-radius:40px;
@@ -131,8 +134,9 @@
       z-index:9998;
       display:none;
     }
+
     /* Show only on mobile */
-    @media (max-width: 600px) {
+    @media (width <= 600px) {
       .mobile-cta { display:inline-block; }
     }
 
@@ -147,7 +151,7 @@
     }
     
     /* Flowing arrow animation between steps */
-    @media (min-width: 900px) {
+    @media (width >= 900px) {
       .how-it-works::before {
         content: "";
         position: absolute;
@@ -156,11 +160,11 @@
         right: 12%;
         height: 2px;
         background: linear-gradient(90deg, 
-          #ff0033 0%, 
+          #f03 0%, 
           #00d4ff 25%, 
-          #ff0033 50%,
+          #f03 50%,
           #00d4ff 75%,
-          #ff0033 100%
+          #f03 100%
         );
         z-index: 0;
         animation: flowLine 3s linear infinite;
@@ -179,7 +183,7 @@
       }
     }
     
-    @media (max-width: 899px) {
+    @media (width <= 899px) {
       .how-it-works {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -221,9 +225,9 @@
     }
     
     .how-number {
-      font-family: 'Orbitron', sans-serif;
+      font-family: Orbitron, sans-serif;
       font-size: 2rem;
-      color: #ff3333;
+      color: #f33;
       background: rgba(10, 10, 10, 0.8);
       border: 2px solid rgba(255, 0, 51, 0.5);
       border-radius: 50%;
@@ -251,16 +255,16 @@
       margin: 0 0 6px; 
       color: #fff; 
       font-size: 1.1rem;
-      font-family: 'Orbitron', sans-serif;
+      font-family: Orbitron, sans-serif;
       letter-spacing: 0.5px;
     }
     
     .how-timeline {
       margin: 0 0 8px !important;
-      color: #ff6666 !important;
+      color: #f66 !important;
       font-size: 0.75rem;
       font-weight: 600;
-      font-family: 'Orbitron', sans-serif;
+      font-family: Orbitron, sans-serif;
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
@@ -286,7 +290,7 @@
     }
     
     @keyframes droneHover {
-      0%, 100% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
     
@@ -335,7 +339,7 @@
       position: absolute;
       width: 12px;
       height: 12px;
-      border: 2px solid #ff3333;
+      border: 2px solid #f33;
       border-radius: 50%;
       animation: propSpin 0.15s linear infinite;
     }
@@ -354,7 +358,7 @@
       position: absolute;
       width: 6px;
       height: 6px;
-      background: #ff0033;
+      background: #f03;
       border-radius: 2px;
       left: 50%;
       bottom: -4px;
@@ -367,7 +371,7 @@
     }
     
     @keyframes droneHoverFast {
-      0%, 100% { transform: translateY(0px) scale(1.15); }
+      0%, 100% { transform: translateY(0) scale(1.15); }
       50% { transform: translateY(-12px) scale(1.15); }
     }
 
@@ -379,6 +383,7 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
+
     .client-type {
       background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
       border: 1px solid rgba(255, 0, 51, 0.2);
@@ -388,6 +393,7 @@
       transition: all 0.3s ease;
       overflow: hidden;
     }
+
     .client-type::after {
       content: "";
       position: absolute;
@@ -395,59 +401,68 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #ff0033, #ff3366, #ff0033);
+      background: linear-gradient(90deg, #f03, #f36, #f03);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
+
     .client-type:hover {
       border-color: rgba(255, 0, 51, 0.5);
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(255, 0, 51, 0.2);
     }
+
     .client-type:hover::after {
       transform: scaleX(1);
     }
+
     /* Make linked client-type cards behave nicely */
     a.client-type {
       display: block;
       color: inherit;
       text-decoration: none;
     }
+
     .client-icon-wrapper {
       text-align: center;
       margin-bottom: 20px;
       transition: all 0.3s ease;
     }
+
     .client-icon {
       font-size: 3.5rem;
       filter: drop-shadow(0 0 15px rgba(255, 0, 51, 0.4));
       transition: all 0.3s ease;
       display: inline-block;
     }
+
     .client-type:hover .client-icon {
       transform: scale(1.2);
       filter: drop-shadow(0 0 25px rgba(255, 0, 51, 0.7));
     }
+
     .client-content h3 { 
       margin: 0 0 10px; 
       color: #fff; 
       font-size: 1.4rem;
-      font-family: 'Orbitron', sans-serif;
+      font-family: Orbitron, sans-serif;
       letter-spacing: 0.5px;
       text-align: center;
     }
+
     .client-category {
       margin: 0 0 15px !important;
-      color: #ff6666 !important;
+      color: #f66 !important;
       font-size: 0.8rem;
       font-weight: 600;
-      font-family: 'Orbitron', sans-serif;
+      font-family: Orbitron, sans-serif;
       letter-spacing: 1px;
       text-transform: uppercase;
       text-align: center;
       padding-bottom: 15px;
       border-bottom: 1px solid rgba(255, 0, 51, 0.2);
     }
+
     .client-content > p { 
       margin: 0 0 20px; 
       color: #ccc; 
@@ -455,6 +470,7 @@
       text-align: center;
       font-size: 0.95rem;
     }
+
     .client-benefits {
       margin: 0;
       padding: 0;
@@ -463,16 +479,18 @@
       font-size: 0.9rem;
       line-height: 1.8;
     }
+
     .client-benefits li {
       margin-bottom: 10px;
       padding-left: 20px;
       position: relative;
     }
+
     .client-benefits li::before {
       content: "▸";
       position: absolute;
       left: 0;
-      color: #ff3333;
+      color: #f33;
       font-weight: bold;
     }
 
@@ -506,7 +524,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #ff0033, #ff3366, #ff0033);
+      background: linear-gradient(90deg, #f03, #f36, #f03);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
@@ -523,8 +541,8 @@
     
     .capability h3 {
       margin: 0 0 15px;
-      font-family: 'Orbitron', sans-serif;
-      color: #ff3333;
+      font-family: Orbitron, sans-serif;
+      color: #f33;
       font-size: 1.2rem;
       letter-spacing: 0.5px;
       text-align: center;
@@ -544,6 +562,7 @@
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
@@ -573,6 +592,7 @@
       border-bottom: 2px solid rgba(255, 0, 51, 0.5);
       box-shadow: 0 10px 40px rgba(255, 0, 51, 0.15), inset 0 0 60px rgba(139, 0, 0, 0.1);
     }
+
     .mission-vision-enhanced::before {
       content: "";
       position: absolute;
@@ -590,6 +610,7 @@
         animation: none;
       }
     }
+
     .mission-vision-enhanced::after {
       content: "";
       position: absolute;
@@ -604,12 +625,14 @@
       pointer-events: none;
       z-index: 2;
     }
+
     .mission-vision-enhanced h2 {
       position: relative;
       z-index: 3;
       font-size: 2.8rem;
       text-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
     }
+
     .mission-vision-enhanced .card {
       position: relative;
       z-index: 3;
@@ -618,16 +641,19 @@
       box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(255, 0, 51, 0.05);
       transition: all 0.4s ease;
     }
+
     .mission-vision-enhanced .card:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 0 50px rgba(0, 212, 255, 0.4), 0 0 30px rgba(255, 0, 51, 0.3), inset 0 0 30px rgba(255, 0, 51, 0.1);
       border-color: rgba(0, 212, 255, 0.6);
     }
+
     .mission-vision-enhanced .card h3 {
       font-size: 1.8rem;
       text-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
       letter-spacing: 2px;
     }
+
     @keyframes shimmer {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(50%); }
@@ -645,6 +671,7 @@
       background: linear-gradient(45deg, rgba(139, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
       position: relative;
     }
+
     .video-section-enhanced::after {
       content: "";
       position: absolute;
@@ -669,7 +696,7 @@
       justify-content: center;
       flex-wrap: wrap;
       border-bottom: 2px solid transparent;
-      border-image: linear-gradient(90deg, transparent 0%, #ff0033 20%, #00d4ff 50%, #ff0033 80%, transparent 100%);
+      border-image: linear-gradient(90deg, transparent 0%, #f03 20%, #00d4ff 50%, #f03 80%, transparent 100%);
       border-image-slice: 1;
       background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0a0a0a 100%);
       position: sticky;
@@ -763,18 +790,22 @@
         left: -100px;
         top: 20%;
       }
+
       25% {
         left: 50%;
         top: 40%;
       }
+
       50% {
         left: 110%;
         top: 30%;
       }
+
       75% {
         left: 50%;
         top: 60%;
       }
+
       100% {
         left: -100px;
         top: 20%;
@@ -817,7 +848,7 @@
       position: absolute;
       width: 15px;
       height: 15px;
-      border: 2px solid #ff0033;
+      border: 2px solid #f03;
       border-radius: 50%;
       animation: spin 0.3s linear infinite;
     }
@@ -838,10 +869,10 @@
       top: 100%;
       width: 2px;
       height: 0;
-      background: linear-gradient(to bottom, #ff0033, transparent);
+      background: linear-gradient(to bottom, #f03, transparent);
       transform: translateX(-50%);
       animation: laser 3s ease-in-out infinite;
-      box-shadow: 0 0 10px #ff0033, 0 0 20px #ff0033;
+      box-shadow: 0 0 10px #f03, 0 0 20px #f03;
     }
 
     @keyframes laser {
@@ -855,7 +886,7 @@
       position: absolute;
       width: 30px;
       height: 30px;
-      border: 2px solid #ff0033;
+      border: 2px solid #f03;
       border-radius: 50%;
       animation: scanPulse 3s ease-in-out infinite;
       opacity: 0;
@@ -868,7 +899,7 @@
     }
 
     /* Ensure content is above the drone background */
-    body > *:not(.drone-background):not(.top-nav) {
+    body > *:not(.drone-background, .top-nav) {
       position: relative;
       z-index: 10;
     }
@@ -906,7 +937,7 @@
       transform: translateY(-50%);
       width: 4px;
       height: 0;
-      background: linear-gradient(180deg, transparent, #ff0033, transparent);
+      background: linear-gradient(180deg, transparent, #f03, transparent);
       transition: height 0.6s ease;
       border-radius: 2px;
     }
@@ -987,10 +1018,10 @@
     }
 
     .why-us-content h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: #ff3333;
+      font-family: Orbitron, sans-serif;
+      color: #f33;
       font-size: 1.8rem;
-      margin: 0 0 15px 0;
+      margin: 0 0 15px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       position: relative;
@@ -1004,7 +1035,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #ff0033, transparent);
+      background: linear-gradient(90deg, #f03, transparent);
       transition: width 0.4s ease;
     }
 
@@ -1015,7 +1046,7 @@
     .why-us-item.reverse .why-us-content h3::after {
       left: auto;
       right: 0;
-      background: linear-gradient(90deg, transparent, #ff0033);
+      background: linear-gradient(90deg, transparent, #f03);
     }
 
     .why-us-content p {
@@ -1026,7 +1057,7 @@
     }
 
     .why-us-content strong {
-      color: #ff6666;
+      color: #f66;
       font-weight: 600;
     }
 
@@ -1037,7 +1068,7 @@
     }
 
     /* Responsive Design */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       .why-us-container {
         gap: 40px;
       }
@@ -1104,62 +1135,77 @@
     }
 
     /* Mobile-specific responsive adjustments */
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       .client-icon {
         font-size: 2.5rem;
       }
+
       .client-content h3 {
         font-size: 1.2rem;
       }
+
       .mission-vision-enhanced h2 {
         font-size: 2rem;
       }
+
       .mission-vision-enhanced .card h3 {
         font-size: 1.4rem;
       }
+
       .icon-badge {
         width: 80px;
         height: 80px;
         font-size: 2.2rem;
       }
+
       .why-us-content h3 {
         font-size: 1.4rem;
       }
+
       .why-us-content p {
         font-size: 0.95rem;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       .client-icon {
         font-size: 2rem;
       }
+
       .client-content h3 {
         font-size: 1rem;
       }
+
       .client-category {
         font-size: 0.7rem;
       }
+
       .client-content > p {
         font-size: 0.85rem;
       }
+
       .client-benefits {
         font-size: 0.8rem;
       }
+
       .mission-vision-enhanced h2 {
         font-size: 1.6rem;
       }
+
       .mission-vision-enhanced .card h3 {
         font-size: 1.2rem;
       }
+
       .icon-badge {
         width: 70px;
         height: 70px;
         font-size: 2rem;
       }
+
       .why-us-content h3 {
         font-size: 1.2rem;
       }
+
       .why-us-content p {
         font-size: 0.9rem;
       }
