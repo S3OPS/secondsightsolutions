@@ -17,8 +17,9 @@ export default {
     terser({
       compress: {
         passes: 2,
-        drop_console: true, // Remove console.log in production
+        drop_console: false, // Keep console for error logging
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info'], // Only remove log/info, keep warn/error
       },
       mangle: {
         toplevel: true,

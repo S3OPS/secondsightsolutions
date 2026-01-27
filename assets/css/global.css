@@ -728,3 +728,17 @@ img[loading="lazy"].loaded {
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
+
+
+/* ===================================
+   RATE LIMIT MESSAGE
+   =================================== */
+
+.rate-limit-message {
+  padding: 12px;
+  margin-bottom: 16px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #f33;
+  border-radius: 4px;
+  color: #f66;
+}

@@ -167,7 +167,6 @@ export const formValidation = {
     errorDiv.textContent = message;
     errorDiv.setAttribute('role', 'alert');
     errorDiv.setAttribute('aria-live', 'assertive');
-    errorDiv.style.cssText = 'padding: 12px; margin-bottom: 16px; background: rgba(255,0,0,0.1); border: 1px solid #ff3333; border-radius: 4px; color: #ff6666;';
     
     const submitButton = form.querySelector('[type="submit"]');
     if (submitButton) {
