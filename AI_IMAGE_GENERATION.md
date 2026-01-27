@@ -295,4 +295,4 @@ For questions or issues:
 
 ## License
 
-Copyright © 2026 Second Sight Solutions. All rights reserved.
+Copyright © 2024-2026 Second Sight Solutions. All rights reserved.
