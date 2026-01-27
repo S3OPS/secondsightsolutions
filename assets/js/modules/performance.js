@@ -3,17 +3,15 @@
  * Logs performance metrics in development
  */
 
+import { config } from './config.js';
+
 export const performance = {
   /**
    * Initialize performance monitoring
    */
   init() {
-    // Only log performance in development (non-HTTPS or localhost)
-    const isDevelopment = window.location.hostname === 'localhost' || 
-                         window.location.hostname === '127.0.0.1' ||
-                         window.location.protocol !== 'https:';
-    
-    if (isDevelopment) {
+    // Only log performance in development
+    if (config.isDevelopment() && config.performance.enabled()) {
       this._logPerformance();
     }
   },
