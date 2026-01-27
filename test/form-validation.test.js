@@ -30,7 +30,7 @@ vi.mock('../assets/js/modules/utils.js', () => ({
 }));
 
 // Import after mocking
-const { formValidation } = await import('../assets/js/modules/form-validation.js');
+const { formValidation, rateLimit } = await import('../assets/js/modules/form-validation.js');
 
 describe('Form Validation Module', () => {
   let dom;
@@ -273,6 +273,182 @@ describe('Form Validation Module', () => {
         expect.any(Function),
         { passive: true }
       );
+    });
+  });
+
+  describe('rateLimit', () => {
+    let mockLocalStorage;
+
+    beforeEach(() => {
+      mockLocalStorage = {
+        store: {},
+        getItem: vi.fn((key) => mockLocalStorage.store[key] || null),
+        setItem: vi.fn((key, value) => { mockLocalStorage.store[key] = value; }),
+        removeItem: vi.fn((key) => { delete mockLocalStorage.store[key]; }),
+        clear: vi.fn(() => { mockLocalStorage.store = {}; }),
+      };
+      vi.stubGlobal('localStorage', mockLocalStorage);
+    });
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    describe('canSubmit', () => {
+      it('returns true when no previous submissions', () => {
+        expect(rateLimit.canSubmit()).toBe(true);
+      });
+
+      it('returns true when under rate limit', () => {
+        const submissions = [Date.now() - 1000, Date.now() - 2000];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(submissions);
+        
+        expect(rateLimit.canSubmit()).toBe(true);
+      });
+
+      it('returns false when at rate limit', () => {
+        const now = Date.now();
+        const submissions = [now - 1000, now - 2000, now - 3000];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(submissions);
+        
+        expect(rateLimit.canSubmit()).toBe(false);
+      });
+
+      it('returns true when localStorage fails', () => {
+        mockLocalStorage.getItem = vi.fn(() => { throw new Error('Storage error'); });
+        
+        expect(rateLimit.canSubmit()).toBe(true);
+      });
+
+      it('filters out old submissions', () => {
+        const now = Date.now();
+        // Mix of old (expired) and recent submissions
+        const submissions = [
+          now - 15 * 60 * 1000, // 15 minutes ago (expired)
+          now - 12 * 60 * 1000, // 12 minutes ago (expired)
+          now - 1000,           // 1 second ago (recent)
+        ];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(submissions);
+        
+        expect(rateLimit.canSubmit()).toBe(true);
+      });
+    });
+
+    describe('recordSubmission', () => {
+      it('adds new submission to storage', () => {
+        rateLimit.recordSubmission();
+        
+        expect(mockLocalStorage.setItem).toHaveBeenCalled();
+        const stored = JSON.parse(mockLocalStorage.store['sss_form_submissions']);
+        expect(stored.length).toBe(1);
+      });
+
+      it('preserves recent submissions', () => {
+        const now = Date.now();
+        const existing = [now - 1000, now - 2000];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(existing);
+        
+        rateLimit.recordSubmission();
+        
+        const stored = JSON.parse(mockLocalStorage.store['sss_form_submissions']);
+        expect(stored.length).toBe(3);
+      });
+
+      it('cleans old submissions', () => {
+        const now = Date.now();
+        const existing = [
+          now - 15 * 60 * 1000, // 15 minutes ago (will be cleaned)
+          now - 1000,           // 1 second ago (will be kept)
+        ];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(existing);
+        
+        rateLimit.recordSubmission();
+        
+        const stored = JSON.parse(mockLocalStorage.store['sss_form_submissions']);
+        expect(stored.length).toBe(2); // Only recent and new
+      });
+
+      it('handles localStorage failures silently', () => {
+        mockLocalStorage.setItem = vi.fn(() => { throw new Error('Storage error'); });
+        
+        expect(() => rateLimit.recordSubmission()).not.toThrow();
+      });
+    });
+
+    describe('getRemainingTime', () => {
+      it('returns 0 when no submissions', () => {
+        expect(rateLimit.getRemainingTime()).toBe(0);
+      });
+
+      it('returns remaining time until window expires', () => {
+        const now = Date.now();
+        // Oldest submission was 5 minutes ago
+        const submissions = [now - 5 * 60 * 1000];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(submissions);
+        
+        const remaining = rateLimit.getRemainingTime();
+        // Should be approximately 5 minutes (300 seconds) remaining
+        expect(remaining).toBeGreaterThan(290);
+        expect(remaining).toBeLessThanOrEqual(300);
+      });
+
+      it('returns 0 when window has expired', () => {
+        const now = Date.now();
+        // All submissions are old
+        const submissions = [now - 15 * 60 * 1000];
+        mockLocalStorage.store['sss_form_submissions'] = JSON.stringify(submissions);
+        
+        expect(rateLimit.getRemainingTime()).toBe(0);
+      });
+
+      it('returns 0 when localStorage fails', () => {
+        mockLocalStorage.getItem = vi.fn(() => { throw new Error('Storage error'); });
+        
+        expect(rateLimit.getRemainingTime()).toBe(0);
+      });
+    });
+  });
+
+  describe('_showRateLimitError', () => {
+    it('shows rate limit error message', () => {
+      const form = document.querySelector('#test-form');
+      
+      formValidation._showRateLimitError(form, 'Too many submissions');
+      
+      const errorMsg = document.querySelector('.rate-limit-message');
+      expect(errorMsg).not.toBeNull();
+      expect(errorMsg.textContent).toBe('Too many submissions');
+    });
+
+    it('inserts error before submit button', () => {
+      const form = document.querySelector('#test-form');
+      const submitButton = form.querySelector('[type="submit"]');
+      
+      formValidation._showRateLimitError(form, 'Rate limit error');
+      
+      const errorMsg = document.querySelector('.rate-limit-message');
+      expect(errorMsg.nextElementSibling).toBe(submitButton);
+    });
+
+    it('prepends error to form when no submit button', () => {
+      const form = document.querySelector('#test-form');
+      const submitButton = form.querySelector('[type="submit"]');
+      submitButton.removeAttribute('type');
+      
+      formValidation._showRateLimitError(form, 'Rate limit error');
+      
+      const errorMsg = document.querySelector('.rate-limit-message');
+      expect(errorMsg.parentElement).toBe(form);
+    });
+
+    it('sets accessibility attributes', () => {
+      const form = document.querySelector('#test-form');
+      
+      formValidation._showRateLimitError(form, 'Rate limit error');
+      
+      const errorMsg = document.querySelector('.rate-limit-message');
+      expect(errorMsg.getAttribute('role')).toBe('alert');
+      expect(errorMsg.getAttribute('aria-live')).toBe('assertive');
     });
   });
 });
