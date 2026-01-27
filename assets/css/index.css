@@ -18,126 +18,222 @@
       .hero-logo { max-width: 640px; }
     }
 
-    header h1 { font-family:Orbitron,sans-serif; font-size:3.2rem; letter-spacing:2px; margin:0; }
-    header p  { max-width:760px; margin:16px auto 0; color:#ffb3b3; font-size:1.15rem; }
-
-    section { max-width:1200px; margin:auto; padding:80px 20px; }
-    .alt { background:#050505; }
-
-    h2 {
-      font-family:Orbitron,sans-serif;
-      color:#f33;
-      margin-bottom:40px;
-      text-align:center;
-      font-size:2.6rem;
-      letter-spacing:1px;
+    header h1 {
+      font-family: Orbitron, sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      margin: 0;
     }
 
-    h2::after{
-      content:"";
-      display:block;
-      width:90px;
-      height:3px;
-      margin:18px auto 0;
-      background:linear-gradient(90deg,transparent,#f03,transparent);
+    header p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: #ffb3b3;
+      font-size: 1.15rem;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .alt {
+      background: #050505;
+    }
+
+    h2 {
+      font-family: Orbitron, sans-serif;
+      color: #f33;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2.6rem;
+      letter-spacing: 1px;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 3px;
+      margin: 18px auto 0;
+      background: linear-gradient(90deg, transparent, #f03, transparent);
     }
 
     @media (width <= 600px) {
-      h2 { font-size: 2rem; margin-bottom: 30px; }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
     }
 
     /* Helpers used by your Services section */
-    .section-title { margin-bottom: 18px; }
-    .small { max-width:760px; margin:0 auto 35px; color:#aaa; text-align:center; }
+    .section-title {
+      margin-bottom: 18px;
+    }
 
-    .grid, .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
-    .grid.centered { justify-items: center; }
+    .small {
+      max-width: 760px;
+      margin: 0 auto 35px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .grid,
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .grid.centered {
+      justify-items: center;
+    }
 
     .card {
-      background:#111;
-      border:1px solid rgba(255,0,0,.25);
-      padding:30px;
-      border-radius:14px;
-      transition:.3s;
+      background: #111;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      padding: 30px;
+      border-radius: 14px;
+      transition: 0.3s;
     }
-    .card:hover { transform:translateY(-4px); box-shadow:0 0 30px rgba(255,0,0,.3); }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    }
 
     /* Make linked service cards behave nicely */
-    a.card { display:block; color:inherit; text-decoration:none; }
+    a.card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
 
     .badge {
-      display:block;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,0,0,.25);
-      color:#ffb3b3;
-      margin:0 auto 12px;
-      text-align:center;
-      width:fit-content;
+      display: block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      color: #ffb3b3;
+      margin: 0 auto 12px;
+      text-align: center;
+      width: fit-content;
     }
 
     /* VIDEO */
-    .video-wrapper { position:relative; padding-bottom:56.25%; height:0; border-radius:16px; overflow:hidden; box-shadow:0 0 30px rgba(255,0,0,.3); }
-    .video-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
     /* CTA */
-    .cta { background:linear-gradient(135deg,#8b0000,#000); text-align:center; padding:100px 20px; }
+    .cta {
+      background: linear-gradient(135deg, #8b0000, #000);
+      text-align: center;
+      padding: 100px 20px;
+    }
 
     .cta-button {
-      display:inline-block;
-      padding:18px 42px;
-      background:linear-gradient(135deg,#f03,#901);
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      border-radius:40px;
-      box-shadow:0 0 20px rgba(255,0,0,.5);
-      transition:.25s;
+      display: inline-block;
+      padding: 18px 42px;
+      background: linear-gradient(135deg, #f03, #901);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 40px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      transition: 0.25s;
     }
-    .cta-button:hover { transform: translateY(-2px); box-shadow:0 0 30px rgba(255,0,0,.7); }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+    }
 
     /* FORM (if you add a form section later) */
-    form input, form textarea, form button {
-      width:100%;
-      background:#050505;
-      color:#fff;
-      border:1px solid rgba(255,0,0,.4);
-      padding:14px;
-      margin-bottom:14px;
-      border-radius:8px;
+    form input,
+    form textarea,
+    form button {
+      width: 100%;
+      background: #050505;
+      color: #fff;
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 8px;
       font-family: inherit;
       font-size: 1rem;
     }
-    form button { background:#8b0000; font-weight:bold; cursor:pointer; }
+
+    form button {
+      background: #8b0000;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
     /* FOOTER */
-    footer { background:#000; color:#777; text-align:center; padding:25px; font-size:.85rem; }
+    footer {
+      background: #000;
+      color: #777;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.85rem;
+    }
 
     /* LIGHTBOX */
-    #lightbox { position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
-    #lightbox img { max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 30px rgba(255,0,0,.6); }
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    }
 
     /* 📱 MOBILE FLOATING CTA */
     .mobile-cta {
-      position:fixed;
-      bottom:15px;
-      left:50%;
-      transform:translateX(-50%);
-      background:linear-gradient(135deg,#f03,#901);
-      color:#fff;
-      padding:16px 34px;
-      border-radius:40px;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:0 0 25px rgba(255,0,0,.6);
-      z-index:9998;
-      display:none;
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #f03, #901);
+      color: #fff;
+      padding: 16px 34px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+      z-index: 9998;
+      display: none;
     }
 
     /* Show only on mobile */
     @media (width <= 600px) {
-      .mobile-cta { display:inline-block; }
+      .mobile-cta {
+        display: inline-block;
+      }
     }
 
     /* HOW IT WORKS – HORIZONTAL FLOW */
@@ -167,11 +263,11 @@
           #f03 100%
         );
         z-index: 0;
-        animation: flowLine 3s linear infinite;
+        animation: flow-line 3s linear infinite;
         background-size: 200% 100%;
       }
       
-      @keyframes flowLine {
+      @keyframes flow-line {
         0% { background-position: 0% 0%; }
         100% { background-position: 200% 0%; }
       }
@@ -196,7 +292,7 @@
       text-align: center;
       transition: all 0.3s ease;
       z-index: 1;
-      animation: fadeIn 0.6s ease-out backwards;
+      animation: fade-in 0.6s ease-out backwards;
     }
     
     .how-step:nth-child(1) { animation-delay: 0.1s; }
@@ -204,7 +300,7 @@
     .how-step:nth-child(3) { animation-delay: 0.3s; }
     .how-step:nth-child(4) { animation-delay: 0.4s; }
     
-    @keyframes fadeIn {
+    @keyframes fade-in {
       from { opacity: 0; }
       to { opacity: 1; }
     }
@@ -286,10 +382,10 @@
       display: inline-block;
       width: 60px;
       height: 60px;
-      animation: droneHover 2s ease-in-out infinite;
+      animation: drone-hover 2s ease-in-out infinite;
     }
     
-    @keyframes droneHover {
+    @keyframes drone-hover {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
@@ -341,18 +437,38 @@
       height: 12px;
       border: 2px solid #f33;
       border-radius: 50%;
-      animation: propSpin 0.15s linear infinite;
+      animation: prop-spin 0.15s linear infinite;
     }
     
-    @keyframes propSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes prop-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
     
-    .mini-drone-prop.prop-tl { left: 4px; top: 8px; }
-    .mini-drone-prop.prop-tr { right: 4px; top: 8px; }
-    .mini-drone-prop.prop-bl { left: 4px; bottom: 8px; }
-    .mini-drone-prop.prop-br { right: 4px; bottom: 8px; }
+    .mini-drone-prop.prop-tl {
+      left: 4px;
+      top: 8px;
+    }
+
+    .mini-drone-prop.prop-tr {
+      right: 4px;
+      top: 8px;
+    }
+
+    .mini-drone-prop.prop-bl {
+      left: 4px;
+      bottom: 8px;
+    }
+
+    .mini-drone-prop.prop-br {
+      right: 4px;
+      bottom: 8px;
+    }
     
     .mini-drone-camera {
       position: absolute;
@@ -367,12 +483,18 @@
     }
     
     .how-step:hover .mini-drone-icon {
-      animation: droneHoverFast 1s ease-in-out infinite;
+      animation: drone-hover-fast 1s ease-in-out infinite;
     }
     
-    @keyframes droneHoverFast {
-      0%, 100% { transform: translateY(0) scale(1.15); }
-      50% { transform: translateY(-12px) scale(1.15); }
+    @keyframes drone-hover-fast {
+      0%,
+      100% {
+        transform: translateY(0) scale(1.15);
+      }
+
+      50% {
+        transform: translateY(-12px) scale(1.15);
+      }
     }
 
     /* WHO WE WORK WITH – CARD GRID SECTION */
@@ -496,7 +618,9 @@
 
     /* OPERATIONAL CAPABILITIES – ENHANCED CARD STYLE */
     .capabilities-enhanced {
-      background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
+      border-left: 3px solid rgba(255, 0, 51, 0.3);
+      border-right: 3px solid rgba(255, 0, 51, 0.3);
     }
     
     .capability-matrix {
@@ -570,10 +694,23 @@
 
     /* Reduced motion support (bulletproof UX) */
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { transition: none; transform:none; opacity: 1; }
-      .card:hover { transform:none; }
-      .cta-button:hover { transform:none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        transition: none;
+        transform: none;
+        opacity: 1;
+      }
+
+      .card:hover {
+        transform: none;
+      }
+
+      .cta-button:hover {
+        transform: none;
+      }
     }
 
     /* Services section enhancement */
@@ -659,13 +796,6 @@
       50% { transform: translateX(50%); }
     }
 
-    /* Operational Capabilities section enhancement */
-    .capabilities-enhanced {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
-      border-left: 3px solid rgba(255, 0, 51, 0.3);
-      border-right: 3px solid rgba(255, 0, 51, 0.3);
-    }
-
     /* Video section enhancement */
     .video-section-enhanced {
       background: linear-gradient(45deg, rgba(139, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
@@ -715,11 +845,11 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: navScan 4s linear infinite;
+      animation: nav-scan 4s linear infinite;
       z-index: 0;
     }
     
-    @keyframes navScan {
+    @keyframes nav-scan {
       0% { left: -100%; }
       100% { left: 200%; }
     }
@@ -782,10 +912,10 @@
       position: absolute;
       width: 80px;
       height: 80px;
-      animation: flyDrone 20s linear infinite;
+      animation: fly-drone 20s linear infinite;
     }
 
-    @keyframes flyDrone {
+    @keyframes fly-drone {
       0% {
         left: -100px;
         top: 20%;
@@ -839,10 +969,29 @@
       transform: translateY(-50%);
     }
 
-    .drone-arm.arm-1 { left: -5px; top: 20%; transform: rotate(-45deg); }
-    .drone-arm.arm-2 { right: -5px; top: 20%; transform: rotate(45deg); }
-    .drone-arm.arm-3 { left: -5px; top: 70%; transform: rotate(45deg); }
-    .drone-arm.arm-4 { right: -5px; top: 70%; transform: rotate(-45deg); }
+    .drone-arm.arm-1 {
+      left: -5px;
+      top: 20%;
+      transform: rotate(-45deg);
+    }
+
+    .drone-arm.arm-2 {
+      right: -5px;
+      top: 20%;
+      transform: rotate(45deg);
+    }
+
+    .drone-arm.arm-3 {
+      left: -5px;
+      top: 70%;
+      transform: rotate(45deg);
+    }
+
+    .drone-arm.arm-4 {
+      right: -5px;
+      top: 70%;
+      transform: rotate(-45deg);
+    }
 
     .propeller {
       position: absolute;
@@ -853,14 +1002,34 @@
       animation: spin 0.3s linear infinite;
     }
 
-    .propeller.prop-1 { left: -10px; top: 5px; }
-    .propeller.prop-2 { right: -10px; top: 5px; }
-    .propeller.prop-3 { left: -10px; bottom: 5px; }
-    .propeller.prop-4 { right: -10px; bottom: 5px; }
+    .propeller.prop-1 {
+      left: -10px;
+      top: 5px;
+    }
+
+    .propeller.prop-2 {
+      right: -10px;
+      top: 5px;
+    }
+
+    .propeller.prop-3 {
+      left: -10px;
+      bottom: 5px;
+    }
+
+    .propeller.prop-4 {
+      right: -10px;
+      bottom: 5px;
+    }
 
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .laser-beam {
@@ -876,10 +1045,26 @@
     }
 
     @keyframes laser {
-      0%, 100% { height: 0; opacity: 0; }
-      10% { height: 200px; opacity: 1; }
-      30% { height: 200px; opacity: 1; }
-      40% { height: 0; opacity: 0; }
+      0%,
+      100% {
+        height: 0;
+        opacity: 0;
+      }
+
+      10% {
+        height: 200px;
+        opacity: 1;
+      }
+
+      30% {
+        height: 200px;
+        opacity: 1;
+      }
+
+      40% {
+        height: 0;
+        opacity: 0;
+      }
     }
 
     .scan-target {
@@ -888,14 +1073,27 @@
       height: 30px;
       border: 2px solid #f03;
       border-radius: 50%;
-      animation: scanPulse 3s ease-in-out infinite;
+      animation: scan-pulse 3s ease-in-out infinite;
       opacity: 0;
     }
 
-    @keyframes scanPulse {
-      0%, 100% { opacity: 0; transform: scale(0.5); }
-      15%, 35% { opacity: 0.8; transform: scale(1); }
-      40% { opacity: 0; transform: scale(1.2); }
+    @keyframes scan-pulse {
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      15%,
+      35% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+
+      40% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
     }
 
     /* Ensure content is above the drone background */
@@ -1128,10 +1326,24 @@
 
     /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
-      .drone { animation: none; opacity: 0.3; }
-      .laser-beam { animation: none; opacity: 0; }
-      .propeller { animation: none; }
-      .scan-target { animation: none; opacity: 0; }
+      .drone {
+        animation: none;
+        opacity: 0.3;
+      }
+
+      .laser-beam {
+        animation: none;
+        opacity: 0;
+      }
+
+      .propeller {
+        animation: none;
+      }
+
+      .scan-target {
+        animation: none;
+        opacity: 0;
+      }
     }
 
     /* Mobile-specific responsive adjustments */
