@@ -8,7 +8,7 @@ import postcss from 'postcss';
 import cssnano from 'cssnano';
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -55,4 +55,7 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+// Run if called directly
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(console.error);
+}
