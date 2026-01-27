@@ -10,7 +10,10 @@
     "build": "npm run optimize-images && npm run minify",
     "lint:css": "stylelint 'assets/css/**/*.css'",
     "lint:html": "html-validate '*.html' 'services/*.html'",
-    "validate": "npm run lint:css && npm run lint:html"
+    "validate": "npm run lint:css && npm run lint:html",
+    "generate-images": "node scripts/generate-service-images.js",
+    "update-page-images": "node scripts/update-service-page-images.js",
+    "export-prompts": "node scripts/generate-service-images.js --export-prompts"
   },
   "devDependencies": {
     "cssnano": "^6.0.3",
