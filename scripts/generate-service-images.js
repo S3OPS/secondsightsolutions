@@ -11,9 +11,14 @@
  *   node scripts/generate-service-images.js --export-prompts
  */
 
-const fs = require('fs').promises;
-const path = require('path');
-const sharp = require('sharp');
+import { promises as fs } from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Service-specific image configurations
 const SERVICE_IMAGE_SPECS = {
@@ -566,11 +571,11 @@ async function main() {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('❌ Error:', error.message);
     process.exit(1);
   });
 }
 
-module.exports = { SERVICE_IMAGE_SPECS, generatePlaceholderImage };
+export { SERVICE_IMAGE_SPECS, generatePlaceholderImage };

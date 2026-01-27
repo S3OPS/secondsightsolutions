@@ -6,8 +6,13 @@
  * instead of generic placeholder images.
  */
 
-const fs = require('fs').promises;
-const path = require('path');
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const SERVICE_DIR = path.resolve(__dirname, '../services');
 
