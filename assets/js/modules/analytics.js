@@ -3,6 +3,18 @@
  * Handles analytics tracking for user interactions
  */
 
+// Event name mapping for different analytics services
+const EVENT_NAME_MAP = {
+  gtag: {
+    click: 'click',
+    form_submit: 'form_submit'
+  },
+  plausible: {
+    click: 'Outbound Link',
+    form_submit: 'Form Submit'
+  }
+};
+
 export const analytics = {
   /**
    * Initialize analytics tracking
@@ -51,15 +63,17 @@ export const analytics = {
 
   /**
    * Send tracking event to analytics service
-   * @param {string} eventName - Name of the event
+   * @param {string} eventName - Name of the event (click, form_submit)
    * @param {Object} eventData - Event data
    * @private
    */
   _track(eventName, eventData) {
     if (typeof gtag !== 'undefined') {
-      gtag('event', eventName, eventData);
+      const gtagEvent = EVENT_NAME_MAP.gtag[eventName] || eventName;
+      gtag('event', gtagEvent, eventData);
     } else if (typeof plausible !== 'undefined') {
-      plausible(eventName === 'click' ? 'Outbound Link' : 'Form Submit', {
+      const plausibleEvent = EVENT_NAME_MAP.plausible[eventName] || eventName;
+      plausible(plausibleEvent, {
         props: eventData
       });
     }

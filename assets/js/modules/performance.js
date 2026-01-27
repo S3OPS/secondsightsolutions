@@ -8,8 +8,12 @@ export const performance = {
    * Initialize performance monitoring
    */
   init() {
-    // Only log performance in development
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    // Only log performance in development (non-HTTPS or localhost)
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' ||
+                         window.location.protocol !== 'https:';
+    
+    if (isDevelopment) {
       this._logPerformance();
     }
   },
