@@ -43,7 +43,8 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-      animation: navScan 4s linear infinite;
+      animation: navScan 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      will-change: left;
       z-index: 0;
     }
     
@@ -81,7 +82,8 @@
       position: relative;
       background: linear-gradient(135deg, rgba(0, 20, 40, 0.8), rgba(10, 10, 10, 0.9));
       border: 1px solid rgba(0, 212, 255, 0.2);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+      will-change: transform, box-shadow;
       font-weight: 600;
       font-size: 0.9rem;
       overflow: hidden;
@@ -95,7 +97,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       pointer-events: none;
       opacity: 0;
     }
@@ -106,10 +108,11 @@
     }
     
     nav a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 30px rgba(255, 0, 51, 0.2);
+      transform: translateY(-3px) perspective(500px);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), 0 0 40px rgba(255, 0, 51, 0.3), 0 8px 25px rgba(0, 0, 0, 0.4);
       border-color: rgba(0, 212, 255, 0.6);
       background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 51, 0.1));
+      filter: brightness(1.1);
     }
     
     nav a:active {
@@ -128,21 +131,23 @@
     .lead{ max-width:80ch;color:#ccc;margin:0 0 22px; }
 
     .cta-row{ display:flex;gap:12px;flex-wrap:wrap;margin-top:18px; }
-    .btn{ display:inline-block;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:800;transition:.25s; }
+    .btn{ display:inline-block;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:800;transition:all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);will-change:transform,box-shadow; }
     .btn.primary{ background:linear-gradient(135deg,#ff0033,#990011);color:#fff;box-shadow:0 0 30px rgba(255,0,0,.6); }
-    .btn.primary:hover{ transform:translateY(-2px); }
+    .btn.primary:hover{ transform:translateY(-3px) scale(1.02);box-shadow:0 0 40px rgba(255,0,0,.8),0 12px 35px rgba(255,0,0,0.4); }
     .btn.secondary{ background:transparent;color:#e6e6e6;border:1px solid rgba(255,0,0,.25); }
-    .btn.secondary:hover{ box-shadow:0 0 20px rgba(255,0,0,.2); }
+    .btn.secondary:hover{ box-shadow:0 0 30px rgba(255,0,0,.4),0 8px 20px rgba(255,0,0,0.2);transform:translateY(-2px); }
 
     .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:26px 0; }
     .card{
       background:linear-gradient(145deg,#111,#050505);
       border:1px solid rgba(255,0,0,.25);
       padding:26px;border-radius:14px;
-      box-shadow:0 0 25px rgba(255,0,0,.12);
-      transition:.3s;
+      box-shadow:0 0 25px rgba(255,0,0,.12),0 8px 20px rgba(0,0,0,0.3);
+      transition:all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change:transform,box-shadow;
+      transform-style:preserve-3d;
     }
-    .card:hover{ transform:translateY(-4px); box-shadow:0 0 40px rgba(255,0,0,.28); }
+    .card:hover{ transform:translateY(-6px) perspective(800px) rotateX(2deg);box-shadow:0 0 50px rgba(255,0,0,.4),0 15px 40px rgba(255,0,0,0.2),0 20px 50px rgba(0,0,0,0.5);border-color:rgba(255,0,0,.4); }
 
     .badge{
       display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;
@@ -235,16 +240,17 @@
       height: 6px;
       background: #ff0033;
       border-radius: 50%;
-      animation: crowdBounce 2s ease-in-out infinite;
+      animation: crowdBounce 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      will-change: transform, opacity;
       box-shadow: 0 0 6px rgba(255, 0, 51, 0.6);
     }
     
     .crowd-dot:nth-child(2) { bottom: 20%; left: 30%; animation-delay: 0s; }
-    .crowd-dot:nth-child(3) { bottom: 20%; left: 45%; animation-delay: 0.2s; }
-    .crowd-dot:nth-child(4) { bottom: 20%; left: 55%; animation-delay: 0.4s; }
-    .crowd-dot:nth-child(5) { bottom: 20%; right: 30%; animation-delay: 0.6s; }
-    .crowd-dot:nth-child(6) { bottom: 35%; left: 35%; animation-delay: 0.3s; }
-    .crowd-dot:nth-child(7) { bottom: 35%; right: 35%; animation-delay: 0.5s; }
+    .crowd-dot:nth-child(3) { bottom: 20%; left: 45%; animation-delay: 0.15s; }
+    .crowd-dot:nth-child(4) { bottom: 20%; left: 55%; animation-delay: 0.35s; }
+    .crowd-dot:nth-child(5) { bottom: 20%; right: 30%; animation-delay: 0.55s; }
+    .crowd-dot:nth-child(6) { bottom: 35%; left: 35%; animation-delay: 0.25s; }
+    .crowd-dot:nth-child(7) { bottom: 35%; right: 35%; animation-delay: 0.45s; }
     
     @keyframes crowdBounce {
       0%, 100% { transform: translateY(0); opacity: 0.7; }
@@ -260,7 +266,8 @@
       border-left: 30px solid transparent;
       border-right: 30px solid transparent;
       border-top: 50px solid rgba(255, 0, 51, 0.3);
-      animation: spotlightSweep 4s ease-in-out infinite;
+      animation: spotlightSweep 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      will-change: transform, opacity;
       filter: blur(2px);
       transform-style: preserve-3d;
     }
@@ -278,8 +285,8 @@
     }
     
     @keyframes spotlightSweep {
-      0%, 100% { opacity: 0.3; transform: rotate(0deg) rotateX(45deg); }
-      50% { opacity: 0.8; transform: rotate(15deg) rotateX(45deg); }
+      0%, 100% { opacity: 0.3; transform: rotate(0deg) rotateX(45deg) perspective(600px); filter: blur(2px); }
+      50% { opacity: 0.9; transform: rotate(18deg) rotateX(48deg) perspective(600px) scale(1.05); filter: blur(3px) brightness(1.2); }
     }
     
     .aerial-drone {
@@ -289,7 +296,8 @@
       transform: translateX(-50%);
       width: 35px;
       height: 35px;
-      animation: aerialCircle 6s linear infinite;
+      animation: aerialCircle 7s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      will-change: transform;
       filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.8));
     }
     
@@ -301,7 +309,7 @@
       height: 12px;
       border: 2px solid #ff0033;
       border-radius: 50%;
-      animation: quickSpin 0.25s linear infinite;
+      animation: quickSpin 0.25s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
       box-shadow: 0 0 10px rgba(255, 0, 51, 0.9);
     }
     
@@ -332,7 +340,7 @@
       background: #ff0033;
       border-radius: 50%;
       opacity: 0;
-      animation: cameraFlash 2.5s ease-in-out infinite;
+      animation: cameraFlash 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
     }
     
     .camera-flash:nth-child(11) { top: 40%; left: 20%; animation-delay: 0s; }
@@ -349,14 +357,14 @@
       border: 2px solid #ff0033;
       border-radius: 50%;
       opacity: 0;
-      animation: flashRing 2.5s ease-in-out infinite;
+      animation: flashRing 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
     }
     
     @keyframes cameraFlash {
-      0%, 88%, 100% { opacity: 0; transform: scale(0.5); }
-      4% { opacity: 0.3; transform: scale(0.8); }
-      5%, 10% { opacity: 1; transform: scale(1); box-shadow: 0 0 20px #ff0033, 0 0 40px rgba(255, 0, 51, 0.6); }
-      12% { opacity: 0.2; transform: scale(0.9); }
+      0%, 88%, 100% { opacity: 0; transform: scale(0.5); filter: blur(0); }
+      4% { opacity: 0.4; transform: scale(0.85); filter: blur(2px); }
+      5%, 10% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 30px #ff0033, 0 0 60px rgba(255, 0, 51, 0.7), 0 0 90px rgba(255, 0, 51, 0.4); filter: blur(4px) brightness(1.5); }
+      12% { opacity: 0.2; transform: scale(0.95); filter: blur(1px); }
     }
     
     @keyframes flashRing {
@@ -374,13 +382,13 @@
       height: 15px;
       background: rgba(255, 0, 51, 0.6);
       border-radius: 2px;
-      animation: soundPulse 1s ease-in-out infinite;
+      animation: soundPulse 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
     }
     
     .sound-wave:nth-child(13) { animation-delay: 0s; margin-left: -20px; }
-    .sound-wave:nth-child(14) { animation-delay: 0.1s; margin-left: -10px; }
-    .sound-wave:nth-child(15) { animation-delay: 0.2s; }
-    .sound-wave:nth-child(16) { animation-delay: 0.1s; margin-left: 10px; }
+    .sound-wave:nth-child(14) { animation-delay: 0.12s; margin-left: -10px; }
+    .sound-wave:nth-child(15) { animation-delay: 0.24s; }
+    .sound-wave:nth-child(16) { animation-delay: 0.12s; margin-left: 10px; }
     .sound-wave:nth-child(17) { animation-delay: 0s; margin-left: 20px; }
     
     @keyframes soundPulse {
@@ -396,7 +404,7 @@
       height: 8px;
       background: #ff0033;
       border-radius: 50%;
-      animation: recordBlink 1.5s ease-in-out infinite;
+      animation: recordBlink 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
       box-shadow: 0 0 10px #ff0033;
     }
     
