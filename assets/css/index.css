@@ -43,21 +43,21 @@
     }
 
     h2 {
-      font-family:Orbitron,sans-serif;
-      color:#f33;
-      margin-bottom:40px;
-      text-align:center;
-      font-size:2.6rem;
-      letter-spacing:1px;
+      font-family: Orbitron, sans-serif;
+      color: #f33;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2.6rem;
+      letter-spacing: 1px;
     }
 
-    h2::after{
-      content:"";
-      display:block;
-      width:90px;
-      height:3px;
-      margin:18px auto 0;
-      background:linear-gradient(90deg,transparent,#f03,transparent);
+    h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 3px;
+      margin: 18px auto 0;
+      background: linear-gradient(90deg, transparent, #f03, transparent);
     }
 
     @media (width <= 600px) {
@@ -111,15 +111,15 @@
     }
 
     .badge {
-      display:block;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,0,0,.25);
-      color:#ffb3b3;
-      margin:0 auto 12px;
-      text-align:center;
-      width:fit-content;
+      display: block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      color: #ffb3b3;
+      margin: 0 auto 12px;
+      text-align: center;
+      width: fit-content;
     }
 
     /* VIDEO */
