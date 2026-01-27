@@ -3,6 +3,8 @@
  * Handles mobile call-to-action visibility on scroll
  */
 
+import { config } from './config.js';
+
 export const mobileCTA = {
   lastScroll: 0,
   ticking: false,
@@ -35,9 +37,10 @@ export const mobileCTA = {
    */
   _updateCTA() {
     const currentScroll = window.scrollY;
+    const threshold = config.scroll.mobileCtaThreshold;
     
-    // Show CTA when scrolling down past 300px
-    if (currentScroll > 300 && currentScroll > this.lastScroll) {
+    // Show CTA when scrolling down past threshold
+    if (currentScroll > threshold && currentScroll > this.lastScroll) {
       this.ctaElement.classList.add('visible');
       this.ctaElement.classList.remove('hidden');
     } else if (currentScroll < this.lastScroll) {

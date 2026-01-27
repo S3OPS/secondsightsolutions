@@ -11,6 +11,7 @@ import { analytics } from './modules/analytics.js';
 import { smoothScroll } from './modules/smooth-scroll.js';
 import { mobileCTA } from './modules/mobile-cta.js';
 import { performance } from './modules/performance.js';
+import { config } from './modules/config.js';
 
 /**
  * Application initialization
@@ -41,7 +42,11 @@ class App {
     performance.init();
 
     this.initialized = true;
-    console.log('✨ Second Sight Solutions - Site initialized');
+    
+    // Only log in development
+    if (config.isDevelopment()) {
+      console.log('✨ Second Sight Solutions - Site initialized');
+    }
   }
 }
 

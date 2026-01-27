@@ -3,6 +3,8 @@
  * Common helper functions used across the application
  */
 
+import { config } from './config.js';
+
 export const utils = {
   /**
    * Email validation
@@ -10,8 +12,7 @@ export const utils = {
    * @returns {boolean} True if valid email format
    */
   isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+    return config.validation.emailPattern.test(email);
   },
 
   /**
@@ -20,8 +21,8 @@ export const utils = {
    * @returns {boolean} True if valid phone format
    */
   isValidPhone(phone) {
-    const re = /^[\d\s\-\(\)\+]+$/;
-    return phone.length >= 10 && re.test(phone);
+    return phone.length >= config.validation.phoneMinLength && 
+           config.validation.phonePattern.test(phone);
   },
 
   /**
@@ -55,13 +56,12 @@ export const utils = {
    * @param {Function} callback - Callback with boolean result
    */
   checkWebPSupport(callback) {
-    const webpTestImage = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';
     const img = new Image();
     
     img.onload = img.onerror = function() {
       callback(img.height === 1);
     };
     
-    img.src = webpTestImage;
+    img.src = config.webp.testImage;
   }
 };

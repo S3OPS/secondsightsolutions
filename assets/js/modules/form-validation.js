@@ -4,6 +4,7 @@
  */
 
 import { utils } from './utils.js';
+import { config } from './config.js';
 
 export const formValidation = {
   /**
@@ -45,13 +46,13 @@ export const formValidation = {
     requiredFields.forEach(field => {
       if (!field.value.trim()) {
         isValid = false;
-        this._showError(field, 'This field is required');
+        this._showError(field, config.validation.messages.required);
       } else if (field.type === 'email' && !utils.isValidEmail(field.value)) {
         isValid = false;
-        this._showError(field, 'Please enter a valid email address');
+        this._showError(field, config.validation.messages.invalidEmail);
       } else if (field.type === 'tel' && !utils.isValidPhone(field.value)) {
         isValid = false;
-        this._showError(field, 'Please enter a valid phone number');
+        this._showError(field, config.validation.messages.invalidPhone);
       }
     });
     
@@ -73,9 +74,9 @@ export const formValidation = {
    */
   _validateField(field) {
     if (field.hasAttribute('required') && !field.value.trim()) {
-      this._showError(field, 'This field is required');
+      this._showError(field, config.validation.messages.required);
     } else if (field.type === 'email' && field.value && !utils.isValidEmail(field.value)) {
-      this._showError(field, 'Please enter a valid email address');
+      this._showError(field, config.validation.messages.invalidEmail);
     } else {
       this._clearFieldError(field);
     }

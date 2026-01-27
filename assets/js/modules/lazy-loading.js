@@ -3,6 +3,8 @@
  * Handles lazy loading of images for better performance
  */
 
+import { config } from './config.js';
+
 export const lazyLoading = {
   /**
    * Initialize lazy loading for images
@@ -47,8 +49,8 @@ export const lazyLoading = {
           }
         });
       }, {
-        rootMargin: '50px 0px',
-        threshold: 0.01
+        rootMargin: config.lazyLoading.rootMargin,
+        threshold: config.lazyLoading.threshold
       });
       
       lazyImages.forEach(img => imageObserver.observe(img));
