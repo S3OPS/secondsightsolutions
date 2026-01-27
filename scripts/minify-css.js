@@ -4,10 +4,15 @@
  * Minifies CSS files using cssnano
  */
 
-const postcss = require('postcss');
-const cssnano = require('cssnano');
-const fs = require('fs').promises;
-const path = require('path');
+import postcss from 'postcss';
+import cssnano from 'cssnano';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const CSS_DIR = path.resolve(__dirname, '../assets/css');
 
