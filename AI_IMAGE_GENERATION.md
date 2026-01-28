@@ -31,9 +31,45 @@ Each image is designed with:
 - **Context**: Central Texas location
 - **Style**: Professional marketing photography
 
-## Quick Start
+## Quick Start - All-in-One Command (Recommended)
 
-### 1. Generate Images
+The easiest way to set up all AI images is with the all-in-one command:
+
+```bash
+npm run setup-ai-images
+```
+
+This single command will:
+1. ✅ **Configure your API key** - Prompts if not already set, saves to `.env` file
+2. ✅ **Generate all 36 images** - Uses DALL-E 3 to create professional images
+3. ✅ **Update service pages** - Automatically updates HTML to use new images
+
+### Options
+
+```bash
+# Interactive setup (prompts for API key if needed)
+npm run setup-ai-images
+
+# Provide API key directly
+npm run setup-ai-images -- --api-key sk-your-key
+
+# Preview what would happen without making changes
+npm run setup-ai-images -- --dry-run
+
+# Only generate images, don't update pages
+npm run setup-ai-images -- --skip-update
+
+# Show detailed output
+npm run setup-ai-images -- --verbose
+```
+
+---
+
+## Alternative: Step-by-Step Setup
+
+If you prefer more control, you can use the individual scripts:
+
+### 1. Generate Placeholder Images
 
 ```bash
 # Generate placeholder images and export AI prompts
@@ -56,12 +92,15 @@ node scripts/update-service-page-images.js
 
 This updates all 6 service pages to reference the generated images.
 
-### 3. Automatic AI Image Generation (Recommended)
+### 3. Automatic AI Image Generation
 
 Use the automated script to generate images using OpenAI's DALL-E API:
 
+> ⚠️ **IMPORTANT**: Do NOT modify the script file to add your API key. Always set it as an environment variable in your terminal before running the script. The script reads the key from `process.env.OPENAI_API_KEY`.
+
 ```bash
-# Set your OpenAI API key
+# Set your OpenAI API key as an environment variable
+# (Replace sk-your-api-key with your actual OpenAI API key)
 
 # On macOS/Linux:
 export OPENAI_API_KEY=sk-your-api-key
@@ -89,7 +128,7 @@ node scripts/generate-ai-images.js --dry-run
 - `--help, -h` - Show help message
 
 **Environment Variables:**
-- `OPENAI_API_KEY` - Required. Your OpenAI API key
+- `OPENAI_API_KEY` - Required. Your OpenAI API key (set as environment variable, NOT in code)
 - `AI_IMAGE_MODEL` - Optional. Model to use (default: dall-e-3)
 - `AI_IMAGE_QUALITY` - Optional. Quality setting: standard or hd (default: standard)
 
@@ -307,6 +346,7 @@ Available scripts in `package.json`:
 ```json
 {
   "scripts": {
+    "setup-ai-images": "node scripts/setup-ai-images.js",
     "generate-images": "node scripts/generate-service-images.js",
     "generate-ai-images": "node scripts/generate-ai-images.js",
     "update-page-images": "node scripts/update-service-page-images.js",
@@ -315,7 +355,41 @@ Available scripts in `package.json`:
 }
 ```
 
+| Script | Description |
+|--------|-------------|
+| `setup-ai-images` | **Recommended** - All-in-one: configure API, generate images, update pages |
+| `generate-images` | Generate placeholder images |
+| `generate-ai-images` | Generate AI images using DALL-E (requires API key) |
+| `update-page-images` | Update service pages to use generated images |
+| `export-prompts` | Export AI prompts to JSON file |
+
 ## Troubleshooting
+
+### SyntaxError: Invalid or unexpected token
+
+If you see an error like:
+```
+SyntaxError: Invalid or unexpected token
+    at compileSourceTextModule ...
+```
+
+This usually means you accidentally modified the script file to hardcode your API key. **Do not modify the script**. Instead:
+
+1. Revert any changes to `scripts/generate-ai-images.js`
+2. Set the API key as an environment variable in your terminal:
+   ```bash
+   # macOS/Linux
+   export OPENAI_API_KEY=sk-your-actual-key
+   
+   # Windows Command Prompt
+   set OPENAI_API_KEY=sk-your-actual-key
+   
+   # Windows PowerShell
+   $env:OPENAI_API_KEY="sk-your-actual-key"
+   ```
+3. Run the script again: `npm run generate-ai-images`
+
+The script automatically reads from `process.env.OPENAI_API_KEY` - you don't need to edit any code.
 
 ### Images not showing
 - Check file paths in service pages

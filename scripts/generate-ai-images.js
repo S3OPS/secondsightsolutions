@@ -128,6 +128,9 @@ async function loadPrompts() {
  * Generate an image using OpenAI's DALL-E API
  */
 async function generateImage(prompt, options) {
+  // DO NOT modify this line! Set the OPENAI_API_KEY environment variable instead.
+  // Example: export OPENAI_API_KEY=sk-your-key (macOS/Linux)
+  // Example: set OPENAI_API_KEY=sk-your-key (Windows CMD)
   const apiKey = process.env.OPENAI_API_KEY;
   
   if (!apiKey) {
