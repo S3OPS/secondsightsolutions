@@ -18,6 +18,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "generate-images": "node scripts/generate-service-images.js",
+    "generate-ai-images": "node scripts/generate-ai-images.js",
     "update-page-images": "node scripts/update-service-page-images.js",
     "export-prompts": "node scripts/generate-service-images.js --export-prompts"
   },
