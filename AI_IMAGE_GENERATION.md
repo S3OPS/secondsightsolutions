@@ -31,9 +31,45 @@ Each image is designed with:
 - **Context**: Central Texas location
 - **Style**: Professional marketing photography
 
-## Quick Start
+## Quick Start - All-in-One Command (Recommended)
 
-### 1. Generate Images
+The easiest way to set up all AI images is with the all-in-one command:
+
+```bash
+npm run setup-ai-images
+```
+
+This single command will:
+1. ✅ **Configure your API key** - Prompts if not already set, saves to `.env` file
+2. ✅ **Generate all 36 images** - Uses DALL-E 3 to create professional images
+3. ✅ **Update service pages** - Automatically updates HTML to use new images
+
+### Options
+
+```bash
+# Interactive setup (prompts for API key if needed)
+npm run setup-ai-images
+
+# Provide API key directly
+npm run setup-ai-images -- --api-key sk-your-key
+
+# Preview what would happen without making changes
+npm run setup-ai-images -- --dry-run
+
+# Only generate images, don't update pages
+npm run setup-ai-images -- --skip-update
+
+# Show detailed output
+npm run setup-ai-images -- --verbose
+```
+
+---
+
+## Alternative: Step-by-Step Setup
+
+If you prefer more control, you can use the individual scripts:
+
+### 1. Generate Placeholder Images
 
 ```bash
 # Generate placeholder images and export AI prompts
@@ -56,7 +92,7 @@ node scripts/update-service-page-images.js
 
 This updates all 6 service pages to reference the generated images.
 
-### 3. Automatic AI Image Generation (Recommended)
+### 3. Automatic AI Image Generation
 
 Use the automated script to generate images using OpenAI's DALL-E API:
 
@@ -310,6 +346,7 @@ Available scripts in `package.json`:
 ```json
 {
   "scripts": {
+    "setup-ai-images": "node scripts/setup-ai-images.js",
     "generate-images": "node scripts/generate-service-images.js",
     "generate-ai-images": "node scripts/generate-ai-images.js",
     "update-page-images": "node scripts/update-service-page-images.js",
@@ -317,6 +354,14 @@ Available scripts in `package.json`:
   }
 }
 ```
+
+| Script | Description |
+|--------|-------------|
+| `setup-ai-images` | **Recommended** - All-in-one: configure API, generate images, update pages |
+| `generate-images` | Generate placeholder images |
+| `generate-ai-images` | Generate AI images using DALL-E (requires API key) |
+| `update-page-images` | Update service pages to use generated images |
+| `export-prompts` | Export AI prompts to JSON file |
 
 ## Troubleshooting
 
