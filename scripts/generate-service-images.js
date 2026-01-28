@@ -13,9 +13,33 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import sharp from 'sharp';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+
+/**
+ * Load sharp module with helpful error message if not installed
+ */
+async function loadSharp() {
+  try {
+    const sharpModule = await import('sharp');
+    return sharpModule.default;
+  } catch (error) {
+    // Check for module not found errors (handles different Node.js versions and environments)
+    if (error.code === 'ERR_MODULE_NOT_FOUND' || 
+        error.code === 'MODULE_NOT_FOUND' ||
+        error.message?.includes('Cannot find package')) {
+      console.error('❌ Error: Required dependency "sharp" is not installed.');
+      console.error('');
+      console.error('Please run the following command to install dependencies:');
+      console.error('');
+      console.error('  npm install');
+      console.error('');
+      console.error('Then try running this script again.');
+      process.exit(1);
+    }
+    throw error;
+  }
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -485,6 +509,9 @@ async function exportPrompts() {
  * Generate placeholder images for all services
  */
 async function generateImages() {
+  // Load sharp only when generating images
+  const sharp = await loadSharp();
+  
   const imagesDir = path.join(__dirname, '../images/generated');
   
   // Create directory if it doesn't exist
