@@ -14,7 +14,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
-import { fileURLToPath, pathToFileURL } from 'url';
+import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -570,8 +570,8 @@ async function main() {
   await exportPrompts();
 }
 
-// Run if called directly
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+// Run if called directly (ES module equivalent)
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('❌ Error:', error.message);
     process.exit(1);
