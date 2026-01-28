@@ -9,6 +9,9 @@ build/
 *.min.js.map
 *.webp
 
+# Generated WebP images from build
+*.webp
+
 # Test coverage
 coverage/
 
