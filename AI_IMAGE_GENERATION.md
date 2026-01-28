@@ -60,8 +60,11 @@ This updates all 6 service pages to reference the generated images.
 
 Use the automated script to generate images using OpenAI's DALL-E API:
 
+> ⚠️ **IMPORTANT**: Do NOT modify the script file to add your API key. Always set it as an environment variable in your terminal before running the script. The script reads the key from `process.env.OPENAI_API_KEY`.
+
 ```bash
-# Set your OpenAI API key
+# Set your OpenAI API key as an environment variable
+# (Replace sk-your-api-key with your actual OpenAI API key)
 
 # On macOS/Linux:
 export OPENAI_API_KEY=sk-your-api-key
@@ -89,7 +92,7 @@ node scripts/generate-ai-images.js --dry-run
 - `--help, -h` - Show help message
 
 **Environment Variables:**
-- `OPENAI_API_KEY` - Required. Your OpenAI API key
+- `OPENAI_API_KEY` - Required. Your OpenAI API key (set as environment variable, NOT in code)
 - `AI_IMAGE_MODEL` - Optional. Model to use (default: dall-e-3)
 - `AI_IMAGE_QUALITY` - Optional. Quality setting: standard or hd (default: standard)
 
@@ -316,6 +319,32 @@ Available scripts in `package.json`:
 ```
 
 ## Troubleshooting
+
+### SyntaxError: Invalid or unexpected token
+
+If you see an error like:
+```
+SyntaxError: Invalid or unexpected token
+    at compileSourceTextModule ...
+```
+
+This usually means you accidentally modified the script file to hardcode your API key. **Do not modify the script**. Instead:
+
+1. Revert any changes to `scripts/generate-ai-images.js`
+2. Set the API key as an environment variable in your terminal:
+   ```bash
+   # macOS/Linux
+   export OPENAI_API_KEY=sk-your-actual-key
+   
+   # Windows Command Prompt
+   set OPENAI_API_KEY=sk-your-actual-key
+   
+   # Windows PowerShell
+   $env:OPENAI_API_KEY="sk-your-actual-key"
+   ```
+3. Run the script again: `npm run generate-ai-images`
+
+The script automatically reads from `process.env.OPENAI_API_KEY` - you don't need to edit any code.
 
 ### Images not showing
 - Check file paths in service pages
