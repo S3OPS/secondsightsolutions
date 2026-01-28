@@ -62,7 +62,15 @@ Use the automated script to generate images using OpenAI's DALL-E API:
 
 ```bash
 # Set your OpenAI API key
+
+# On macOS/Linux:
 export OPENAI_API_KEY=sk-your-api-key
+
+# On Windows Command Prompt:
+set OPENAI_API_KEY=sk-your-api-key
+
+# On Windows PowerShell:
+$env:OPENAI_API_KEY="sk-your-api-key"
 
 # Generate all images automatically
 npm run generate-ai-images
@@ -273,7 +281,10 @@ dimensions: { width: 1600, height: 900 }
 3. Review generated placeholders
 
 ### Using AI Tools (Automated)
-1. Set your OpenAI API key: `export OPENAI_API_KEY=sk-your-key`
+1. Set your OpenAI API key:
+   - **macOS/Linux:** `export OPENAI_API_KEY=sk-your-key`
+   - **Windows Command Prompt:** `set OPENAI_API_KEY=sk-your-key`
+   - **Windows PowerShell:** `$env:OPENAI_API_KEY="sk-your-key"`
 2. Run `npm run generate-ai-images`
 3. Images are automatically saved with correct naming in `images/generated/`
 
