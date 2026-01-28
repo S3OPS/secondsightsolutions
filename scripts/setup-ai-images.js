@@ -87,6 +87,10 @@ function parseArgs() {
         break;
       case '--api-key':
       case '-k':
+        if (i + 1 >= args.length || args[i + 1].startsWith('-')) {
+          console.error('Error: --api-key requires a value');
+          process.exit(1);
+        }
         options.apiKey = args[++i];
         break;
       case '--skip-update':
@@ -254,9 +258,9 @@ async function getApiKey(options) {
     throw new Error('API key is required to generate images');
   }
 
-  // Validate key format
+  // Validate key format (supports both sk- and sk-proj- prefixes)
   if (!apiKey.startsWith('sk-')) {
-    console.log('\n⚠️  Warning: API key should typically start with "sk-"');
+    console.log('\n⚠️  Warning: OpenAI API keys typically start with "sk-" or "sk-proj-"');
     const confirm = await prompt('Continue anyway? (y/n): ');
     if (confirm.toLowerCase() !== 'y') {
       throw new Error('Aborted by user');
@@ -322,17 +326,17 @@ async function downloadImage(url, outputPath) {
 
   const buffer = Buffer.from(await response.arrayBuffer());
   
-  // Try to use sharp for resizing, fallback to raw save
+  // Try to use sharp for resizing, fallback to raw save with warning
   try {
-    const sharpModule = await import('sharp');
-    const sharp = sharpModule.default;
+    const sharp = (await import('sharp')).default;
     
     await sharp(buffer)
       .resize(1200, 800, { fit: 'cover' })
       .jpeg({ quality: 90 })
       .toFile(outputPath);
   } catch (error) {
-    // If sharp is not available, save the raw image
+    // If sharp is not available, save the raw image with a warning
+    console.log('       ⚠️  sharp not available, saving raw 1792x1024 image');
     await fs.writeFile(outputPath, buffer);
   }
 }
@@ -397,6 +401,14 @@ async function generateAllImages(prompts, apiKey, options) {
  */
 async function updateServicePage(filename) {
   const filePath = path.join(CONFIG.servicesDir, filename);
+  
+  // Check if file exists
+  try {
+    await fs.access(filePath);
+  } catch {
+    throw new Error(`Service file not found: ${filePath}`);
+  }
+  
   let content = await fs.readFile(filePath, 'utf8');
   
   const imageList = SERVICE_IMAGE_MAPPING[filename].images;
@@ -437,9 +449,13 @@ async function updateAllServicePages(options) {
     if (options.dryRun) {
       console.log(`   📄 ${filename} - would update ${SERVICE_IMAGE_MAPPING[filename].images.length} images`);
     } else {
-      const count = await updateServicePage(filename);
-      console.log(`   ✅ ${filename} - updated ${count} images`);
-      totalUpdated += count;
+      try {
+        const count = await updateServicePage(filename);
+        console.log(`   ✅ ${filename} - updated ${count} images`);
+        totalUpdated += count;
+      } catch (error) {
+        console.error(`   ❌ ${filename} - ${error.message}`);
+      }
     }
   }
 
@@ -478,7 +494,10 @@ async function main() {
     const totalImages = Object.values(prompts).reduce((sum, s) => sum + s.images.length, 0);
     console.log(`\n📊 Found ${Object.keys(prompts).length} services with ${totalImages} total images to generate`);
   } catch (error) {
-    console.error(`❌ Error loading prompts: ${error.message}`);
+    console.error(`❌ Error loading prompts from ${CONFIG.promptsFile}`);
+    console.error(`   ${error.message}`);
+    console.error(`\n💡 Make sure ai-image-prompts.json exists in the project root.`);
+    console.error(`   Run 'npm run generate-images' to create it.`);
     process.exit(1);
   }
 
