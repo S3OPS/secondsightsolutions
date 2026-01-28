@@ -56,9 +56,38 @@ node scripts/update-service-page-images.js
 
 This updates all 6 service pages to reference the generated images.
 
-### 3. (Optional) Generate with AI Tools
+### 3. Automatic AI Image Generation (Recommended)
 
-Use the prompts in `ai-image-prompts.json` with:
+Use the automated script to generate images using OpenAI's DALL-E API:
+
+```bash
+# Set your OpenAI API key
+export OPENAI_API_KEY=sk-your-api-key
+
+# Generate all images automatically
+npm run generate-ai-images
+
+# Or generate images for a specific service
+node scripts/generate-ai-images.js --service real-estate
+
+# Preview what would be generated (dry run)
+node scripts/generate-ai-images.js --dry-run
+```
+
+**Options:**
+- `--service, -s <name>` - Generate images for a specific service only
+- `--dry-run, -n` - Show what would be generated without making API calls
+- `--verbose, -v` - Show detailed output including prompts
+- `--help, -h` - Show help message
+
+**Environment Variables:**
+- `OPENAI_API_KEY` - Required. Your OpenAI API key
+- `AI_IMAGE_MODEL` - Optional. Model to use (default: dall-e-3)
+- `AI_IMAGE_QUALITY` - Optional. Quality setting: standard or hd (default: standard)
+
+### 4. (Alternative) Manual AI Generation
+
+Use the prompts in `ai-image-prompts.json` manually with:
 - **DALL-E 3** (OpenAI)
 - **Midjourney**
 - **Stable Diffusion**
@@ -243,7 +272,12 @@ dimensions: { width: 1600, height: 900 }
 2. Run `node scripts/generate-service-images.js`
 3. Review generated placeholders
 
-### Using AI Tools
+### Using AI Tools (Automated)
+1. Set your OpenAI API key: `export OPENAI_API_KEY=sk-your-key`
+2. Run `npm run generate-ai-images`
+3. Images are automatically saved with correct naming in `images/generated/`
+
+### Using AI Tools (Manual)
 1. Copy prompts from `ai-image-prompts.json`
 2. Generate images with your preferred AI tool
 3. Download images (1200×800px, JPEG)
@@ -257,12 +291,13 @@ dimensions: { width: 1600, height: 900 }
 
 ## NPM Scripts
 
-Add to `package.json`:
+Available scripts in `package.json`:
 
 ```json
 {
   "scripts": {
     "generate-images": "node scripts/generate-service-images.js",
+    "generate-ai-images": "node scripts/generate-ai-images.js",
     "update-page-images": "node scripts/update-service-page-images.js",
     "export-prompts": "node scripts/generate-service-images.js --export-prompts"
   }
