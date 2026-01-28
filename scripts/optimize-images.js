@@ -9,9 +9,10 @@ import sharp from 'sharp';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
 const IMAGE_DIRS = ['images', '.'];
 const EXCLUDE_FILES = ['logo.png', 'favicon.ico'];
@@ -181,4 +182,7 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+// Run if called directly
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(console.error);
+}
