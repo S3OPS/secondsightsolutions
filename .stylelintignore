@@ -1,0 +1,8 @@
+# Ignore minified CSS files
+*.min.css
+
+# Ignore node_modules
+node_modules/
+
+# Ignore coverage
+coverage/
