@@ -2,6 +2,10 @@
 
 Professional website for Second Sight Solutions - a veteran-owned drone services company serving Central Texas.
 
+**Live site:** https://s3ops.github.io/secondsightsolutions/
+
+![Second Sight Solutions homepage](docs/screenshots/homepage.jpg)
+
 ## Overview
 
 This website showcases our comprehensive drone services including:
@@ -11,6 +15,10 @@ This website showcases our comprehensive drone services including:
 - Land & Ranch Imaging
 - Drone Mapping & Orthomosaics
 - Event Aerial Coverage
+
+## Free Resource — Part 107 Study Guide
+
+Aspiring drone pilots: we built a free, interactive [Part 107 FAA Exam Study Guide](https://s3ops.github.io/part-107-study-guide/) — 192 practice questions with explanations, a timed exam simulator, and flashcards. No account, no cost.
 
 ## Tech Stack
 
